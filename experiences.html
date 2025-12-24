@@ -3,84 +3,653 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Experiences | Masia Can Pares - Wine Tasting, Beaches, Barcelona Day Trips</title>
-    <meta name="description" content="Discover experiences near Masia Can Pares: wine tasting at local vineyards, Sitges beaches, Barcelona day trips, hiking in Garraf Natural Park, private chef services, yoga sessions, and sailing adventures.">
-    <meta name="keywords" content="sitges experiences, barcelona day trips, wine tasting penedes, garraf hiking, private chef sitges, sailing barcelona">
-    <link rel="canonical" href="https://www.masiacanpares.com/experiences.html">
+    <title>Experiences | Masia Can Pares - Activities, Wellness & Adventures near Barcelona</title>
+    <meta name="description" content="Discover experiences at Masia Can Pares: cycling routes, hiking trails, yoga sessions, padel at CPI Roquetes, climbing, wellness treatments, and cultural visits to Sitges and Vilanova museums.">
     
+    <!-- Fonts: Space Grotesk (similar to Boogy Brut), Space Mono (similar to Suisse Int'l Mono), DM Sans (similar to Neue Montreal) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/8fb7c7fc-6e43-406c-b1c0-a65a59062cf6/CanPares_2-01.png?format=100w">
     
     <style>
         :root {
-            --color-bg: #FAF8F5; --color-bg-warm: #F3EDE4; --color-bg-dark: #2C2825;
-            --color-text: #2C2825; --color-text-light: #6B635A; --color-text-inverse: #FAF8F5;
-            --color-terracotta: #C4754A; --color-border: #DDD5C8; --color-gold: #D4B062;
-            --font-display: 'Cormorant', Georgia, serif; --font-body: 'Outfit', sans-serif;
+            --color-cream: #FAF6F1;
+            --color-mauve: #C4B5B0;
+            --color-mustard: #E8B84A;
+            --color-sage: #A8B5A0;
+            --color-terracotta: #C4754A;
+            --color-navy: #1E2A4A;
+            --color-charcoal: #2C2825;
+            --color-text: #2C2825;
+            --color-text-light: #6B635A;
+            
+            /* Font families - approximating the requested fonts with Google Fonts */
+            --font-display: 'Space Grotesk', sans-serif; /* Similar to Boogy Brut Poster */
+            --font-mono: 'Space Mono', monospace; /* Similar to Suisse Int'l Mono */
+            --font-body: 'DM Sans', sans-serif; /* Similar to Neue Montreal */
         }
+
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: var(--font-body); background: var(--color-bg); color: var(--color-text); line-height: 1.8; }
+        html { scroll-behavior: smooth; }
+        body { 
+            font-family: var(--font-body); 
+            background: var(--color-cream); 
+            color: var(--color-text); 
+            line-height: 1.7;
+            font-weight: 300;
+        }
         img { max-width: 100%; height: auto; display: block; }
         a { color: inherit; text-decoration: none; }
-        h1, h2, h3 { font-family: var(--font-display); font-weight: 400; }
+        
+        h1 { 
+            font-family: var(--font-display); 
+            font-weight: 700; 
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+        }
+        h2 { 
+            font-family: var(--font-mono); 
+            font-weight: 400; 
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.8rem;
+        }
+        h3 { 
+            font-family: var(--font-display); 
+            font-weight: 600;
+        }
+        
         .container { max-width: 1400px; margin: 0 auto; padding: 0 clamp(24px, 5vw, 60px); }
 
-        .header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 0; background: rgba(250, 248, 245, 0.97); backdrop-filter: blur(20px); border-bottom: 1px solid var(--color-border); }
+        /* Header */
+        .header { 
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000; 
+            padding: 20px 0; 
+            background: rgba(250, 246, 241, 0.97); 
+            backdrop-filter: blur(20px); 
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
         .header__inner { display: flex; justify-content: space-between; align-items: center; }
         .header__logo { height: 45px; }
         .header__right { display: flex; align-items: center; gap: 25px; }
-        .header__link { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; }
-        .header__cta { padding: 12px 24px; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; background: var(--color-gold); color: var(--color-bg-dark); }
+        .header__link { 
+            font-family: var(--font-mono); 
+            font-size: 0.65rem; 
+            letter-spacing: 0.15em; 
+            text-transform: uppercase; 
+        }
+        .header__cta { 
+            padding: 14px 28px; 
+            font-family: var(--font-mono);
+            font-size: 0.65rem; 
+            letter-spacing: 0.1em; 
+            text-transform: uppercase; 
+            background: var(--color-charcoal); 
+            color: white;
+        }
 
-        .section-nav { position: sticky; top: 85px; z-index: 999; background: var(--color-gold); }
+        /* Secondary Nav - Gold */
+        .section-nav { 
+            position: sticky; 
+            top: 85px; 
+            z-index: 999; 
+            background: var(--color-mustard);
+        }
         .section-nav__inner { display: flex; justify-content: center; }
         .section-nav__links { display: flex; list-style: none; overflow-x: auto; scrollbar-width: none; }
-        .section-nav__link { display: block; padding: 18px 35px; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-bg-dark); white-space: nowrap; }
-        .section-nav__link:hover { background: rgba(0,0,0,0.05); }
-        .section-nav__link.active { background: rgba(0,0,0,0.1); }
+        .section-nav__links::-webkit-scrollbar { display: none; }
+        .section-nav__link { 
+            display: block; 
+            padding: 16px 30px; 
+            font-family: var(--font-mono);
+            font-size: 0.6rem; 
+            font-weight: 700;
+            letter-spacing: 0.12em; 
+            text-transform: uppercase; 
+            color: var(--color-charcoal); 
+            white-space: nowrap;
+        }
+        .section-nav__link:hover { background: rgba(0,0,0,0.08); }
+        .section-nav__link.active { background: rgba(0,0,0,0.12); }
 
-        .page-hero { padding: 180px 0 100px; background: var(--color-bg-warm); text-align: center; }
-        .page-hero h1 { font-size: clamp(3rem, 8vw, 5.5rem); font-weight: 300; margin-bottom: 20px; }
-        .page-hero p { font-size: 1.2rem; color: var(--color-text-light); max-width: 650px; margin: 0 auto; }
+        /* Page Hero */
+        .page-hero { 
+            padding: 200px 0 120px; 
+            background: var(--color-cream);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .page-hero__badge {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 30px;
+            background: var(--color-charcoal);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .page-hero__badge::before {
+            content: 'TORRE DEL VEGUER · ST PERE DE RIBES';
+            position: absolute;
+            font-family: var(--font-mono);
+            font-size: 0.45rem;
+            letter-spacing: 0.15em;
+            color: var(--color-charcoal);
+            width: 180px;
+            height: 180px;
+            animation: rotate 20s linear infinite;
+        }
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .page-hero__badge-inner {
+            width: 90px;
+            height: 90px;
+            background: var(--color-cream);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .page-hero__shell {
+            width: 55px;
+            height: auto;
+            filter: grayscale(100%) contrast(1.2);
+        }
+        .page-hero__overline {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--color-text-light);
+            margin-bottom: 20px;
+        }
+        .page-hero h1 { 
+            font-size: clamp(4rem, 14vw, 10rem); 
+            line-height: 0.85;
+            margin-bottom: 30px;
+        }
+        .page-hero p { 
+            font-size: 1.1rem; 
+            color: var(--color-text-light); 
+            max-width: 550px; 
+            margin: 0 auto;
+            line-height: 1.8;
+        }
 
-        .experiences { padding: 100px 0; }
-        .experiences__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
-        .experience { background: var(--color-bg-warm); overflow: hidden; transition: transform 0.4s; }
-        .experience:hover { transform: translateY(-8px); }
-        .experience__image { height: 250px; overflow: hidden; position: relative; }
-        .experience__image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
-        .experience:hover .experience__image img { transform: scale(1.08); }
-        .experience__emoji { position: absolute; top: 20px; left: 20px; font-size: 2.5rem; background: white; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; border-radius: 50%; }
-        .experience__content { padding: 35px; }
-        .experience__title { font-family: var(--font-display); font-size: 1.6rem; margin-bottom: 10px; }
-        .experience__desc { font-size: 0.95rem; color: var(--color-text-light); margin-bottom: 15px; }
-        .experience__distance { font-size: 0.85rem; color: var(--color-terracotta); font-weight: 500; }
+        /* Intro Section - Mauve */
+        .intro {
+            padding: 100px 0;
+            background: var(--color-mauve);
+        }
+        .intro__grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        .intro__content h2 {
+            color: var(--color-charcoal);
+            margin-bottom: 15px;
+        }
+        .intro__content h3 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 25px;
+            color: var(--color-charcoal);
+        }
+        .intro__text {
+            font-size: 1rem;
+            line-height: 1.9;
+            color: var(--color-charcoal);
+            opacity: 0.85;
+            margin-bottom: 18px;
+        }
+        .intro__stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 40px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(0,0,0,0.15);
+        }
+        .intro__stat-value {
+            font-family: var(--font-display);
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--color-charcoal);
+            line-height: 1;
+        }
+        .intro__stat-label {
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--color-charcoal);
+            opacity: 0.7;
+            margin-top: 8px;
+        }
+        .intro__image {
+            position: relative;
+        }
+        .intro__image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+        .intro__badge {
+            position: absolute;
+            bottom: -30px;
+            right: -30px;
+            width: 130px;
+            height: 130px;
+            background: var(--color-cream);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+        .intro__badge-shell {
+            width: 45px;
+            height: auto;
+            margin-bottom: 8px;
+            filter: grayscale(100%) contrast(1.2);
+        }
+        .intro__badge-text {
+            font-family: var(--font-mono);
+            font-size: 0.5rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            line-height: 1.4;
+        }
 
-        .on-site { padding: 100px 0; background: var(--color-bg-warm); }
-        .on-site__header { text-align: center; margin-bottom: 60px; }
-        .on-site__header h2 { font-size: clamp(2rem, 4vw, 3rem); }
-        .on-site__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; max-width: 1000px; margin: 0 auto; }
-        .on-site__item { display: flex; align-items: center; gap: 20px; padding: 25px; background: var(--color-bg); }
-        .on-site__item-emoji { font-size: 2rem; }
-        .on-site__item-text h3 { font-size: 1.1rem; margin-bottom: 5px; }
-        .on-site__item-text p { font-size: 0.9rem; color: var(--color-text-light); }
+        /* Experience Section Base */
+        .exp-section {
+            padding: 100px 0;
+        }
+        .exp-section--cream { background: var(--color-cream); }
+        .exp-section--sage { background: var(--color-sage); }
+        .exp-section--mustard { background: var(--color-mustard); }
+        .exp-section--mauve { background: var(--color-mauve); }
 
-        .cta { padding: 100px 0; background: var(--color-bg-dark); color: var(--color-text-inverse); text-align: center; }
-        .cta h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 20px; }
-        .cta p { opacity: 0.7; margin-bottom: 40px; }
-        .cta__btn { display: inline-block; padding: 18px 45px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; background: var(--color-terracotta); color: white; }
+        .exp-section__header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .exp-section__icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 25px;
+            background: var(--color-charcoal);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .exp-section__icon svg {
+            width: 32px;
+            height: 32px;
+            color: white;
+        }
+        .exp-section__title {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            margin-bottom: 20px;
+        }
+        .exp-section__subtitle {
+            font-size: 1.05rem;
+            color: var(--color-text-light);
+            max-width: 580px;
+            margin: 0 auto;
+        }
 
-        .footer { background: var(--color-bg-dark); color: var(--color-text-inverse); padding: 60px 0 30px; text-align: center; }
+        /* Activity Cards */
+        .activities {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 25px;
+        }
+        .activity {
+            background: white;
+            padding: 35px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        .activity:hover {
+            transform: translateY(-5px);
+        }
+        .activity::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--color-charcoal);
+        }
+        .activity__number {
+            font-family: var(--font-display);
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: rgba(0,0,0,0.05);
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            line-height: 1;
+        }
+        .activity__title {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .activity__desc {
+            font-size: 0.92rem;
+            color: var(--color-text-light);
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+        .activity__detail {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--color-text-light);
+            margin-bottom: 8px;
+        }
+        .activity__detail svg {
+            width: 16px;
+            height: 16px;
+            color: var(--color-terracotta);
+        }
+
+        /* Routes Section - Dark */
+        .routes {
+            padding: 100px 0;
+            background: var(--color-charcoal);
+            color: white;
+        }
+        .routes__header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .routes__header h2 {
+            color: var(--color-mustard);
+            margin-bottom: 15px;
+        }
+        .routes__header h3 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 20px;
+        }
+        .routes__header p {
+            opacity: 0.7;
+            max-width: 550px;
+            margin: 0 auto;
+        }
+        .routes__grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+        .route {
+            background: rgba(255,255,255,0.03);
+            padding: 35px;
+            border: 1px solid rgba(255,255,255,0.08);
+            transition: background 0.3s;
+        }
+        .route:hover {
+            background: rgba(255,255,255,0.06);
+        }
+        .route__level {
+            font-family: var(--font-mono);
+            font-size: 0.55rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--color-mustard);
+            margin-bottom: 15px;
+        }
+        .route__name {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        .route__stats {
+            display: flex;
+            gap: 25px;
+            margin-bottom: 15px;
+        }
+        .route__stat {
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            letter-spacing: 0.05em;
+            opacity: 0.7;
+        }
+        .route__stat span {
+            display: block;
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 600;
+            opacity: 1;
+        }
+        .route__desc {
+            font-size: 0.88rem;
+            opacity: 0.6;
+            line-height: 1.6;
+        }
+
+        /* Wellness Section - Sage */
+        .wellness {
+            padding: 100px 0;
+            background: var(--color-sage);
+        }
+        .wellness__grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+        .wellness__content h2 {
+            color: var(--color-charcoal);
+            margin-bottom: 15px;
+        }
+        .wellness__content h3 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 25px;
+        }
+        .wellness__text {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 35px;
+            opacity: 0.85;
+        }
+        .wellness__services {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        .wellness__service {
+            background: white;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .wellness__service-icon {
+            width: 42px;
+            height: 42px;
+            background: var(--color-cream);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .wellness__service-icon svg {
+            width: 20px;
+            height: 20px;
+            color: var(--color-charcoal);
+        }
+        .wellness__service-text {
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        .wellness__image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            min-height: 500px;
+        }
+
+        /* Culture Section */
+        .culture {
+            padding: 100px 0;
+            background: var(--color-cream);
+        }
+        .culture__header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .culture__header h2 {
+            color: var(--color-terracotta);
+            margin-bottom: 15px;
+        }
+        .culture__header h3 {
+            font-size: clamp(2rem, 4vw, 3rem);
+        }
+        .culture__grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        .culture__card {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 25px;
+            background: white;
+            overflow: hidden;
+        }
+        .culture__card-image {
+            height: 100%;
+            min-height: 180px;
+        }
+        .culture__card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .culture__card-content {
+            padding: 25px 25px 25px 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .culture__card-location {
+            font-family: var(--font-mono);
+            font-size: 0.55rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--color-terracotta);
+            margin-bottom: 10px;
+        }
+        .culture__card-title {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .culture__card-desc {
+            font-size: 0.88rem;
+            color: var(--color-text-light);
+            line-height: 1.6;
+        }
+
+        /* CTA */
+        .cta { 
+            padding: 100px 0; 
+            background: var(--color-charcoal); 
+            color: white; 
+            text-align: center;
+        }
+        .cta h2 { 
+            font-family: var(--font-mono);
+            color: var(--color-mustard);
+            margin-bottom: 15px;
+        }
+        .cta h3 {
+            font-size: clamp(2rem, 4vw, 3.5rem); 
+            margin-bottom: 20px;
+        }
+        .cta p { 
+            opacity: 0.7; 
+            margin-bottom: 40px;
+            max-width: 480px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .cta__btn { 
+            display: inline-block; 
+            padding: 18px 50px; 
+            font-family: var(--font-mono);
+            font-size: 0.65rem; 
+            letter-spacing: 0.12em; 
+            text-transform: uppercase; 
+            background: var(--color-mustard); 
+            color: var(--color-charcoal);
+            font-weight: 700;
+        }
+
+        /* Footer */
+        .footer { 
+            background: var(--color-charcoal); 
+            color: white; 
+            padding: 60px 0 30px; 
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
         .footer__logo { height: 40px; margin: 0 auto 20px; filter: brightness(0) invert(1); }
         .footer__links { display: flex; justify-content: center; gap: 30px; margin-bottom: 30px; flex-wrap: wrap; }
-        .footer__link { font-size: 0.85rem; opacity: 0.7; }
-        .footer__bottom { padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.8rem; opacity: 0.5; }
+        .footer__link { 
+            font-family: var(--font-mono);
+            font-size: 0.6rem; 
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            opacity: 0.6; 
+        }
+        .footer__bottom { 
+            padding-top: 30px; 
+            border-top: 1px solid rgba(255,255,255,0.1); 
+            font-size: 0.7rem; 
+            opacity: 0.4;
+        }
 
+        @media (max-width: 1024px) {
+            .intro__grid, .wellness__grid { grid-template-columns: 1fr; }
+            .routes__grid { grid-template-columns: 1fr 1fr; }
+            .culture__grid { grid-template-columns: 1fr; }
+            .culture__card { grid-template-columns: 1fr; }
+            .culture__card-content { padding: 25px; }
+            .intro__badge { right: 20px; }
+        }
         @media (max-width: 768px) {
             .header__link { display: none; }
-            .section-nav__link { padding: 14px 12px; font-size: 0.58rem; }
+            .section-nav__link { padding: 14px 15px; font-size: 0.5rem; }
+            .intro__stats { flex-wrap: wrap; gap: 25px; }
+            .routes__grid { grid-template-columns: 1fr; }
+            .wellness__services { grid-template-columns: 1fr; }
+            .activities { grid-template-columns: 1fr; }
+            .page-hero__badge { width: 100px; height: 100px; }
+            .page-hero__badge-inner { width: 75px; height: 75px; }
+            .page-hero__shell { width: 40px; }
         }
     </style>
 </head>
@@ -90,7 +659,7 @@
             <a href="index.html"><img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/8fb7c7fc-6e43-406c-b1c0-a65a59062cf6/CanPares_2-01.png?format=1500w" alt="Masia Can Pares" class="header__logo"></a>
             <div class="header__right">
                 <a href="https://www.masiacanpares.com/contact" class="header__link">Contact Us</a>
-                <a href="https://www.masiacanpares.com/book" class="header__cta">Reserve a Stay</a>
+                <a href="https://www.masiacanpares.com/book" class="header__cta">Book Now</a>
             </div>
         </div>
     </header>
@@ -111,132 +680,301 @@
 
     <section class="page-hero">
         <div class="container">
+            <div class="page-hero__badge">
+                <div class="page-hero__badge-inner">
+                    <img src="shell-icon.png" alt="" class="page-hero__shell">
+                </div>
+            </div>
+            <p class="page-hero__overline">Masia Can Pares</p>
             <h1>Experiences</h1>
-            <p>Discover the best of Catalonia from our doorstep. Wine country, Mediterranean beaches, and Barcelona all within easy reach.</p>
+            <p>From sunrise yoga in the botanical gardens to sunset padel matches, discover a world of activities designed to nourish body and soul.</p>
         </div>
     </section>
 
-    <section class="experiences">
+    <!-- The Garden Intro - Mauve -->
+    <section class="intro">
         <div class="container">
-            <div class="experiences__grid">
-                <div class="experience">
-                    <div class="experience__image">
-                        <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/ce1286d7-2a38-4933-bf75-c34b7f0c9f76/Can+Pares-2699.jpg" alt="Wine tasting">
-                        <span class="experience__emoji">🍷</span>
-                    </div>
-                    <div class="experience__content">
-                        <h3 class="experience__title">Wine Tasting</h3>
-                        <p class="experience__desc">Explore the renowned Penedès wine region. Visit Torre del Veguer winery right next door, or venture to prestigious bodegas producing world-class cavas and wines.</p>
-                        <span class="experience__distance">Walking distance to 15 min drive</span>
-                    </div>
-                </div>
-
-                <div class="experience">
-                    <div class="experience__image">
-                        <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/c5da09dd-3eaa-40f2-8746-896798013095/30B94711-0F5C-4EF0-868C-6DD2C5E2AAEB-863-00000012F6316BA3.JPG" alt="Sitges beaches">
-                        <span class="experience__emoji">🏖️</span>
-                    </div>
-                    <div class="experience__content">
-                        <h3 class="experience__title">Sitges Beaches</h3>
-                        <p class="experience__desc">Discover the beautiful Mediterranean coastline. From lively town beaches to secluded coves, Sitges offers pristine waters and golden sands just minutes away.</p>
-                        <span class="experience__distance">10 minutes by car</span>
+            <div class="intro__grid">
+                <div class="intro__content">
+                    <h2>A Hidden Paradise</h2>
+                    <h3>Your Private Botanical Sanctuary</h3>
+                    <p class="intro__text">Both guest houses share an extraordinary botanical garden spanning over 20,000m², home to more than 600 different trees and countless hidden corners waiting to be discovered.</p>
+                    <p class="intro__text">An 18-meter swimming pool sits serenely within this green paradise, offering the perfect spot for morning laps or afternoon relaxation. This is a confidential retreat, hidden from the world, where nature embraces you at every turn.</p>
+                    <p class="intro__text">Every path leads to a new discovery—a shaded reading nook, a sun-drenched terrace, a fragrant herb garden. This is your private Mediterranean escape.</p>
+                    <div class="intro__stats">
+                        <div class="intro__stat">
+                            <div class="intro__stat-value">20,000</div>
+                            <div class="intro__stat-label">Square Meters</div>
+                        </div>
+                        <div class="intro__stat">
+                            <div class="intro__stat-value">600+</div>
+                            <div class="intro__stat-label">Different Trees</div>
+                        </div>
+                        <div class="intro__stat">
+                            <div class="intro__stat-value">18m</div>
+                            <div class="intro__stat-label">Pool Length</div>
+                        </div>
                     </div>
                 </div>
-
-                <div class="experience">
-                    <div class="experience__image">
-                        <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/b012d41d-ab57-414e-adb0-40ac603952c5/Masia+Can+Pares_Principal" alt="Barcelona">
-                        <span class="experience__emoji">🌆</span>
-                    </div>
-                    <div class="experience__content">
-                        <h3 class="experience__title">Barcelona Day Trips</h3>
-                        <p class="experience__desc">Explore Gaudí's masterpieces, wander the Gothic Quarter, shop on Passeig de Gràcia, or catch a match at Camp Nou. The city awaits.</p>
-                        <span class="experience__distance">40 minutes by car</span>
-                    </div>
-                </div>
-
-                <div class="experience">
-                    <div class="experience__image">
-                        <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/90d3b02c-0857-4374-8829-ed2bdda2c4a0/Can+Pares-2842.jpg" alt="Hiking">
-                        <span class="experience__emoji">🚴</span>
-                    </div>
-                    <div class="experience__content">
-                        <h3 class="experience__title">Garraf Natural Park</h3>
-                        <p class="experience__desc">Hike or bike through dramatic limestone landscapes. The park offers trails for all levels with stunning views of the Mediterranean and unique flora.</p>
-                        <span class="experience__distance">15 minutes by car</span>
-                    </div>
-                </div>
-
-                <div class="experience">
-                    <div class="experience__image">
-                        <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/a702071a-6dff-400c-85e8-78c532c17199/MasiaCanPares_guesthouse" alt="Private chef">
-                        <span class="experience__emoji">👨‍🍳</span>
-                    </div>
-                    <div class="experience__content">
-                        <h3 class="experience__title">Private Chef Experiences</h3>
-                        <p class="experience__desc">Let a local chef create an unforgettable meal in your guest house. From traditional Catalan cuisine to modern Mediterranean, tailored to your preferences.</p>
-                        <span class="experience__distance">Arranged on-site</span>
-                    </div>
-                </div>
-
-                <div class="experience">
-                    <div class="experience__image">
-                        <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/202ea870-a449-4105-a79b-86730ed55750/Can+Pares-2820.jpg" alt="Sailing">
-                        <span class="experience__emoji">⛵</span>
-                    </div>
-                    <div class="experience__content">
-                        <h3 class="experience__title">Sailing & Water Sports</h3>
-                        <p class="experience__desc">Set sail from Sitges harbor for a day on the Mediterranean. Kayaking, paddleboarding, and diving opportunities abound along the Costa Garraf.</p>
-                        <span class="experience__distance">15 minutes to harbor</span>
+                <div class="intro__image">
+                    <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/90d3b02c-0857-4374-8829-ed2bdda2c4a0/Can+Pares-2842.jpg" alt="Botanical Garden">
+                    <div class="intro__badge">
+                        <img src="shell-icon.png" alt="" class="intro__badge-shell">
+                        <span class="intro__badge-text">Hidden<br>Paradise</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="on-site">
+    <!-- Outdoor Activities - Cream -->
+    <section class="exp-section exp-section--cream">
         <div class="container">
-            <div class="on-site__header">
-                <h2>On-Site Experiences</h2>
+            <div class="exp-section__header">
+                <div class="exp-section__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                </div>
+                <h1 class="exp-section__title">Outdoor Adventures</h1>
+                <p class="exp-section__subtitle">The surrounding countryside offers endless possibilities for cycling, running, and hiking. We provide detailed routes and maps for all fitness levels.</p>
             </div>
-            <div class="on-site__grid">
-                <div class="on-site__item">
-                    <span class="on-site__item-emoji">🧘</span>
-                    <div class="on-site__item-text">
-                        <h3>Yoga Sessions</h3>
-                        <p>Private yoga in the botanical garden</p>
+            
+            <div class="activities">
+                <div class="activity">
+                    <span class="activity__number">01</span>
+                    <h3 class="activity__title">Cycling Routes</h3>
+                    <p class="activity__desc">Explore the Garraf Natural Park and Penedès wine country on two wheels. From gentle coastal rides to challenging mountain ascents, we have routes for everyone.</p>
+                    <div class="activity__detail">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l5.447 2.724A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
+                        Maps & Routes Provided
+                    </div>
+                    <div class="activity__detail">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                        All Fitness Levels
                     </div>
                 </div>
-                <div class="on-site__item">
-                    <span class="on-site__item-emoji">🎨</span>
-                    <div class="on-site__item-text">
-                        <h3>Art Workshops</h3>
-                        <p>Painting, ceramics, and more</p>
+                
+                <div class="activity">
+                    <span class="activity__number">02</span>
+                    <h3 class="activity__title">Trail Running & Jogging</h3>
+                    <p class="activity__desc">Hit the trails that wind through vineyards and Mediterranean forest. Professional athletes will appreciate the nearby athletics track for serious training.</p>
+                    <div class="activity__detail">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l5.447 2.724A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
+                        Scenic Trail Maps
+                    </div>
+                    <div class="activity__detail">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                        Pro Athletics Track Nearby
                     </div>
                 </div>
-                <div class="on-site__item">
-                    <span class="on-site__item-emoji">🎶</span>
-                    <div class="on-site__item-text">
-                        <h3>Music Studio</h3>
-                        <p>Record and create on-site</p>
+                
+                <div class="activity">
+                    <span class="activity__number">03</span>
+                    <h3 class="activity__title">Nature Walks & Hiking</h3>
+                    <p class="activity__desc">Discover hidden paths through ancient olive groves and along dramatic coastal cliffs. Perfect for families or those seeking a gentle connection with nature.</p>
+                    <div class="activity__detail">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l5.447 2.724A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
+                        Curated Itineraries
                     </div>
-                </div>
-                <div class="on-site__item">
-                    <span class="on-site__item-emoji">🍳</span>
-                    <div class="on-site__item-text">
-                        <h3>Cooking Classes</h3>
-                        <p>Learn Catalan cuisine</p>
+                    <div class="activity__detail">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        Family Friendly
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Routes Section - Dark -->
+    <section class="routes">
+        <div class="container">
+            <div class="routes__header">
+                <h2>Sample Itineraries</h2>
+                <h3>Routes Designed For You</h3>
+                <p>Can Pares provides detailed maps and route suggestions tailored to your preferences and fitness level. Here are a few favorites.</p>
+            </div>
+            <div class="routes__grid">
+                <div class="route">
+                    <div class="route__level">Easy · Family</div>
+                    <h3 class="route__name">Coastal Path to Sitges</h3>
+                    <div class="route__stats">
+                        <div class="route__stat"><span>8</span>km</div>
+                        <div class="route__stat"><span>2</span>hours</div>
+                    </div>
+                    <p class="route__desc">A gentle walk along the Mediterranean coast with stunning sea views, ending at Sitges' charming old town.</p>
+                </div>
+                <div class="route">
+                    <div class="route__level">Moderate · Active</div>
+                    <h3 class="route__name">Garraf Vineyard Loop</h3>
+                    <div class="route__stats">
+                        <div class="route__stat"><span>25</span>km</div>
+                        <div class="route__stat"><span>1.5</span>hours</div>
+                    </div>
+                    <p class="route__desc">Cycle through the Penedès wine region, passing historic wineries and rolling hills covered in vines.</p>
+                </div>
+                <div class="route">
+                    <div class="route__level">Challenging · Pro</div>
+                    <h3 class="route__name">Garraf Summit Trail</h3>
+                    <div class="route__stats">
+                        <div class="route__stat"><span>15</span>km</div>
+                        <div class="route__stat"><span>4</span>hours</div>
+                    </div>
+                    <p class="route__desc">A demanding hike to the highest point of Garraf with panoramic views from the Pyrenees to Mallorca.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sports Section - Mustard -->
+    <section class="exp-section exp-section--mustard">
+        <div class="container">
+            <div class="exp-section__header">
+                <div class="exp-section__icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
+                </div>
+                <h1 class="exp-section__title">Sports & Training</h1>
+                <p class="exp-section__subtitle">World-class facilities just minutes away. From padel to climbing, train like a pro in the Catalan sunshine.</p>
+            </div>
+            
+            <div class="activities">
+                <div class="activity">
+                    <span class="activity__number">01</span>
+                    <h3 class="activity__title">CPI Padel Roquetes</h3>
+                    <p class="activity__desc">One of the region's finest padel clubs, just minutes from Can Pares. Book courts or arrange sessions with their incredible coaches for all skill levels.</p>
+                    <div class="activity__detail">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        5 Minutes Away
+                    </div>
+                    <div class="activity__detail">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+                        Pro Coaches Available
+                    </div>
+                </div>
+                
+                <div class="activity">
+                    <span class="activity__number">02</span>
+                    <h3 class="activity__title">Indoor Climbing Wall</h3>
+                    <p class="activity__desc">Challenge yourself at the nearby indoor climbing center, perfect for rainy days or those looking to build strength and technique.</p>
+                    <div class="activity__detail">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        5 Minutes Away
+                    </div>
+                    <div class="activity__detail">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        All Levels Welcome
+                    </div>
+                </div>
+                
+                <div class="activity">
+                    <span class="activity__number">03</span>
+                    <h3 class="activity__title">Athletics Track</h3>
+                    <p class="activity__desc">Professional athletes can access a full-specification athletics track nearby, perfect for serious training sessions and maintaining peak performance.</p>
+                    <div class="activity__detail">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                        Professional Grade
+                    </div>
+                    <div class="activity__detail">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        Pro Athletes Welcome
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wellness Section - Sage -->
+    <section class="wellness">
+        <div class="container">
+            <div class="wellness__grid">
+                <div class="wellness__content">
+                    <h2>Body & Soul</h2>
+                    <h3>Wellness Experiences</h3>
+                    <p class="wellness__text">Transform your stay into a journey of renewal. We can arrange personalized wellness experiences from private yoga sessions in the garden to professional massage treatments and facials with expert therapists.</p>
+                    
+                    <div class="wellness__services">
+                        <div class="wellness__service">
+                            <div class="wellness__service-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                            </div>
+                            <span class="wellness__service-text">Private Yoga Sessions</span>
+                        </div>
+                        <div class="wellness__service">
+                            <div class="wellness__service-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11"/></svg>
+                            </div>
+                            <span class="wellness__service-text">Professional Massages</span>
+                        </div>
+                        <div class="wellness__service">
+                            <div class="wellness__service-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707"/></svg>
+                            </div>
+                            <span class="wellness__service-text">Facial Treatments</span>
+                        </div>
+                        <div class="wellness__service">
+                            <div class="wellness__service-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+                            </div>
+                            <span class="wellness__service-text">Meditation Sessions</span>
+                        </div>
+                        <div class="wellness__service">
+                            <div class="wellness__service-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.701 2.701 0 00-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18z"/></svg>
+                            </div>
+                            <span class="wellness__service-text">Healthy Catering</span>
+                        </div>
+                        <div class="wellness__service">
+                            <div class="wellness__service-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                            </div>
+                            <span class="wellness__service-text">Sound Healing</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="wellness__image">
+                    <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/202ea870-a449-4105-a79b-86730ed55750/Can+Pares-2820.jpg" alt="Wellness at Can Pares">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Culture Section -->
+    <section class="culture">
+        <div class="container">
+            <div class="culture__header">
+                <h2>Art & Culture</h2>
+                <h3>Discover the Region</h3>
+            </div>
+            <div class="culture__grid">
+                <div class="culture__card">
+                    <div class="culture__card-image">
+                        <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/ce1286d7-2a38-4933-bf75-c34b7f0c9f76/Can+Pares-2699.jpg" alt="Sitges">
+                    </div>
+                    <div class="culture__card-content">
+                        <div class="culture__card-location">Sitges · 10 min</div>
+                        <h3 class="culture__card-title">Sitges Museums</h3>
+                        <p class="culture__card-desc">Explore the Cau Ferrat Museum, home to El Greco paintings, and the Maricel Museum with its stunning Mediterranean views and modernist art collection.</p>
+                    </div>
+                </div>
+                <div class="culture__card">
+                    <div class="culture__card-image">
+                        <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/b012d41d-ab57-414e-adb0-40ac603952c5/Masia+Can+Pares_Principal" alt="Vilanova">
+                    </div>
+                    <div class="culture__card-content">
+                        <div class="culture__card-location">Vilanova · 15 min</div>
+                        <h3 class="culture__card-title">Vilanova i la Geltrú</h3>
+                        <p class="culture__card-desc">Visit the impressive Railway Museum, explore the Victor Balaguer Library-Museum, and stroll through charming streets filled with modernist architecture.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
     <section class="cta">
         <div class="container">
-            <h2>Plan Your Perfect Getaway</h2>
-            <p>We'll help you arrange unforgettable experiences during your stay</p>
-            <a href="https://www.masiacanpares.com/book" class="cta__btn">Book Your Stay</a>
+            <h2>Ready to Explore?</h2>
+            <h3>Plan Your Perfect Stay</h3>
+            <p>Let us know your interests and we'll prepare personalized recommendations, routes, and bookings before you arrive.</p>
+            <a href="https://www.masiacanpares.com/contact" class="cta__btn">Get in Touch</a>
         </div>
     </section>
 
