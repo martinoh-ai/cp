@@ -48,9 +48,9 @@
         .container { max-width: 1400px; margin: 0 auto; padding: 0 clamp(24px, 5vw, 60px); }
 
         /* Header */
-        .header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 18px 0; background: var(--color-cream); border-bottom: 1px solid rgba(0,0,0,0.08); }
+        .header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 12px 0; background: var(--color-cream); border-bottom: 1px solid rgba(0,0,0,0.08); }
         .header__inner { display: flex; justify-content: space-between; align-items: center; }
-        .header__logo img { height: 50px; width: auto; }
+        .header__logo img { height: 45px; width: auto; }
         
         .header__right { display: flex; align-items: center; gap: 20px; }
         .header__link { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; }
@@ -61,7 +61,7 @@
         .header__btn--filled { background: var(--color-charcoal); color: white; border: 1.5px solid var(--color-charcoal); }
 
         /* Secondary Nav */
-        .section-nav { position: sticky; top: 70px; z-index: 999; background: var(--color-mustard); height: 50px; }
+        .section-nav { position: sticky; top: 69px; z-index: 999; background: var(--color-mustard); height: 50px; }
         .section-nav__inner { display: flex; justify-content: center; height: 100%; }
         .section-nav__links { display: flex; list-style: none; margin: 0; padding: 0; height: 100%; }
         .section-nav__links li { display: flex; height: 100%; }
@@ -70,7 +70,7 @@
         .section-nav__link.active { background: rgba(0,0,0,0.12); }
 
         /* Hero */
-        .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; background: var(--color-cream); padding-top: 70px; }
+        .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; background: var(--color-cream); padding-top: 69px; }
         .hero__bg { position: absolute; inset: 0; z-index: 0; }
         .hero__slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.5s ease-in-out; }
         .hero__slide.active { opacity: 1; }
@@ -106,7 +106,8 @@
         .houses { padding: 120px 0; background: var(--color-cream); }
         .houses__header { text-align: center; margin-bottom: 80px; }
         .houses__header h2 { color: var(--color-terracotta); margin-bottom: 15px; }
-        .houses__header h3 { font-size: clamp(2.2rem, 4vw, 3.2rem); }
+        .houses__header h3 { font-size: clamp(2.2rem, 4vw, 3.2rem); margin-bottom: 25px; }
+        .houses__intro { font-size: 1.1rem; color: var(--color-text-light); max-width: 650px; margin: 0 auto; line-height: 1.8; }
         .houses__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
         .house-card { position: relative; overflow: hidden; background: white; }
         .house-card__image { height: 400px; overflow: hidden; }
@@ -266,6 +267,7 @@
             <div class="houses__header">
                 <h2>Two Unique Retreats</h2>
                 <h3>Choose Your House</h3>
+                <p class="houses__intro">Can Pares offers two independent guest houses, each with its own entrance, private terrace, and unique character. Both share access to the botanical garden, pool, and all estate amenities.</p>
             </div>
             <div class="houses__grid">
                 <div class="house-card">
@@ -278,7 +280,7 @@
                         <div class="house-card__stats">
                             <div class="house-card__stat">
                                 <div class="house-card__stat-value">3</div>
-                                <div class="house-card__stat-label">Stay</div>
+                                <div class="house-card__stat-label">Bedrooms</div>
                             </div>
                             <div class="house-card__stat">
                                 <div class="house-card__stat-value">3</div>
@@ -302,7 +304,7 @@
                         <div class="house-card__stats">
                             <div class="house-card__stat">
                                 <div class="house-card__stat-value">2</div>
-                                <div class="house-card__stat-label">Stay</div>
+                                <div class="house-card__stat-label">Bedrooms</div>
                             </div>
                             <div class="house-card__stat">
                                 <div class="house-card__stat-value">1</div>
@@ -372,7 +374,7 @@
         <div class="container">
             <div class="founders__grid">
                 <div class="founders__image">
-                    <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/202ea870-a449-4105-a79b-86730ed55750/Can+Pares-2820.jpg" alt="Caroline, Martin & Romy">
+                    <img src="https://www.clubhouse27.com/wp-content/uploads/2023/11/des_1.jpg" alt="Caroline, Martin & Romy">
                 </div>
                 <div class="founders__content">
                     <h2>Meet Your Hosts</h2>
