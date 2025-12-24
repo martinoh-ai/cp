@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiences | Masia Can Pares - Wine Tasting, Beaches, Barcelona Day Trips</title>
+    <meta name="description" content="Discover experiences near Masia Can Pares: wine tasting at local vineyards, Sitges beaches, Barcelona day trips, hiking in Garraf Natural Park, private chef services, yoga sessions, and sailing adventures.">
+    <meta name="keywords" content="sitges experiences, barcelona day trips, wine tasting penedes, garraf hiking, private chef sitges, sailing barcelona">
+    <link rel="canonical" href="https://www.masiacanpares.com/experiences.html">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/8fb7c7fc-6e43-406c-b1c0-a65a59062cf6/CanPares_2-01.png?format=100w">
+    
+    <style>
+        :root {
+            --color-bg: #FAF8F5; --color-bg-warm: #F3EDE4; --color-bg-dark: #2C2825;
+            --color-text: #2C2825; --color-text-light: #6B635A; --color-text-inverse: #FAF8F5;
+            --color-terracotta: #C4754A; --color-border: #DDD5C8; --color-gold: #D4B062;
+            --font-display: 'Cormorant', Georgia, serif; --font-body: 'Outfit', sans-serif;
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-body); background: var(--color-bg); color: var(--color-text); line-height: 1.8; }
+        img { max-width: 100%; height: auto; display: block; }
+        a { color: inherit; text-decoration: none; }
+        h1, h2, h3 { font-family: var(--font-display); font-weight: 400; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 clamp(24px, 5vw, 60px); }
+
+        .header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 0; background: rgba(250, 248, 245, 0.97); backdrop-filter: blur(20px); border-bottom: 1px solid var(--color-border); }
+        .header__inner { display: flex; justify-content: space-between; align-items: center; }
+        .header__logo { height: 45px; }
+        .header__right { display: flex; align-items: center; gap: 25px; }
+        .header__link { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; }
+        .header__cta { padding: 12px 24px; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; background: var(--color-gold); color: var(--color-bg-dark); }
+
+        .section-nav { position: sticky; top: 85px; z-index: 999; background: var(--color-gold); }
+        .section-nav__inner { display: flex; justify-content: center; }
+        .section-nav__links { display: flex; list-style: none; overflow-x: auto; scrollbar-width: none; }
+        .section-nav__link { display: block; padding: 18px 35px; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-bg-dark); white-space: nowrap; }
+        .section-nav__link:hover { background: rgba(0,0,0,0.05); }
+        .section-nav__link.active { background: rgba(0,0,0,0.1); }
+
+        .page-hero { padding: 180px 0 100px; background: var(--color-bg-warm); text-align: center; }
+        .page-hero h1 { font-size: clamp(3rem, 8vw, 5.5rem); font-weight: 300; margin-bottom: 20px; }
+        .page-hero p { font-size: 1.2rem; color: var(--color-text-light); max-width: 650px; margin: 0 auto; }
+
+        .experiences { padding: 100px 0; }
+        .experiences__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
+        .experience { background: var(--color-bg-warm); overflow: hidden; transition: transform 0.4s; }
+        .experience:hover { transform: translateY(-8px); }
+        .experience__image { height: 250px; overflow: hidden; position: relative; }
+        .experience__image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+        .experience:hover .experience__image img { transform: scale(1.08); }
+        .experience__emoji { position: absolute; top: 20px; left: 20px; font-size: 2.5rem; background: white; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; border-radius: 50%; }
+        .experience__content { padding: 35px; }
+        .experience__title { font-family: var(--font-display); font-size: 1.6rem; margin-bottom: 10px; }
+        .experience__desc { font-size: 0.95rem; color: var(--color-text-light); margin-bottom: 15px; }
+        .experience__distance { font-size: 0.85rem; color: var(--color-terracotta); font-weight: 500; }
+
+        .on-site { padding: 100px 0; background: var(--color-bg-warm); }
+        .on-site__header { text-align: center; margin-bottom: 60px; }
+        .on-site__header h2 { font-size: clamp(2rem, 4vw, 3rem); }
+        .on-site__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; max-width: 1000px; margin: 0 auto; }
+        .on-site__item { display: flex; align-items: center; gap: 20px; padding: 25px; background: var(--color-bg); }
+        .on-site__item-emoji { font-size: 2rem; }
+        .on-site__item-text h3 { font-size: 1.1rem; margin-bottom: 5px; }
+        .on-site__item-text p { font-size: 0.9rem; color: var(--color-text-light); }
+
+        .cta { padding: 100px 0; background: var(--color-bg-dark); color: var(--color-text-inverse); text-align: center; }
+        .cta h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 20px; }
+        .cta p { opacity: 0.7; margin-bottom: 40px; }
+        .cta__btn { display: inline-block; padding: 18px 45px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; background: var(--color-terracotta); color: white; }
+
+        .footer { background: var(--color-bg-dark); color: var(--color-text-inverse); padding: 60px 0 30px; text-align: center; }
+        .footer__logo { height: 40px; margin: 0 auto 20px; filter: brightness(0) invert(1); }
+        .footer__links { display: flex; justify-content: center; gap: 30px; margin-bottom: 30px; flex-wrap: wrap; }
+        .footer__link { font-size: 0.85rem; opacity: 0.7; }
+        .footer__bottom { padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.8rem; opacity: 0.5; }
+
+        @media (max-width: 768px) {
+            .header__link { display: none; }
+            .section-nav__link { padding: 14px 12px; font-size: 0.58rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container header__inner">
+            <a href="index.html"><img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/8fb7c7fc-6e43-406c-b1c0-a65a59062cf6/CanPares_2-01.png?format=1500w" alt="Masia Can Pares" class="header__logo"></a>
+            <div class="header__right">
+                <a href="https://www.masiacanpares.com/contact" class="header__link">Contact Us</a>
+                <a href="https://www.masiacanpares.com/book" class="header__cta">Reserve a Stay</a>
+            </div>
+        </div>
+    </header>
+
+    <nav class="section-nav">
+        <div class="section-nav__inner">
+            <ul class="section-nav__links">
+                <li><a href="history.html" class="section-nav__link">History</a></li>
+                <li><a href="gallery.html" class="section-nav__link">Step Inside</a></li>
+                <li><a href="bedrooms.html" class="section-nav__link">Bedrooms</a></li>
+                <li><a href="designed-for.html" class="section-nav__link">Designed For</a></li>
+                <li><a href="equipment.html" class="section-nav__link">Equipment</a></li>
+                <li><a href="experiences.html" class="section-nav__link active">Experiences</a></li>
+                <li><a href="location.html" class="section-nav__link">Location</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1>Experiences</h1>
+            <p>Discover the best of Catalonia from our doorstep. Wine country, Mediterranean beaches, and Barcelona all within easy reach.</p>
+        </div>
+    </section>
+
+    <section class="experiences">
+        <div class="container">
+            <div class="experiences__grid">
+                <div class="experience">
+                    <div class="experience__image">
+                        <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/ce1286d7-2a38-4933-bf75-c34b7f0c9f76/Can+Pares-2699.jpg" alt="Wine tasting">
+                        <span class="experience__emoji">🍷</span>
+                    </div>
+                    <div class="experience__content">
+                        <h3 class="experience__title">Wine Tasting</h3>
+                        <p class="experience__desc">Explore the renowned Penedès wine region. Visit Torre del Veguer winery right next door, or venture to prestigious bodegas producing world-class cavas and wines.</p>
+                        <span class="experience__distance">Walking distance to 15 min drive</span>
+                    </div>
+                </div>
+
+                <div class="experience">
+                    <div class="experience__image">
+                        <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/c5da09dd-3eaa-40f2-8746-896798013095/30B94711-0F5C-4EF0-868C-6DD2C5E2AAEB-863-00000012F6316BA3.JPG" alt="Sitges beaches">
+                        <span class="experience__emoji">🏖️</span>
+                    </div>
+                    <div class="experience__content">
+                        <h3 class="experience__title">Sitges Beaches</h3>
+                        <p class="experience__desc">Discover the beautiful Mediterranean coastline. From lively town beaches to secluded coves, Sitges offers pristine waters and golden sands just minutes away.</p>
+                        <span class="experience__distance">10 minutes by car</span>
+                    </div>
+                </div>
+
+                <div class="experience">
+                    <div class="experience__image">
+                        <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/b012d41d-ab57-414e-adb0-40ac603952c5/Masia+Can+Pares_Principal" alt="Barcelona">
+                        <span class="experience__emoji">🌆</span>
+                    </div>
+                    <div class="experience__content">
+                        <h3 class="experience__title">Barcelona Day Trips</h3>
+                        <p class="experience__desc">Explore Gaudí's masterpieces, wander the Gothic Quarter, shop on Passeig de Gràcia, or catch a match at Camp Nou. The city awaits.</p>
+                        <span class="experience__distance">40 minutes by car</span>
+                    </div>
+                </div>
+
+                <div class="experience">
+                    <div class="experience__image">
+                        <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/90d3b02c-0857-4374-8829-ed2bdda2c4a0/Can+Pares-2842.jpg" alt="Hiking">
+                        <span class="experience__emoji">🚴</span>
+                    </div>
+                    <div class="experience__content">
+                        <h3 class="experience__title">Garraf Natural Park</h3>
+                        <p class="experience__desc">Hike or bike through dramatic limestone landscapes. The park offers trails for all levels with stunning views of the Mediterranean and unique flora.</p>
+                        <span class="experience__distance">15 minutes by car</span>
+                    </div>
+                </div>
+
+                <div class="experience">
+                    <div class="experience__image">
+                        <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/a702071a-6dff-400c-85e8-78c532c17199/MasiaCanPares_guesthouse" alt="Private chef">
+                        <span class="experience__emoji">👨‍🍳</span>
+                    </div>
+                    <div class="experience__content">
+                        <h3 class="experience__title">Private Chef Experiences</h3>
+                        <p class="experience__desc">Let a local chef create an unforgettable meal in your guest house. From traditional Catalan cuisine to modern Mediterranean, tailored to your preferences.</p>
+                        <span class="experience__distance">Arranged on-site</span>
+                    </div>
+                </div>
+
+                <div class="experience">
+                    <div class="experience__image">
+                        <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/202ea870-a449-4105-a79b-86730ed55750/Can+Pares-2820.jpg" alt="Sailing">
+                        <span class="experience__emoji">⛵</span>
+                    </div>
+                    <div class="experience__content">
+                        <h3 class="experience__title">Sailing & Water Sports</h3>
+                        <p class="experience__desc">Set sail from Sitges harbor for a day on the Mediterranean. Kayaking, paddleboarding, and diving opportunities abound along the Costa Garraf.</p>
+                        <span class="experience__distance">15 minutes to harbor</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="on-site">
+        <div class="container">
+            <div class="on-site__header">
+                <h2>On-Site Experiences</h2>
+            </div>
+            <div class="on-site__grid">
+                <div class="on-site__item">
+                    <span class="on-site__item-emoji">🧘</span>
+                    <div class="on-site__item-text">
+                        <h3>Yoga Sessions</h3>
+                        <p>Private yoga in the botanical garden</p>
+                    </div>
+                </div>
+                <div class="on-site__item">
+                    <span class="on-site__item-emoji">🎨</span>
+                    <div class="on-site__item-text">
+                        <h3>Art Workshops</h3>
+                        <p>Painting, ceramics, and more</p>
+                    </div>
+                </div>
+                <div class="on-site__item">
+                    <span class="on-site__item-emoji">🎶</span>
+                    <div class="on-site__item-text">
+                        <h3>Music Studio</h3>
+                        <p>Record and create on-site</p>
+                    </div>
+                </div>
+                <div class="on-site__item">
+                    <span class="on-site__item-emoji">🍳</span>
+                    <div class="on-site__item-text">
+                        <h3>Cooking Classes</h3>
+                        <p>Learn Catalan cuisine</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Plan Your Perfect Getaway</h2>
+            <p>We'll help you arrange unforgettable experiences during your stay</p>
+            <a href="https://www.masiacanpares.com/book" class="cta__btn">Book Your Stay</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/8fb7c7fc-6e43-406c-b1c0-a65a59062cf6/CanPares_2-01.png?format=1500w" alt="Masia Can Pares" class="footer__logo">
+            <div class="footer__links">
+                <a href="index.html" class="footer__link">Home</a>
+                <a href="bedrooms.html" class="footer__link">Bedrooms</a>
+                <a href="gallery.html" class="footer__link">Gallery</a>
+                <a href="location.html" class="footer__link">Location</a>
+            </div>
+            <div class="footer__bottom"><p>© Masia Can Pares 2025</p></div>
+        </div>
+    </footer>
+</body>
+</html>
