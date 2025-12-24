@@ -5,13 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Equipment | Masia Can Pares - Amenities & Facilities</title>
     <meta name="description" content="Discover the amenities at Masia Can Pares: pool, professional kitchen, smart home, high-speed WiFi, BBQ, and everything you need for a comfortable stay.">
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/8fb7c7fc-6e43-406c-b1c0-a65a59062cf6/CanPares_2-01.png?format=100w">
-    
     <style>
+        @font-face {
+            font-family: 'Boogy Brut Poster';
+            src: url('fonts/BoogyBrutPoster-White.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
         :root {
             --color-cream: #FAF6F1;
             --color-mauve: #C4B5B0;
@@ -22,11 +28,10 @@
             --color-charcoal: #2C2825;
             --color-text: #2C2825;
             --color-text-light: #6B635A;
-            --font-display: 'Space Grotesk', sans-serif;
+            --font-display: 'Boogy Brut Poster', 'Space Grotesk', sans-serif;
             --font-mono: 'Space Mono', monospace;
             --font-body: 'DM Sans', sans-serif;
         }
-
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body { font-family: var(--font-body); background: var(--color-cream); color: var(--color-text); line-height: 1.7; font-weight: 300; }
@@ -36,12 +41,9 @@
         h2 { font-family: var(--font-mono); font-weight: 400; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.8rem; }
         h3 { font-family: var(--font-display); font-weight: 600; }
         .container { max-width: 1400px; margin: 0 auto; padding: 0 clamp(24px, 5vw, 60px); }
-
         .header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 18px 0; background: var(--color-cream); border-bottom: 1px solid rgba(0,0,0,0.08); }
-        
         .header__inner { display: flex; justify-content: space-between; align-items: center; }
         .header__logo img { height: 50px; width: auto; }
-        
         .header__right { display: flex; align-items: center; gap: 20px; }
         .header__link { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; }
         .header__lang { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; display: flex; align-items: center; gap: 4px; }
@@ -49,33 +51,25 @@
         .header__btn { padding: 12px 22px; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; }
         .header__btn--outline { border: 1.5px solid var(--color-charcoal); background: transparent; color: var(--color-charcoal); }
         .header__btn--filled { background: var(--color-charcoal); color: white; border: 1.5px solid var(--color-charcoal); }
-        
-
-        .section-nav { position: sticky; top: 70px; z-index: 999; background: var(--color-mustard); }
-        .section-nav__inner { display: flex; justify-content: center; align-items: center; }
-        .section-nav__links { display: flex; list-style: none; overflow-x: auto; scrollbar-width: none; align-items: center; }
-        .section-nav__links::-webkit-scrollbar { display: none; }
-        .section-nav__link { display: flex; align-items: center; justify-content: center; padding: 0 35px; height: 54px; font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-charcoal); white-space: nowrap; }
+        .section-nav { position: sticky; top: 70px; z-index: 999; background: var(--color-mustard); height: 50px; }
+        .section-nav__inner { display: flex; justify-content: center; height: 100%; }
+        .section-nav__links { display: flex; list-style: none; margin: 0; padding: 0; height: 100%; }
+        .section-nav__links li { display: flex; height: 100%; }
+        .section-nav__link { display: flex; align-items: center; justify-content: center; padding: 0 35px; height: 100%; font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-charcoal); white-space: nowrap; }
         .section-nav__link:hover { background: rgba(0,0,0,0.08); }
         .section-nav__link.active { background: rgba(0,0,0,0.12); }
-
         .page-hero { padding: 180px 0 80px; background: var(--color-mustard-light); text-align: center; }
-        
-        
         .page-hero__overline { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-charcoal); opacity: 0.7; margin-bottom: 15px; }
         .page-hero h1 { font-size: clamp(3rem, 8vw, 7rem); line-height: 0.9; margin-bottom: 25px; }
         .page-hero p { font-size: 1.1rem; color: var(--color-text-light); max-width: 550px; margin: 0 auto; }
-
         /* Equipment Categories */
         .equipment { padding: 100px 0; }
         .equipment--cream { background: var(--color-cream); }
         .equipment--mustard { background: var(--color-mustard-light); }
-        
         .equipment__header { text-align: center; margin-bottom: 60px; }
         .equipment__header h2 { color: var(--color-mustard); margin-bottom: 15px; }
         .equipment--mustard .equipment__header h2 { color: var(--color-charcoal); }
         .equipment__header h3 { font-size: clamp(2rem, 4vw, 3rem); }
-
         .equipment__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; }
         .equipment__item { background: white; padding: 35px 30px; text-align: center; transition: transform 0.3s; }
         .equipment--mustard .equipment__item { background: var(--color-cream); }
@@ -85,7 +79,6 @@
         .equipment__icon svg { width: 26px; height: 26px; color: var(--color-charcoal); }
         .equipment__title { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; margin-bottom: 10px; }
         .equipment__desc { font-size: 0.88rem; color: var(--color-text-light); line-height: 1.6; }
-
         /* Highlight Section */
         .highlight { padding: 100px 0; background: var(--color-charcoal); color: white; }
         .highlight__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
@@ -96,13 +89,11 @@
         .highlight__features { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
         .highlight__feature { display: flex; align-items: center; gap: 12px; font-size: 0.92rem; opacity: 0.9; }
         .highlight__feature svg { width: 18px; height: 18px; color: var(--color-mustard); flex-shrink: 0; }
-
         .cta { padding: 100px 0; background: var(--color-mustard); text-align: center; }
         .cta h2 { color: var(--color-charcoal); opacity: 0.6; margin-bottom: 15px; }
         .cta h3 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 20px; color: var(--color-charcoal); }
         .cta p { color: var(--color-charcoal); opacity: 0.7; margin-bottom: 40px; max-width: 500px; margin-left: auto; margin-right: auto; }
         .cta__btn { display: inline-block; padding: 18px 50px; font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; background: var(--color-charcoal); color: white; font-weight: 700; }
-
         .footer { background: var(--color-charcoal); color: white; padding: 60px 0 30px; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); }
         .footer__logo { display: block; margin-bottom: 25px; }
         .footer__logo img { height: 45px; width: auto; margin: 0 auto; filter: brightness(0) invert(1); }
@@ -110,14 +101,13 @@
         .footer__link { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.6; }
         .footer__link:hover { opacity: 1; }
         .footer__bottom { padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.75rem; opacity: 0.4; }
-
         @media (max-width: 1024px) {
             .equipment__grid { grid-template-columns: repeat(2, 1fr); }
             .highlight__grid { grid-template-columns: 1fr; }
         }
         @media (max-width: 768px) {
             .header__link, .header__lang { display: none; }
-            .section-nav__link { padding: 0 18px; height: 48px; font-size: 0.65rem; }
+            .section-nav__link { padding: 0 18px; font-size: 0.65rem; }
             .equipment__grid { grid-template-columns: 1fr; }
             .highlight__features { grid-template-columns: 1fr; }
         }
@@ -135,7 +125,6 @@
             </div>
         </div>
     </header>
-
     <nav class="section-nav" id="sectionNav">
         <div class="section-nav__inner">
             <ul class="section-nav__links">
@@ -149,7 +138,6 @@
             </ul>
         </div>
     </nav>
-
     <section class="page-hero">
         <div class="container">
             <p class="page-hero__overline">Masia Can Pares</p>
@@ -157,7 +145,6 @@
             <p>Everything you need for a comfortable, connected, and memorable stay in the Catalan countryside.</p>
         </div>
     </section>
-
     <!-- Kitchen & Dining -->
     <section class="equipment equipment--cream">
         <div class="container">
@@ -197,7 +184,6 @@
             </div>
         </div>
     </section>
-
     <!-- Technology -->
     <section class="equipment equipment--mustard">
         <div class="container">
@@ -237,7 +223,6 @@
             </div>
         </div>
     </section>
-
     <!-- Pool Highlight -->
     <section class="highlight">
         <div class="container">
@@ -271,7 +256,6 @@
             </div>
         </div>
     </section>
-
     <!-- Comfort -->
     <section class="equipment equipment--cream">
         <div class="container">
@@ -311,7 +295,6 @@
             </div>
         </div>
     </section>
-
     <!-- Outdoor -->
     <section class="equipment equipment--mustard">
         <div class="container">
@@ -351,7 +334,6 @@
             </div>
         </div>
     </section>
-
     <section class="cta">
         <div class="container">
             <h2>Everything You Need</h2>
@@ -360,7 +342,6 @@
             <a href="https://www.masiacanpares.com/book" class="cta__btn">Book Your Stay</a>
         </div>
     </section>
-
     <footer class="footer">
         <div class="container">
             <a href="index.html" class="footer__logo"><img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/8fb7c7fc-6e43-406c-b1c0-a65a59062cf6/CanPares_2-01.png?format=500w" alt="Can Pares"></a>
@@ -373,6 +354,5 @@
             <div class="footer__bottom"><p>© Masia Can Pares 2025</p></div>
         </div>
     </footer>
-
 </body>
 </html>

@@ -11,6 +11,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/8fb7c7fc-6e43-406c-b1c0-a65a59062cf6/CanPares_2-01.png?format=100w">
     <style>
+        @font-face {
+            font-family: 'Boogy Brut Poster';
+            src: url('fonts/BoogyBrutPoster-White.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
         :root {
             --color-cream: #FAF6F1;
             --color-mauve: #C4B5B0;
@@ -22,7 +30,7 @@
             --color-text: #2C2825;
             --color-text-light: #6B635A;
             /* Font families - approximating the requested fonts with Google Fonts */
-            --font-display: 'Space Grotesk', sans-serif; /* Similar to Boogy Brut Poster */
+            --font-display: 'Boogy Brut Poster', 'Space Grotesk', sans-serif; /* Similar to Boogy Brut Poster */
             --font-mono: 'Space Mono', monospace; /* Similar to Suisse Int'l Mono */
             --font-body: 'DM Sans', sans-serif; /* Similar to Neue Montreal */
         }
@@ -67,11 +75,11 @@
         .header__btn--outline { border: 1.5px solid var(--color-charcoal); background: transparent; color: var(--color-charcoal); }
         .header__btn--filled { background: var(--color-charcoal); color: white; border: 1.5px solid var(--color-charcoal); } 
         /* Secondary Nav - Gold */
-        .section-nav { position: sticky; top: 70px; z-index: 999; background: var(--color-mustard); }
-        .section-nav__inner { display: flex; justify-content: center; }
-        .section-nav__links { display: flex; list-style: none; margin: 0; padding: 0; }
-        .section-nav__links li { display: flex; align-items: center; }
-        .section-nav__link { padding: 15px 35px 19px; font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-charcoal); white-space: nowrap; line-height: 1; }
+        .section-nav { position: sticky; top: 70px; z-index: 999; background: var(--color-mustard); height: 50px; }
+        .section-nav__inner { display: flex; justify-content: center; height: 100%; }
+        .section-nav__links { display: flex; list-style: none; margin: 0; padding: 0; height: 100%; }
+        .section-nav__links li { display: flex; height: 100%; }
+        .section-nav__link { display: flex; align-items: center; justify-content: center; padding: 0 35px; height: 100%; font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-charcoal); white-space: nowrap; }
         .section-nav__link:hover { background: rgba(0,0,0,0.08); }
         .section-nav__link.active { background: rgba(0,0,0,0.12); }
         /* Page Hero */
@@ -152,7 +160,7 @@
             font-size: 2.8rem;
             font-weight: 700;
             color: var(--color-charcoal);
-            line-height: 1;
+           
         }
         .intro__stat-label {
             font-family: var(--font-mono);
@@ -270,7 +278,7 @@
             position: absolute;
             top: 15px;
             right: 20px;
-            line-height: 1;
+           
         }
         .activity__title {
             font-family: var(--font-display);
@@ -545,7 +553,7 @@
         }
         @media (max-width: 768px) {
             .header__link, .header__lang { display: none; }
-            .section-nav__link { padding: 14px 18px 16px; font-size: 0.65rem; }
+            .section-nav__link { padding: 0 18px; font-size: 0.65rem; }
             .intro__stats { flex-wrap: wrap; gap: 25px; }
             .routes__grid { grid-template-columns: 1fr; }
             .culture__grid { grid-template-columns: 1fr; }

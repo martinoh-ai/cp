@@ -5,13 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Designed For | Masia Can Pares - Family, Yoga, Corporate, Artists, Film</title>
     <meta name="description" content="Masia Can Pares is perfect for family holidays, yoga retreats, corporate offsites, artist residencies, and film productions near Barcelona.">
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/8fb7c7fc-6e43-406c-b1c0-a65a59062cf6/CanPares_2-01.png?format=100w">
-    
     <style>
+        @font-face {
+            font-family: 'Boogy Brut Poster';
+            src: url('fonts/BoogyBrutPoster-White.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
         :root {
             --color-cream: #FAF6F1;
             --color-mauve: #C4B5B0;
@@ -22,11 +28,10 @@
             --color-charcoal: #2C2825;
             --color-text: #2C2825;
             --color-text-light: #6B635A;
-            --font-display: 'Space Grotesk', sans-serif;
+            --font-display: 'Boogy Brut Poster', 'Space Grotesk', sans-serif;
             --font-mono: 'Space Mono', monospace;
             --font-body: 'DM Sans', sans-serif;
         }
-
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body { font-family: var(--font-body); background: var(--color-cream); color: var(--color-text); line-height: 1.7; font-weight: 300; }
@@ -36,12 +41,9 @@
         h2 { font-family: var(--font-mono); font-weight: 400; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.8rem; }
         h3 { font-family: var(--font-display); font-weight: 600; }
         .container { max-width: 1400px; margin: 0 auto; padding: 0 clamp(24px, 5vw, 60px); }
-
         .header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 18px 0; background: var(--color-cream); border-bottom: 1px solid rgba(0,0,0,0.08); }
-        
         .header__inner { display: flex; justify-content: space-between; align-items: center; }
         .header__logo img { height: 50px; width: auto; }
-        
         .header__right { display: flex; align-items: center; gap: 20px; }
         .header__link { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; }
         .header__lang { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; display: flex; align-items: center; gap: 4px; }
@@ -49,52 +51,40 @@
         .header__btn { padding: 12px 22px; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; }
         .header__btn--outline { border: 1.5px solid var(--color-charcoal); background: transparent; color: var(--color-charcoal); }
         .header__btn--filled { background: var(--color-charcoal); color: white; border: 1.5px solid var(--color-charcoal); }
-        
-
-        .section-nav { position: sticky; top: 70px; z-index: 999; background: var(--color-sage); }
-        .section-nav__inner { display: flex; justify-content: center; align-items: center; }
-        .section-nav__links { display: flex; list-style: none; overflow-x: auto; scrollbar-width: none; align-items: center; }
-        .section-nav__links::-webkit-scrollbar { display: none; }
-        .section-nav__link { display: flex; align-items: center; justify-content: center; padding: 0 35px; height: 54px; font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-charcoal); white-space: nowrap; }
+        .section-nav { position: sticky; top: 70px; z-index: 999; background: var(--color-sage); height: 50px; }
+        .section-nav__inner { display: flex; justify-content: center; height: 100%; }
+        .section-nav__links { display: flex; list-style: none; margin: 0; padding: 0; height: 100%; }
+        .section-nav__links li { display: flex; height: 100%; }
+        .section-nav__link { display: flex; align-items: center; justify-content: center; padding: 0 35px; height: 100%; font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-charcoal); white-space: nowrap; }
         .section-nav__link:hover { background: rgba(0,0,0,0.08); }
         .section-nav__link.active { background: rgba(0,0,0,0.12); }
-
         .page-hero { padding: 180px 0 80px; background: var(--color-sage-light); text-align: center; }
-        
-        
         .page-hero__overline { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-charcoal); opacity: 0.7; margin-bottom: 15px; }
         .page-hero h1 { font-size: clamp(3rem, 8vw, 6rem); line-height: 0.9; margin-bottom: 25px; }
         .page-hero p { font-size: 1.1rem; color: var(--color-text-light); max-width: 550px; margin: 0 auto; }
-
         /* Use Case Sections */
         .use-case { padding: 100px 0; }
         .use-case:nth-child(odd) { background: var(--color-cream); }
         .use-case:nth-child(even) { background: var(--color-sage-light); }
-        
         .use-case__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
         .use-case:nth-child(even) .use-case__grid { direction: rtl; }
         .use-case:nth-child(even) .use-case__grid > * { direction: ltr; }
-        
         .use-case__image { position: relative; }
         .use-case__image img { width: 100%; height: 500px; object-fit: cover; }
         .use-case__number { position: absolute; top: -20px; left: -20px; width: 60px; height: 60px; background: var(--color-sage); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: white; }
-        
         .use-case__content h2 { color: var(--color-sage); margin-bottom: 15px; }
         .use-case__content h3 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 25px; }
         .use-case__text { font-size: 1.05rem; color: var(--color-text-light); line-height: 1.8; margin-bottom: 30px; }
-        
         .use-case__features { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
         .use-case__feature { display: flex; align-items: center; gap: 12px; padding: 15px 20px; background: white; }
         .use-case:nth-child(even) .use-case__feature { background: var(--color-cream); }
         .use-case__feature svg { width: 20px; height: 20px; color: var(--color-sage); flex-shrink: 0; }
         .use-case__feature span { font-size: 0.9rem; }
-
         .cta { padding: 100px 0; background: var(--color-charcoal); color: white; text-align: center; }
         .cta h2 { color: var(--color-sage); margin-bottom: 15px; }
         .cta h3 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 20px; }
         .cta p { opacity: 0.7; margin-bottom: 40px; max-width: 500px; margin-left: auto; margin-right: auto; }
         .cta__btn { display: inline-block; padding: 18px 50px; font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; background: var(--color-sage); color: white; font-weight: 700; }
-
         .footer { background: var(--color-charcoal); color: white; padding: 60px 0 30px; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); }
         .footer__logo { display: block; margin-bottom: 25px; }
         .footer__logo img { height: 45px; width: auto; margin: 0 auto; filter: brightness(0) invert(1); }
@@ -102,14 +92,13 @@
         .footer__link { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.6; }
         .footer__link:hover { opacity: 1; }
         .footer__bottom { padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.75rem; opacity: 0.4; }
-
         @media (max-width: 1024px) {
             .use-case__grid { grid-template-columns: 1fr; }
             .use-case:nth-child(even) .use-case__grid { direction: ltr; }
         }
         @media (max-width: 768px) {
             .header__link, .header__lang { display: none; }
-            .section-nav__link { padding: 0 18px; height: 48px; font-size: 0.65rem; }
+            .section-nav__link { padding: 0 18px; font-size: 0.65rem; }
             .use-case__features { grid-template-columns: 1fr; }
         }
     </style>
@@ -126,7 +115,6 @@
             </div>
         </div>
     </header>
-
     <nav class="section-nav" id="sectionNav">
         <div class="section-nav__inner">
             <ul class="section-nav__links">
@@ -140,7 +128,6 @@
             </ul>
         </div>
     </nav>
-
     <section class="page-hero">
         <div class="container">
             <p class="page-hero__overline">Masia Can Pares</p>
@@ -148,7 +135,6 @@
             <p>Whether you're planning a family holiday, wellness retreat, corporate offsite, or creative project, Can Pares adapts to your vision.</p>
         </div>
     </section>
-
     <!-- Family -->
     <section class="use-case">
         <div class="container">
@@ -183,7 +169,6 @@
             </div>
         </div>
     </section>
-
     <!-- Yoga & Wellness -->
     <section class="use-case">
         <div class="container">
@@ -218,7 +203,6 @@
             </div>
         </div>
     </section>
-
     <!-- Corporate -->
     <section class="use-case">
         <div class="container">
@@ -253,7 +237,6 @@
             </div>
         </div>
     </section>
-
     <!-- Artists -->
     <section class="use-case">
         <div class="container">
@@ -288,7 +271,6 @@
             </div>
         </div>
     </section>
-
     <!-- Film & Photo -->
     <section class="use-case">
         <div class="container">
@@ -323,7 +305,6 @@
             </div>
         </div>
     </section>
-
     <section class="cta">
         <div class="container">
             <h2>Plan Your Stay</h2>
@@ -332,7 +313,6 @@
             <a href="https://www.masiacanpares.com/contact" class="cta__btn">Get in Touch</a>
         </div>
     </section>
-
     <footer class="footer">
         <div class="container">
             <a href="index.html" class="footer__logo"><img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/8fb7c7fc-6e43-406c-b1c0-a65a59062cf6/CanPares_2-01.png?format=500w" alt="Can Pares"></a>
@@ -345,6 +325,5 @@
             <div class="footer__bottom"><p>© Masia Can Pares 2025</p></div>
         </div>
     </footer>
-
 </body>
 </html>

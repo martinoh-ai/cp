@@ -5,13 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stay | Masia Can Pares - Two Guest Houses near Barcelona & Sitges</title>
     <meta name="description" content="Stay at Masia Can Pares in one of two independent guest houses. Casa Blanca sleeps 6, Casa Mediterranea sleeps 4. Private botanical garden, pool, and modern amenities.">
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/8fb7c7fc-6e43-406c-b1c0-a65a59062cf6/CanPares_2-01.png?format=100w">
-    
     <style>
+        @font-face {
+            font-family: 'Boogy Brut Poster';
+            src: url('fonts/BoogyBrutPoster-White.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
         :root {
             --color-cream: #FAF6F1;
             --color-mauve: #C4B5B0;
@@ -22,12 +28,10 @@
             --color-charcoal: #2C2825;
             --color-text: #2C2825;
             --color-text-light: #6B635A;
-            
-            --font-display: 'Space Grotesk', sans-serif;
+            --font-display: 'Boogy Brut Poster', 'Space Grotesk', sans-serif;
             --font-mono: 'Space Mono', monospace;
             --font-body: 'DM Sans', sans-serif;
         }
-
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body { font-family: var(--font-body); background: var(--color-cream); color: var(--color-text); line-height: 1.7; font-weight: 300; }
@@ -37,12 +41,10 @@
         h2 { font-family: var(--font-mono); font-weight: 400; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.8rem; }
         h3 { font-family: var(--font-display); font-weight: 600; }
         .container { max-width: 1400px; margin: 0 auto; padding: 0 clamp(24px, 5vw, 60px); }
-
         /* Header */
         .header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 18px 0; background: var(--color-cream); border-bottom: 1px solid rgba(0,0,0,0.08); }
         .header__inner { display: flex; justify-content: space-between; align-items: center; }
         .header__logo img { height: 50px; width: auto; }
-        
         .header__right { display: flex; align-items: center; gap: 20px; }
         .header__link { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; }
         .header__lang { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; display: flex; align-items: center; gap: 4px; }
@@ -50,29 +52,23 @@
         .header__btn { padding: 12px 22px; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; }
         .header__btn--outline { border: 1.5px solid var(--color-charcoal); background: transparent; color: var(--color-charcoal); }
         .header__btn--filled { background: var(--color-charcoal); color: white; border: 1.5px solid var(--color-charcoal); }
-
         /* Secondary Nav */
-        .section-nav { position: sticky; top: 70px; z-index: 999; background: var(--color-terracotta); }
-        .section-nav__inner { display: flex; justify-content: center; }
-        .section-nav__links { display: flex; list-style: none; overflow-x: auto; scrollbar-width: none; margin: 0; padding: 0; }
-        .section-nav__links::-webkit-scrollbar { display: none; }
-        .section-nav__links li { display: flex; }
-        .section-nav__links::-webkit-scrollbar { display: none; }
-        .section-nav__link { display: flex; align-items: center; padding: 18px 35px; font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: white; white-space: nowrap; }
+        .section-nav { position: sticky; top: 70px; z-index: 999; background: var(--color-terracotta); height: 50px; }
+        .section-nav__inner { display: flex; justify-content: center; height: 100%; }
+        .section-nav__links { display: flex; list-style: none; margin: 0; padding: 0; height: 100%; }
+        .section-nav__links li { display: flex; height: 100%; }
+        .section-nav__link { display: flex; align-items: center; justify-content: center; padding: 0 35px; height: 100%; font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: white; white-space: nowrap; }
         .section-nav__link:hover { background: rgba(0,0,0,0.1); }
         .section-nav__link.active { background: rgba(0,0,0,0.15); }
-
         /* Page Hero */
         .page-hero { padding: 180px 0 80px; background: var(--color-terracotta-light); text-align: center; }
         .page-hero__overline { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-charcoal); opacity: 0.7; margin-bottom: 15px; }
         .page-hero h1 { font-size: clamp(3.5rem, 10vw, 8rem); line-height: 0.9; margin-bottom: 25px; }
         .page-hero p { font-size: 1.1rem; color: var(--color-text-light); max-width: 550px; margin: 0 auto; }
-
         /* House Section */
         .house { padding: 100px 0; }
         .house--cream { background: var(--color-cream); }
         .house--mauve { background: var(--color-mauve); }
-        
         .house__header { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-bottom: 80px; }
         .house--mauve .house__header { direction: rtl; }
         .house--mauve .house__header > * { direction: ltr; }
@@ -85,9 +81,7 @@
         .house__stat { text-align: center; }
         .house__stat-value { font-family: var(--font-display); font-size: 2.5rem; font-weight: 700; color: var(--color-terracotta); }
         .house__stat-label { font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text-light); }
-
         .house__rooms-title { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-terracotta); margin-bottom: 35px; padding-bottom: 15px; border-bottom: 1px solid var(--color-terracotta); }
-        
         .rooms { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 25px; margin-bottom: 60px; }
         .room { background: white; overflow: hidden; transition: transform 0.3s; }
         .house--mauve .room { background: var(--color-cream); }
@@ -102,27 +96,23 @@
         .room__feature { display: flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--color-text-light); background: var(--color-cream); padding: 8px 14px; }
         .house--mauve .room__feature { background: white; }
         .room__feature svg { width: 14px; height: 14px; color: var(--color-terracotta); }
-
         /* Amenities */
         .house__amenities { background: white; padding: 50px; }
         .house--mauve .house__amenities { background: var(--color-cream); }
         .house__amenities-header { display: flex; align-items: center; gap: 15px; margin-bottom: 35px; }
         .house__amenities-title { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-terracotta); }
         .house__amenities-icon { width: 24px; height: 24px; color: var(--color-terracotta); }
-        
         .amenities-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
         .amenity-category__title { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text-light); margin-bottom: 18px; padding-bottom: 10px; border-bottom: 1px solid rgba(0,0,0,0.1); }
         .amenity-category__list { display: flex; flex-direction: column; gap: 10px; }
         .amenity-item { display: flex; align-items: center; gap: 10px; font-size: 0.88rem; }
         .amenity-item svg { width: 16px; height: 16px; color: var(--color-terracotta); flex-shrink: 0; }
-
         /* CTA */
         .cta { padding: 100px 0; background: var(--color-charcoal); color: white; text-align: center; }
         .cta h2 { color: var(--color-terracotta); margin-bottom: 15px; }
         .cta h3 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 20px; }
         .cta p { opacity: 0.7; margin-bottom: 40px; }
         .cta__btn { display: inline-block; padding: 18px 50px; font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; background: var(--color-terracotta); color: white; font-weight: 700; }
-
         /* Footer */
         .footer { background: var(--color-charcoal); color: white; padding: 60px 0 30px; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); }
         .footer__logo { display: block; margin-bottom: 25px; }
@@ -131,7 +121,6 @@
         .footer__link { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.6; }
         .footer__link:hover { opacity: 1; }
         .footer__bottom { padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.75rem; opacity: 0.4; }
-
         @media (max-width: 1024px) {
             .house__header { grid-template-columns: 1fr; }
             .house--mauve .house__header { direction: ltr; }
@@ -139,7 +128,7 @@
         }
         @media (max-width: 768px) {
             .header__link, .header__lang { display: none; }
-            .section-nav__link { padding: 16px 18px; font-size: 0.65rem; }
+            .section-nav__link { padding: 0 18px; font-size: 0.65rem; }
             .house__stats { gap: 25px; }
             .amenities-grid { grid-template-columns: 1fr; }
             .rooms { grid-template-columns: 1fr; }
@@ -158,7 +147,6 @@
             </div>
         </div>
     </header>
-
     <nav class="section-nav" id="sectionNav">
         <div class="section-nav__inner">
             <ul class="section-nav__links">
@@ -172,7 +160,6 @@
             </ul>
         </div>
     </nav>
-
     <section class="page-hero">
         <div class="container">
             <p class="page-hero__overline">Masia Can Pares</p>
@@ -180,7 +167,6 @@
             <p>Two independent guest houses within a 20,000m² botanical paradise, each with its own character and modern comforts.</p>
         </div>
     </section>
-
     <!-- Casa Blanca -->
     <section class="house house--cream">
         <div class="container">
@@ -212,7 +198,6 @@
                     </div>
                 </div>
             </div>
-
             <h3 class="house__rooms-title">Rooms</h3>
             <div class="rooms">
                 <div class="room">
@@ -257,7 +242,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="house__amenities">
                 <div class="house__amenities-header">
                     <svg class="house__amenities-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>
@@ -308,7 +292,6 @@
             </div>
         </div>
     </section>
-
     <!-- Casa Mediterranea -->
     <section class="house house--mauve">
         <div class="container">
@@ -340,7 +323,6 @@
                     <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/c6e92c7a-69b9-4fca-8290-96b92b4d05d5/MasiaCanPares_guesthouse" alt="Casa Mediterranea">
                 </div>
             </div>
-
             <h3 class="house__rooms-title">Rooms</h3>
             <div class="rooms">
                 <div class="room">
@@ -370,7 +352,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="house__amenities">
                 <div class="house__amenities-header">
                     <svg class="house__amenities-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>
@@ -417,7 +398,6 @@
             </div>
         </div>
     </section>
-
     <section class="cta">
         <div class="container">
             <h2>Ready to Book?</h2>
@@ -426,7 +406,6 @@
             <a href="https://www.masiacanpares.com/book" class="cta__btn">Check Availability</a>
         </div>
     </section>
-
     <footer class="footer">
         <div class="container">
             <a href="index.html" class="footer__logo"><img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/8fb7c7fc-6e43-406c-b1c0-a65a59062cf6/CanPares_2-01.png?format=500w" alt="Can Pares"></a>

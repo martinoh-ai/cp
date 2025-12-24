@@ -5,13 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Location | Masia Can Pares - Sant Pere de Ribes, near Barcelona & Sitges</title>
     <meta name="description" content="Find Masia Can Pares in Sant Pere de Ribes, just 10 minutes from Sitges beach and 35 minutes from Barcelona. Perfectly located between coast and mountains.">
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/8fb7c7fc-6e43-406c-b1c0-a65a59062cf6/CanPares_2-01.png?format=100w">
-    
     <style>
+        @font-face {
+            font-family: 'Boogy Brut Poster';
+            src: url('fonts/BoogyBrutPoster-White.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
         :root {
             --color-cream: #FAF6F1;
             --color-mauve: #C4B5B0;
@@ -22,11 +28,10 @@
             --color-charcoal: #2C2825;
             --color-text: #2C2825;
             --color-text-light: #6B635A;
-            --font-display: 'Space Grotesk', sans-serif;
+            --font-display: 'Boogy Brut Poster', 'Space Grotesk', sans-serif;
             --font-mono: 'Space Mono', monospace;
             --font-body: 'DM Sans', sans-serif;
         }
-
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body { font-family: var(--font-body); background: var(--color-cream); color: var(--color-text); line-height: 1.7; font-weight: 300; }
@@ -36,12 +41,9 @@
         h2 { font-family: var(--font-mono); font-weight: 400; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.8rem; }
         h3 { font-family: var(--font-display); font-weight: 600; }
         .container { max-width: 1400px; margin: 0 auto; padding: 0 clamp(24px, 5vw, 60px); }
-
         .header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 18px 0; background: var(--color-cream); border-bottom: 1px solid rgba(0,0,0,0.08); }
-        
         .header__inner { display: flex; justify-content: space-between; align-items: center; }
         .header__logo img { height: 50px; width: auto; }
-        
         .header__right { display: flex; align-items: center; gap: 20px; }
         .header__link { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; }
         .header__lang { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; display: flex; align-items: center; gap: 4px; }
@@ -49,49 +51,39 @@
         .header__btn { padding: 12px 22px; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; }
         .header__btn--outline { border: 1.5px solid var(--color-charcoal); background: transparent; color: var(--color-charcoal); }
         .header__btn--filled { background: var(--color-charcoal); color: white; border: 1.5px solid var(--color-charcoal); }
-        
-
-        .section-nav { position: sticky; top: 70px; z-index: 999; background: var(--color-terracotta); }
-        .section-nav__inner { display: flex; justify-content: center; align-items: center; }
-        .section-nav__links { display: flex; list-style: none; overflow-x: auto; scrollbar-width: none; align-items: center; }
-        .section-nav__links::-webkit-scrollbar { display: none; }
-        .section-nav__link { display: flex; align-items: center; justify-content: center; padding: 0 35px; height: 54px; font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: white; white-space: nowrap; }
+        .section-nav { position: sticky; top: 70px; z-index: 999; background: var(--color-terracotta); height: 50px; }
+        .section-nav__inner { display: flex; justify-content: center; height: 100%; }
+        .section-nav__links { display: flex; list-style: none; margin: 0; padding: 0; height: 100%; }
+        .section-nav__links li { display: flex; height: 100%; }
+        .section-nav__link { display: flex; align-items: center; justify-content: center; padding: 0 35px; height: 100%; font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: white; white-space: nowrap; }
         .section-nav__link:hover { background: rgba(0,0,0,0.1); }
         .section-nav__link.active { background: rgba(0,0,0,0.15); }
-
         .page-hero { padding: 180px 0 80px; background: var(--color-terracotta-light); text-align: center; }
-        
-        
         .page-hero__overline { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-charcoal); opacity: 0.7; margin-bottom: 15px; }
         .page-hero h1 { font-size: clamp(3.5rem, 10vw, 8rem); line-height: 0.9; margin-bottom: 25px; }
         .page-hero p { font-size: 1.1rem; color: var(--color-text-light); max-width: 550px; margin: 0 auto; }
-
         /* Map Section */
         .map-section { background: var(--color-charcoal); }
         .map-section__map { height: 450px; width: 100%; filter: grayscale(100%) contrast(1.1); }
         .map-section__map iframe { width: 100%; height: 100%; border: 0; }
-
         /* Address */
         .address { padding: 80px 0; background: var(--color-charcoal); color: white; }
         .address__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; text-align: center; }
         .address__item h2 { color: var(--color-terracotta); margin-bottom: 15px; }
         .address__item p { font-size: 1.1rem; line-height: 1.6; opacity: 0.8; }
         .address__item a { color: var(--color-terracotta); }
-
         /* Distances */
         .distances { padding: 100px 0; background: var(--color-cream); }
         .distances__header { text-align: center; margin-bottom: 60px; }
         .distances__header h2 { color: var(--color-terracotta); margin-bottom: 15px; }
         .distances__header h3 { font-size: clamp(2rem, 4vw, 3rem); }
-        
         .distances__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
         .distance-card { background: white; padding: 40px 35px; text-align: center; transition: transform 0.3s; }
         .distance-card:hover { transform: translateY(-5px); }
-        .distance-card__time { font-family: var(--font-display); font-size: 3.5rem; font-weight: 700; color: var(--color-terracotta); line-height: 1; }
+        .distance-card__time { font-family: var(--font-display); font-size: 3.5rem; font-weight: 700; color: var(--color-terracotta); }
         .distance-card__unit { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-light); margin-bottom: 15px; }
         .distance-card__place { font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; margin-bottom: 10px; }
         .distance-card__desc { font-size: 0.9rem; color: var(--color-text-light); line-height: 1.6; }
-
         /* Getting Here */
         .getting-here { padding: 100px 0; background: var(--color-terracotta-light); }
         .getting-here__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
@@ -105,13 +97,11 @@
         .getting-here__option h4 { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; margin-bottom: 5px; }
         .getting-here__option p { font-size: 0.9rem; color: var(--color-text-light); line-height: 1.6; }
         .getting-here__image img { width: 100%; height: 500px; object-fit: cover; }
-
         /* Nearby */
         .nearby { padding: 100px 0; background: var(--color-cream); }
         .nearby__header { text-align: center; margin-bottom: 60px; }
         .nearby__header h2 { color: var(--color-terracotta); margin-bottom: 15px; }
         .nearby__header h3 { font-size: clamp(2rem, 4vw, 3rem); }
-        
         .nearby__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
         .nearby-card { display: grid; grid-template-columns: 180px 1fr; gap: 25px; background: white; overflow: hidden; }
         .nearby-card__image { height: 100%; min-height: 180px; }
@@ -120,13 +110,11 @@
         .nearby-card__distance { font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-terracotta); margin-bottom: 8px; }
         .nearby-card__title { font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; margin-bottom: 8px; }
         .nearby-card__desc { font-size: 0.88rem; color: var(--color-text-light); line-height: 1.6; }
-
         .cta { padding: 100px 0; background: var(--color-charcoal); color: white; text-align: center; }
         .cta h2 { color: var(--color-terracotta); margin-bottom: 15px; }
         .cta h3 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 20px; }
         .cta p { opacity: 0.7; margin-bottom: 40px; max-width: 500px; margin-left: auto; margin-right: auto; }
         .cta__btn { display: inline-block; padding: 18px 50px; font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; background: var(--color-terracotta); color: white; font-weight: 700; }
-
         .footer { background: var(--color-charcoal); color: white; padding: 60px 0 30px; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); }
         .footer__logo { display: block; margin-bottom: 25px; }
         .footer__logo img { height: 45px; width: auto; margin: 0 auto; filter: brightness(0) invert(1); }
@@ -134,7 +122,6 @@
         .footer__link { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.6; }
         .footer__link:hover { opacity: 1; }
         .footer__bottom { padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.75rem; opacity: 0.4; }
-
         @media (max-width: 1024px) {
             .address__grid { grid-template-columns: repeat(2, 1fr); }
             .distances__grid { grid-template-columns: 1fr 1fr; }
@@ -145,7 +132,7 @@
         }
         @media (max-width: 768px) {
             .header__link, .header__lang { display: none; }
-            .section-nav__link { padding: 0 18px; height: 48px; font-size: 0.65rem; }
+            .section-nav__link { padding: 0 18px; font-size: 0.65rem; }
             .address__grid { grid-template-columns: 1fr; }
             .distances__grid { grid-template-columns: 1fr; }
         }
@@ -163,7 +150,6 @@
             </div>
         </div>
     </header>
-
     <nav class="section-nav" id="sectionNav">
         <div class="section-nav__inner">
             <ul class="section-nav__links">
@@ -177,7 +163,6 @@
             </ul>
         </div>
     </nav>
-
     <section class="page-hero">
         <div class="container">
             <p class="page-hero__overline">Torre del Veguer</p>
@@ -185,14 +170,12 @@
             <p>Perfectly positioned between Barcelona's energy and the Mediterranean's calm, in the heart of the Garraf wine region.</p>
         </div>
     </section>
-
     <!-- Map -->
     <section class="map-section">
         <div class="map-section__map">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2997.5!2d1.8166!3d41.2833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDE2JzU5LjkiTiAxwrA0OScwMC4wIkU!5e0!3m2!1sen!2ses!4v1" allowfullscreen="" loading="lazy"></iframe>
         </div>
     </section>
-
     <!-- Address -->
     <section class="address">
         <div class="container">
@@ -216,7 +199,6 @@
             </div>
         </div>
     </section>
-
     <!-- Distances -->
     <section class="distances">
         <div class="container">
@@ -264,7 +246,6 @@
             </div>
         </div>
     </section>
-
     <!-- Getting Here -->
     <section class="getting-here">
         <div class="container">
@@ -273,7 +254,6 @@
                     <h2>Arrival</h2>
                     <h3>Getting Here</h3>
                     <p class="getting-here__text">Can Pares is easily accessible by car, with private parking within the gated property. We recommend renting a car to fully explore the region, though taxis and transfers can be arranged.</p>
-                    
                     <div class="getting-here__options">
                         <div class="getting-here__option">
                             <div class="getting-here__option-icon">
@@ -310,7 +290,6 @@
             </div>
         </div>
     </section>
-
     <!-- Nearby -->
     <section class="nearby">
         <div class="container">
@@ -362,7 +341,6 @@
             </div>
         </div>
     </section>
-
     <section class="cta">
         <div class="container">
             <h2>Find Your Way</h2>
@@ -371,7 +349,6 @@
             <a href="https://www.masiacanpares.com/contact" class="cta__btn">Get in Touch</a>
         </div>
     </section>
-
     <footer class="footer">
         <div class="container">
             <a href="index.html" class="footer__logo"><img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/8fb7c7fc-6e43-406c-b1c0-a65a59062cf6/CanPares_2-01.png?format=500w" alt="Can Pares"></a>
