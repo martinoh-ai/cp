@@ -76,10 +76,10 @@
         .header__btn--filled { background: var(--color-charcoal); color: white; border: 1.5px solid var(--color-charcoal); } 
         /* Secondary Nav - Gold */
         .section-nav { position: sticky; top: 70px; z-index: 999; background: var(--color-mustard); }
-        .section-nav__inner { display: flex; justify-content: center; }
-        .section-nav__links { display: flex; list-style: none; overflow-x: auto; scrollbar-width: none; }
+        .section-nav__inner { display: flex; justify-content: center; align-items: center; }
+        .section-nav__links { display: flex; list-style: none; overflow-x: auto; scrollbar-width: none; align-items: center; }
         .section-nav__links::-webkit-scrollbar { display: none; }
-        .section-nav__link { display: block; padding: 18px 35px; font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-charcoal); white-space: nowrap; }
+        .section-nav__link { display: flex; align-items: center; padding: 18px 35px; font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-charcoal); white-space: nowrap; }
         .section-nav__link:hover { background: rgba(0,0,0,0.08); }
         .section-nav__link.active { background: rgba(0,0,0,0.12); }
 
@@ -112,7 +112,18 @@
             line-height: 1.8;
         }
 
-        /* Intro Section - Mauve */
+        /* Intro Section */
+        .intro-exp { padding: 100px 0; background: var(--color-mauve); }
+        .intro-exp__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+        .intro-exp__content h2 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); font-weight: 600; text-transform: none; letter-spacing: -0.02em; margin-bottom: 25px; line-height: 1.2; }
+        .intro-exp__text { font-size: 1.05rem; line-height: 1.9; color: var(--color-charcoal); margin-bottom: 20px; }
+        .intro-exp__highlight { display: flex; align-items: flex-start; gap: 20px; padding: 30px; background: var(--color-cream); margin-top: 30px; }
+        .intro-exp__highlight-icon { width: 50px; height: 50px; flex-shrink: 0; }
+        .intro-exp__highlight-icon img { width: 100%; height: 100%; object-fit: contain; }
+        .intro-exp__highlight-text { font-size: 0.95rem; line-height: 1.7; color: var(--color-text); }
+        .intro-exp__highlight-text strong { display: block; font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; margin-bottom: 8px; }
+        .intro-exp__image { position: relative; }
+        .intro-exp__image img { width: 100%; height: 450px; object-fit: cover; }
         .intro {
             padding: 100px 0;
             background: var(--color-mauve);
@@ -458,19 +469,17 @@
         }
         .culture__grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 30px;
         }
         .culture__card {
-            display: grid;
-            grid-template-columns: 180px 1fr;
-            gap: 25px;
+            display: flex;
+            flex-direction: column;
             background: white;
             overflow: hidden;
         }
         .culture__card-image {
-            height: 100%;
-            min-height: 180px;
+            height: 200px;
         }
         .culture__card-image img {
             width: 100%;
@@ -478,10 +487,10 @@
             object-fit: cover;
         }
         .culture__card-content {
-            padding: 25px 25px 25px 0;
+            padding: 25px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
         }
         .culture__card-location {
             font-family: var(--font-mono);
@@ -548,11 +557,9 @@
         .footer__bottom { padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.75rem; opacity: 0.4; }
 
         @media (max-width: 1024px) {
-            .intro__grid, .wellness__grid { grid-template-columns: 1fr; }
+            .intro-exp__grid, .intro__grid, .wellness__grid { grid-template-columns: 1fr; }
             .routes__grid { grid-template-columns: 1fr 1fr; }
-            .culture__grid { grid-template-columns: 1fr; }
-            .culture__card { grid-template-columns: 1fr; }
-            .culture__card-content { padding: 25px; }
+            .culture__grid { grid-template-columns: 1fr 1fr; }
             .intro__badge { right: 20px; }
         }
         @media (max-width: 768px) {
@@ -560,11 +567,9 @@
             .section-nav__link { padding: 16px 18px; font-size: 0.65rem; }
             .intro__stats { flex-wrap: wrap; gap: 25px; }
             .routes__grid { grid-template-columns: 1fr; }
+            .culture__grid { grid-template-columns: 1fr; }
             .wellness__services { grid-template-columns: 1fr; }
             .activities { grid-template-columns: 1fr; }
-            .page-hero__badge { width: 100px; height: 100px; }
-            .page-hero__badge-inner { width: 75px; height: 75px; }
-            .page-hero__shell { width: 40px; }
         }
     </style>
 </head>
@@ -603,7 +608,130 @@
         </div>
     </section>
 
+    <!-- Intro Section -->
+    <section class="intro-exp">
+        <div class="container">
+            <div class="intro-exp__grid">
+                <div class="intro-exp__content">
+                    <h2>Impossible to get bored—unless you choose to.</h2>
+                    <p class="intro-exp__text">Can Pares is more than a place to stay. It's a base for discovery. The surrounding region offers world-class beaches, historic towns, renowned wineries, and trails through Mediterranean nature.</p>
+                    <p class="intro-exp__text">Whether you seek adventure or relaxation, culture or nature, you'll find it within easy reach of our gates.</p>
+                    <div class="intro-exp__highlight">
+                        <div class="intro-exp__highlight-icon">
+                            <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/8fb7c7fc-6e43-406c-b1c0-a65a59062cf6/CanPares_2-01.png?format=500w" alt="Can Pares">
+                        </div>
+                        <div class="intro-exp__highlight-text">
+                            <strong>Your House Guide</strong>
+                            As soon as you book, you'll receive the house guide: a curated list of awesome things to do in the house and to discover in the region—our personal recommendations for an unforgettable stay.
+                        </div>
+                    </div>
+                </div>
+                <div class="intro-exp__image">
+                    <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/ce1286d7-2a38-4933-bf75-c34b7f0c9f76/Can+Pares-2699.jpg" alt="Discover the region">
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Outdoor Activities - Cream -->
+
+    <section class="culture">
+        <div class="container">
+            <div class="culture__header">
+                <h2>Tourism</h2>
+                <h3>Discover the Region</h3>
+            </div>
+            <div class="culture__grid">
+                <div class="culture__card">
+                    <div class="culture__card-image">
+                        <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/ce1286d7-2a38-4933-bf75-c34b7f0c9f76/Can+Pares-2699.jpg" alt="Sitges">
+                    </div>
+                    <div class="culture__card-content">
+                        <div class="culture__card-location">Sitges · 10 min</div>
+                        <h3 class="culture__card-title">Sitges Beaches & Old Town</h3>
+                        <p class="culture__card-desc">17 beaches, a charming old town, the Cau Ferrat Museum with El Greco paintings, and vibrant nightlife. The perfect Mediterranean escape just minutes away.</p>
+                    </div>
+                </div>
+                <div class="culture__card">
+                    <div class="culture__card-image">
+                        <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/b012d41d-ab57-414e-adb0-40ac603952c5/Masia+Can+Pares_Principal" alt="Penedès">
+                    </div>
+                    <div class="culture__card-content">
+                        <div class="culture__card-location">Penedès · 20 min</div>
+                        <h3 class="culture__card-title">Wine Country & Cava</h3>
+                        <p class="culture__card-desc">Spain's premier cava region. Visit historic bodegas like Codorníu and Freixenet, taste world-class wines, and enjoy vineyard lunches with stunning views.</p>
+                    </div>
+                </div>
+                <div class="culture__card">
+                    <div class="culture__card-image">
+                        <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/90d3b02c-0857-4374-8829-ed2bdda2c4a0/Can+Pares-2842.jpg" alt="Barcelona">
+                    </div>
+                    <div class="culture__card-content">
+                        <div class="culture__card-location">Barcelona · 35 min</div>
+                        <h3 class="culture__card-title">Barcelona</h3>
+                        <p class="culture__card-desc">Gaudí's masterpieces, world-class museums, incredible food scene, and the vibrant energy of one of Europe's great cities—all within easy reach.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="wellness">
+        <div class="container">
+            <div class="wellness__grid">
+                <div class="wellness__content">
+                    <h2>Body & Soul</h2>
+                    <h3>Wellness Experiences</h3>
+                    <p class="wellness__text">Transform your stay into a journey of renewal. We can arrange personalized wellness experiences from private yoga sessions in the garden to professional massage treatments and facials with expert therapists.</p>
+                    
+                    <div class="wellness__services">
+                        <div class="wellness__service">
+                            <div class="wellness__service-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                            </div>
+                            <span class="wellness__service-text">Private Yoga Sessions</span>
+                        </div>
+                        <div class="wellness__service">
+                            <div class="wellness__service-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11"/></svg>
+                            </div>
+                            <span class="wellness__service-text">Professional Massages</span>
+                        </div>
+                        <div class="wellness__service">
+                            <div class="wellness__service-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707"/></svg>
+                            </div>
+                            <span class="wellness__service-text">Facial Treatments</span>
+                        </div>
+                        <div class="wellness__service">
+                            <div class="wellness__service-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+                            </div>
+                            <span class="wellness__service-text">Meditation Sessions</span>
+                        </div>
+                        <div class="wellness__service">
+                            <div class="wellness__service-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.701 2.701 0 00-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18z"/></svg>
+                            </div>
+                            <span class="wellness__service-text">Healthy Catering</span>
+                        </div>
+                        <div class="wellness__service">
+                            <div class="wellness__service-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                            </div>
+                            <span class="wellness__service-text">Sound Healing</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="wellness__image">
+                    <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/202ea870-a449-4105-a79b-86730ed55750/Can+Pares-2820.jpg" alt="Wellness at Can Pares">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Culture Section -->
+
     <section class="exp-section exp-section--cream">
         <div class="container">
             <div class="exp-section__header">
@@ -758,93 +886,6 @@
     </section>
 
     <!-- Wellness Section - Sage -->
-    <section class="wellness">
-        <div class="container">
-            <div class="wellness__grid">
-                <div class="wellness__content">
-                    <h2>Body & Soul</h2>
-                    <h3>Wellness Experiences</h3>
-                    <p class="wellness__text">Transform your stay into a journey of renewal. We can arrange personalized wellness experiences from private yoga sessions in the garden to professional massage treatments and facials with expert therapists.</p>
-                    
-                    <div class="wellness__services">
-                        <div class="wellness__service">
-                            <div class="wellness__service-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
-                            </div>
-                            <span class="wellness__service-text">Private Yoga Sessions</span>
-                        </div>
-                        <div class="wellness__service">
-                            <div class="wellness__service-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11"/></svg>
-                            </div>
-                            <span class="wellness__service-text">Professional Massages</span>
-                        </div>
-                        <div class="wellness__service">
-                            <div class="wellness__service-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707"/></svg>
-                            </div>
-                            <span class="wellness__service-text">Facial Treatments</span>
-                        </div>
-                        <div class="wellness__service">
-                            <div class="wellness__service-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
-                            </div>
-                            <span class="wellness__service-text">Meditation Sessions</span>
-                        </div>
-                        <div class="wellness__service">
-                            <div class="wellness__service-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.701 2.701 0 00-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18z"/></svg>
-                            </div>
-                            <span class="wellness__service-text">Healthy Catering</span>
-                        </div>
-                        <div class="wellness__service">
-                            <div class="wellness__service-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
-                            </div>
-                            <span class="wellness__service-text">Sound Healing</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="wellness__image">
-                    <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/202ea870-a449-4105-a79b-86730ed55750/Can+Pares-2820.jpg" alt="Wellness at Can Pares">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Culture Section -->
-    <section class="culture">
-        <div class="container">
-            <div class="culture__header">
-                <h2>Art & Culture</h2>
-                <h3>Discover the Region</h3>
-            </div>
-            <div class="culture__grid">
-                <div class="culture__card">
-                    <div class="culture__card-image">
-                        <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/ce1286d7-2a38-4933-bf75-c34b7f0c9f76/Can+Pares-2699.jpg" alt="Sitges">
-                    </div>
-                    <div class="culture__card-content">
-                        <div class="culture__card-location">Sitges · 10 min</div>
-                        <h3 class="culture__card-title">Sitges Museums</h3>
-                        <p class="culture__card-desc">Explore the Cau Ferrat Museum, home to El Greco paintings, and the Maricel Museum with its stunning Mediterranean views and modernist art collection.</p>
-                    </div>
-                </div>
-                <div class="culture__card">
-                    <div class="culture__card-image">
-                        <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/b012d41d-ab57-414e-adb0-40ac603952c5/Masia+Can+Pares_Principal" alt="Vilanova">
-                    </div>
-                    <div class="culture__card-content">
-                        <div class="culture__card-location">Vilanova · 15 min</div>
-                        <h3 class="culture__card-title">Vilanova i la Geltrú</h3>
-                        <p class="culture__card-desc">Visit the impressive Railway Museum, explore the Victor Balaguer Library-Museum, and stroll through charming streets filled with modernist architecture.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA -->
     <section class="cta">
         <div class="container">
             <h2>Ready to Explore?</h2>

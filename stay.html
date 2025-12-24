@@ -53,10 +53,10 @@
 
         /* Secondary Nav */
         .section-nav { position: sticky; top: 70px; z-index: 999; background: var(--color-terracotta); }
-        .section-nav__inner { display: flex; justify-content: center; }
-        .section-nav__links { display: flex; list-style: none; overflow-x: auto; scrollbar-width: none; }
+        .section-nav__inner { display: flex; justify-content: center; align-items: center; }
+        .section-nav__links { display: flex; list-style: none; overflow-x: auto; scrollbar-width: none; align-items: center; }
         .section-nav__links::-webkit-scrollbar { display: none; }
-        .section-nav__link { display: block; padding: 18px 35px; font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: white; white-space: nowrap; }
+        .section-nav__link { display: flex; align-items: center; padding: 18px 35px; font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: white; white-space: nowrap; }
         .section-nav__link:hover { background: rgba(0,0,0,0.1); }
         .section-nav__link.active { background: rgba(0,0,0,0.15); }
 
