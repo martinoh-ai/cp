@@ -3,131 +3,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bedrooms | Masia Can Pares - 5 Luxury Bedrooms Near Barcelona & Sitges</title>
-    <meta name="description" content="Explore the 5 beautifully appointed bedrooms at Masia Can Pares. Two independent guest houses with modern amenities, ensuite bathrooms, and stunning views of the botanical garden. Sleeps up to 10 guests.">
-    <meta name="keywords" content="masia can pares bedrooms, guest house sitges rooms, luxury accommodation barcelona, casa blanca bedrooms, casa mediterranea">
-    <link rel="canonical" href="https://www.masiacanpares.com/bedrooms.html">
+    <title>Bedrooms | Masia Can Pares - 5 Luxury Rooms near Barcelona & Sitges</title>
+    <meta name="description" content="Discover 5 beautifully appointed bedrooms at Masia Can Pares. Two independent guest houses with modern amenities, private bathrooms, and botanical garden views.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/8fb7c7fc-6e43-406c-b1c0-a65a59062cf6/CanPares_2-01.png?format=100w">
     
     <style>
         :root {
-            --color-bg: #FAF8F5; --color-bg-warm: #F3EDE4; --color-bg-dark: #2C2825;
-            --color-text: #2C2825; --color-text-light: #6B635A; --color-text-inverse: #FAF8F5;
-            --color-terracotta: #C4754A; --color-border: #DDD5C8; --color-gold: #D4B062;
-            --font-display: 'Cormorant', Georgia, serif; --font-body: 'Outfit', sans-serif;
+            --color-cream: #FAF6F1;
+            --color-mauve: #C4B5B0;
+            --color-mustard: #E8B84A;
+            --color-sage: #A8B5A0;
+            --color-terracotta: #C4754A;
+            --color-terracotta-light: #E8C4B0;
+            --color-charcoal: #2C2825;
+            --color-text: #2C2825;
+            --color-text-light: #6B635A;
+            
+            --font-display: 'Space Grotesk', sans-serif;
+            --font-mono: 'Space Mono', monospace;
+            --font-body: 'DM Sans', sans-serif;
         }
+
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-        body { font-family: var(--font-body); background: var(--color-bg); color: var(--color-text); line-height: 1.8; }
+        body { font-family: var(--font-body); background: var(--color-cream); color: var(--color-text); line-height: 1.7; font-weight: 300; }
         img { max-width: 100%; height: auto; display: block; }
         a { color: inherit; text-decoration: none; }
-        h1, h2, h3 { font-family: var(--font-display); font-weight: 400; line-height: 1.2; }
+        h1 { font-family: var(--font-display); font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; }
+        h2 { font-family: var(--font-mono); font-weight: 400; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.8rem; }
+        h3 { font-family: var(--font-display); font-weight: 600; }
         .container { max-width: 1400px; margin: 0 auto; padding: 0 clamp(24px, 5vw, 60px); }
 
-        .header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 0; background: rgba(250, 248, 245, 0.97); backdrop-filter: blur(20px); border-bottom: 1px solid var(--color-border); }
+        /* Header */
+        .header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 0; background: rgba(250, 246, 241, 0.97); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.05); transition: transform 0.3s; }
+        .header--hidden { transform: translateY(-100%); }
         .header__inner { display: flex; justify-content: space-between; align-items: center; }
         .header__logo { height: 45px; }
         .header__right { display: flex; align-items: center; gap: 25px; }
-        .header__link { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; }
-        .header__cta { padding: 12px 24px; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; background: var(--color-gold); color: var(--color-bg-dark); }
+        .header__link { font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; }
+        .header__cta { padding: 14px 28px; font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; background: var(--color-charcoal); color: white; }
 
-        .section-nav { position: sticky; top: 85px; z-index: 999; background: var(--color-gold); }
+        /* Secondary Nav */
+        .section-nav { position: sticky; top: 0; z-index: 999; background: var(--color-terracotta); }
         .section-nav__inner { display: flex; justify-content: center; }
         .section-nav__links { display: flex; list-style: none; overflow-x: auto; scrollbar-width: none; }
-        .section-nav__link { display: block; padding: 18px 35px; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-bg-dark); white-space: nowrap; }
-        .section-nav__link:hover { background: rgba(0,0,0,0.05); }
-        .section-nav__link.active { background: rgba(0,0,0,0.1); }
+        .section-nav__links::-webkit-scrollbar { display: none; }
+        .section-nav__link { display: block; padding: 16px 30px; font-family: var(--font-mono); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: white; white-space: nowrap; }
+        .section-nav__link:hover { background: rgba(0,0,0,0.1); }
+        .section-nav__link.active { background: rgba(0,0,0,0.15); }
 
-        .page-hero { padding: 180px 0 100px; background: var(--color-bg-warm); text-align: center; }
-        .page-hero h1 { font-size: clamp(3rem, 8vw, 5.5rem); font-weight: 300; margin-bottom: 20px; }
-        .page-hero p { font-size: 1.2rem; color: var(--color-text-light); max-width: 600px; margin: 0 auto; }
+        /* Page Hero */
+        .page-hero { padding: 200px 0 100px; background: var(--color-terracotta-light); text-align: center; }
+        .page-hero__badge { width: 100px; height: 100px; margin: 0 auto 30px; background: var(--color-cream); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 40px rgba(0,0,0,0.1); }
+        .page-hero__shell { width: 45px; filter: grayscale(100%) contrast(1.2); }
+        .page-hero__overline { font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-charcoal); opacity: 0.7; margin-bottom: 15px; }
+        .page-hero h1 { font-size: clamp(3.5rem, 10vw, 8rem); line-height: 0.9; margin-bottom: 25px; }
+        .page-hero p { font-size: 1.1rem; color: var(--color-text-light); max-width: 550px; margin: 0 auto; }
 
         /* House Section */
-        .house { padding: 100px 0; border-bottom: 1px solid var(--color-border); }
-        .house:last-of-type { border-bottom: none; }
-        .house--alt { background: var(--color-bg-warm); }
+        .house { padding: 100px 0; }
+        .house--cream { background: var(--color-cream); }
+        .house--mauve { background: var(--color-mauve); }
         
         .house__header { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-bottom: 80px; }
+        .house--mauve .house__header { direction: rtl; }
+        .house--mauve .house__header > * { direction: ltr; }
         .house__header-image { height: 450px; overflow: hidden; }
         .house__header-image img { width: 100%; height: 100%; object-fit: cover; }
-        .house__header-content h2 { font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 15px; }
-        .house__header-content p { font-size: 1.1rem; color: var(--color-text-light); margin-bottom: 25px; line-height: 1.8; }
-        .house__stats { display: flex; gap: 40px; margin-top: 30px; }
+        .house__header-content h2 { color: var(--color-terracotta); margin-bottom: 15px; }
+        .house__header-content h3 { font-size: clamp(2.2rem, 4vw, 3.2rem); margin-bottom: 20px; }
+        .house__header-content p { font-size: 1.05rem; color: var(--color-text-light); line-height: 1.8; margin-bottom: 25px; }
+        .house__stats { display: flex; gap: 40px; }
         .house__stat { text-align: center; }
-        .house__stat-value { font-family: var(--font-display); font-size: 2.5rem; color: var(--color-terracotta); }
-        .house__stat-label { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-light); }
+        .house__stat-value { font-family: var(--font-display); font-size: 2.5rem; font-weight: 700; color: var(--color-terracotta); }
+        .house__stat-label { font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text-light); }
 
-        /* Rooms Grid */
-        .house__rooms-title { font-size: 1.5rem; margin-bottom: 40px; padding-bottom: 20px; border-bottom: 1px solid var(--color-border); }
-        .rooms { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-bottom: 80px; }
-        .room { background: var(--color-bg); overflow: hidden; border: 1px solid var(--color-border); }
-        .house--alt .room { background: var(--color-bg-warm); }
-        .room__image { height: 260px; overflow: hidden; }
+        .house__rooms-title { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-terracotta); margin-bottom: 35px; padding-bottom: 15px; border-bottom: 1px solid var(--color-terracotta); }
+        
+        .rooms { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 25px; margin-bottom: 60px; }
+        .room { background: white; overflow: hidden; transition: transform 0.3s; }
+        .house--mauve .room { background: var(--color-cream); }
+        .room:hover { transform: translateY(-5px); }
+        .room__image { height: 250px; overflow: hidden; }
         .room__image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
         .room:hover .room__image img { transform: scale(1.05); }
         .room__content { padding: 30px; }
-        .room__name { font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 10px; }
-        .room__desc { font-size: 0.95rem; color: var(--color-text-light); margin-bottom: 15px; }
-        .room__features { display: flex; flex-wrap: wrap; gap: 12px; }
-        .room__feature { display: flex; align-items: center; gap: 8px; font-size: 0.82rem; color: var(--color-text-light); }
-        .room__feature svg { width: 16px; height: 16px; color: var(--color-terracotta); }
+        .room__name { font-family: var(--font-display); font-size: 1.4rem; font-weight: 600; margin-bottom: 10px; }
+        .room__desc { font-size: 0.92rem; color: var(--color-text-light); margin-bottom: 18px; line-height: 1.6; }
+        .room__features { display: flex; flex-wrap: wrap; gap: 10px; }
+        .room__feature { display: flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--color-text-light); background: var(--color-cream); padding: 8px 14px; }
+        .house--mauve .room__feature { background: white; }
+        .room__feature svg { width: 14px; height: 14px; color: var(--color-terracotta); }
 
-        /* Amenities Section */
-        .house__amenities { background: var(--color-bg-warm); padding: 60px; margin-top: 60px; }
-        .house--alt .house__amenities { background: var(--color-bg); }
-        .house__amenities-header { display: flex; align-items: center; gap: 15px; margin-bottom: 40px; }
-        .house__amenities-title { font-size: 1.3rem; }
-        .house__amenities-icon { width: 28px; height: 28px; color: var(--color-terracotta); }
+        /* Amenities */
+        .house__amenities { background: white; padding: 50px; }
+        .house--mauve .house__amenities { background: var(--color-cream); }
+        .house__amenities-header { display: flex; align-items: center; gap: 15px; margin-bottom: 35px; }
+        .house__amenities-title { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-terracotta); }
+        .house__amenities-icon { width: 24px; height: 24px; color: var(--color-terracotta); }
         
-        .amenities-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-        .amenity-category { }
-        .amenity-category__title { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-text-light); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid var(--color-border); }
-        .amenity-category__list { display: flex; flex-direction: column; gap: 12px; }
-        .amenity-item { display: flex; align-items: center; gap: 12px; font-size: 0.9rem; }
-        .amenity-item svg { width: 18px; height: 18px; color: var(--color-terracotta); flex-shrink: 0; }
+        .amenities-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
+        .amenity-category__title { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text-light); margin-bottom: 18px; padding-bottom: 10px; border-bottom: 1px solid rgba(0,0,0,0.1); }
+        .amenity-category__list { display: flex; flex-direction: column; gap: 10px; }
+        .amenity-item { display: flex; align-items: center; gap: 10px; font-size: 0.88rem; }
+        .amenity-item svg { width: 16px; height: 16px; color: var(--color-terracotta); flex-shrink: 0; }
 
         /* CTA */
-        .cta { padding: 100px 0; background: var(--color-bg-dark); color: var(--color-text-inverse); text-align: center; }
-        .cta h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 20px; }
+        .cta { padding: 100px 0; background: var(--color-charcoal); color: white; text-align: center; }
+        .cta h2 { color: var(--color-terracotta); margin-bottom: 15px; }
+        .cta h3 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 20px; }
         .cta p { opacity: 0.7; margin-bottom: 40px; }
-        .cta__btn { display: inline-block; padding: 18px 45px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; background: var(--color-terracotta); color: white; }
+        .cta__btn { display: inline-block; padding: 18px 50px; font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; background: var(--color-terracotta); color: white; font-weight: 700; }
 
-        .footer { background: var(--color-bg-dark); color: var(--color-text-inverse); padding: 60px 0 30px; text-align: center; }
+        /* Footer */
+        .footer { background: var(--color-charcoal); color: white; padding: 60px 0 30px; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); }
         .footer__logo { height: 40px; margin: 0 auto 20px; filter: brightness(0) invert(1); }
         .footer__links { display: flex; justify-content: center; gap: 30px; margin-bottom: 30px; flex-wrap: wrap; }
-        .footer__link { font-size: 0.85rem; opacity: 0.7; }
-        .footer__bottom { padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.8rem; opacity: 0.5; }
+        .footer__link { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.6; }
+        .footer__bottom { padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.75rem; opacity: 0.4; }
 
         @media (max-width: 1024px) {
             .house__header { grid-template-columns: 1fr; }
+            .house--mauve .house__header { direction: ltr; }
             .amenities-grid { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 768px) {
             .header__link { display: none; }
-            .section-nav__link { padding: 14px 12px; font-size: 0.58rem; }
+            .section-nav__link { padding: 14px 15px; font-size: 0.5rem; }
             .house__stats { gap: 25px; }
             .amenities-grid { grid-template-columns: 1fr; }
-            .house__amenities { padding: 40px 25px; }
             .rooms { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <header class="header">
+    <header class="header" id="header">
         <div class="container header__inner">
             <a href="index.html"><img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/8fb7c7fc-6e43-406c-b1c0-a65a59062cf6/CanPares_2-01.png?format=1500w" alt="Masia Can Pares" class="header__logo"></a>
             <div class="header__right">
                 <a href="https://www.masiacanpares.com/contact" class="header__link">Contact Us</a>
-                <a href="https://www.masiacanpares.com/book" class="header__cta">Reserve a Stay</a>
+                <a href="https://www.masiacanpares.com/book" class="header__cta">Book Now</a>
             </div>
         </div>
     </header>
 
-    <nav class="section-nav">
+    <nav class="section-nav" id="sectionNav">
         <div class="section-nav__inner">
             <ul class="section-nav__links">
                 <li><a href="history.html" class="section-nav__link">History</a></li>
@@ -143,21 +167,26 @@
 
     <section class="page-hero">
         <div class="container">
+            <div class="page-hero__badge">
+                <img src="shell-icon.png" alt="" class="page-hero__shell">
+            </div>
+            <p class="page-hero__overline">Masia Can Pares</p>
             <h1>Bedrooms</h1>
-            <p>Five beautifully appointed rooms across two independent guest houses</p>
+            <p>Five beautifully appointed bedrooms across two independent guest houses, each with its own character and charm.</p>
         </div>
     </section>
 
     <!-- Casa Blanca -->
-    <section class="house">
+    <section class="house house--cream">
         <div class="container">
             <div class="house__header">
                 <div class="house__header-image">
-                    <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/a702071a-6dff-400c-85e8-78c532c17199/MasiaCanPares_guesthouse" alt="Casa Blanca exterior">
+                    <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/a702071a-6dff-400c-85e8-78c532c17199/MasiaCanPares_guesthouse" alt="Casa Blanca">
                 </div>
                 <div class="house__header-content">
-                    <h2>Casa Blanca</h2>
-                    <p>Modern comfort meets Catalan heritage in our larger guest house. Bright, airy spaces with contemporary design elements seamlessly blend with traditional architecture. Each room opens to views of the botanical garden.</p>
+                    <h2>Guest House</h2>
+                    <h3>Casa Blanca</h3>
+                    <p>Modern comfort meets Catalan heritage in our larger guest house. Bright, airy spaces with contemporary design elements that blend seamlessly with traditional architecture. Each bedroom opens to views of the botanical garden.</p>
                     <div class="house__stats">
                         <div class="house__stat">
                             <div class="house__stat-value">3</div>
@@ -187,10 +216,10 @@
                     </div>
                     <div class="room__content">
                         <h3 class="room__name">Master Suite</h3>
-                        <p class="room__desc">Spacious master bedroom with king-size bed and panoramic garden views through floor-to-ceiling windows.</p>
+                        <p class="room__desc">Spacious main bedroom with king bed and panoramic garden views through floor-to-ceiling windows.</p>
                         <div class="room__features">
                             <span class="room__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> King Bed</span>
-                            <span class="room__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> Ensuite</span>
+                            <span class="room__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/></svg> En-suite</span>
                             <span class="room__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 3v4M3 5h4"/></svg> Garden View</span>
                         </div>
                     </div>
@@ -201,10 +230,10 @@
                     </div>
                     <div class="room__content">
                         <h3 class="room__name">Garden Room</h3>
-                        <p class="room__desc">Bright double room overlooking the botanical garden with private ensuite bathroom.</p>
+                        <p class="room__desc">Bright double room overlooking the botanical garden with private en-suite bathroom.</p>
                         <div class="room__features">
                             <span class="room__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> Double Bed</span>
-                            <span class="room__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> Ensuite</span>
+                            <span class="room__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/></svg> En-suite</span>
                         </div>
                     </div>
                 </div>
@@ -214,17 +243,16 @@
                     </div>
                     <div class="room__content">
                         <h3 class="room__name">Terrace Room</h3>
-                        <p class="room__desc">Cozy room with direct access to the private terrace, perfect for morning coffee.</p>
+                        <p class="room__desc">Cozy room with direct access to private terrace, perfect for morning coffee.</p>
                         <div class="room__features">
                             <span class="room__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> Twin Beds</span>
-                            <span class="room__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> Ensuite</span>
-                            <span class="room__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 8V4m0 0h4M4 4l5 5"/></svg> Terrace Access</span>
+                            <span class="room__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/></svg> En-suite</span>
+                            <span class="room__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 8V4m0 0h4M4 4l5 5"/></svg> Terrace</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Casa Blanca Amenities -->
             <div class="house__amenities">
                 <div class="house__amenities-header">
                     <svg class="house__amenities-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>
@@ -234,9 +262,9 @@
                     <div class="amenity-category">
                         <h4 class="amenity-category__title">Kitchen</h4>
                         <div class="amenity-category__list">
-                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Full equipped kitchen</div>
+                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Fully equipped kitchen</div>
                             <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Refrigerator</div>
-                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Oven & Stovetop</div>
+                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Oven & stovetop</div>
                             <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Dishwasher</div>
                             <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Nespresso machine</div>
                         </div>
@@ -265,7 +293,7 @@
                         <h4 class="amenity-category__title">Outdoor</h4>
                         <div class="amenity-category__list">
                             <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Private terrace</div>
-                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Outdoor dining set</div>
+                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Outdoor furniture</div>
                             <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>BBQ access</div>
                             <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Pool access</div>
                             <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Garden views</div>
@@ -277,12 +305,13 @@
     </section>
 
     <!-- Casa Mediterranea -->
-    <section class="house house--alt">
+    <section class="house house--mauve">
         <div class="container">
             <div class="house__header">
                 <div class="house__header-content">
-                    <h2>Casa Mediterranea</h2>
-                    <p>Rustic charm in our intimate cottage retreat. Exposed stone walls, wooden beams, and cozy spaces create an authentic Catalan atmosphere. Perfect for couples or small families seeking tranquility.</p>
+                    <h2>Guest House</h2>
+                    <h3>Casa Mediterranea</h3>
+                    <p>Rustic charm in our intimate cottage. Exposed stone walls, wooden beams, and cozy spaces create an authentic Catalan atmosphere. Perfect for couples or small families seeking tranquility.</p>
                     <div class="house__stats">
                         <div class="house__stat">
                             <div class="house__stat-value">2</div>
@@ -303,7 +332,7 @@
                     </div>
                 </div>
                 <div class="house__header-image">
-                    <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/c6e92c7a-69b9-4fca-8290-96b92b4d05d5/MasiaCanPares_guesthouse" alt="Casa Mediterranea exterior">
+                    <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/c6e92c7a-69b9-4fca-8290-96b92b4d05d5/MasiaCanPares_guesthouse" alt="Casa Mediterranea">
                 </div>
             </div>
 
@@ -315,10 +344,10 @@
                     </div>
                     <div class="room__content">
                         <h3 class="room__name">Main Bedroom</h3>
-                        <p class="room__desc">Charming room with exposed stone walls, original wooden beams, and soft natural light.</p>
+                        <p class="room__desc">Charming bedroom with exposed stone walls, original beams, and soft natural light.</p>
                         <div class="room__features">
                             <span class="room__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> Queen Bed</span>
-                            <span class="room__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16"/></svg> Historic Features</span>
+                            <span class="room__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16"/></svg> Heritage Features</span>
                         </div>
                     </div>
                 </div>
@@ -328,7 +357,7 @@
                     </div>
                     <div class="room__content">
                         <h3 class="room__name">Cozy Room</h3>
-                        <p class="room__desc">Intimate space perfect for children or a single traveler, with garden views.</p>
+                        <p class="room__desc">Intimate space perfect for children or a solo traveler, with garden views.</p>
                         <div class="room__features">
                             <span class="room__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> Twin Beds</span>
                             <span class="room__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 3v4M3 5h4"/></svg> Garden View</span>
@@ -337,7 +366,6 @@
                 </div>
             </div>
 
-            <!-- Casa Mediterranea Amenities -->
             <div class="house__amenities">
                 <div class="house__amenities-header">
                     <svg class="house__amenities-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>
@@ -349,15 +377,14 @@
                         <div class="amenity-category__list">
                             <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Kitchenette</div>
                             <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Mini fridge</div>
-                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Stovetop (2 burners)</div>
+                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>2-burner stovetop</div>
                             <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Coffee maker</div>
-                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Basic cookware</div>
                         </div>
                     </div>
                     <div class="amenity-category">
                         <h4 class="amenity-category__title">Living</h4>
                         <div class="amenity-category__list">
-                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Cozy living area</div>
+                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Cozy lounge</div>
                             <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Smart TV</div>
                             <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Book collection</div>
                             <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Dining area (4 pax)</div>
@@ -388,8 +415,9 @@
 
     <section class="cta">
         <div class="container">
-            <h2>Book Your Room</h2>
-            <p>Choose your dates and reserve your perfect retreat</p>
+            <h2>Ready to Book?</h2>
+            <h3>Reserve Your Room</h3>
+            <p>Choose your dates and book your perfect retreat</p>
             <a href="https://www.masiacanpares.com/book" class="cta__btn">Check Availability</a>
         </div>
     </section>
@@ -406,5 +434,18 @@
             <div class="footer__bottom"><p>© Masia Can Pares 2025</p></div>
         </div>
     </footer>
+
+    <script>
+        const header = document.getElementById('header');
+        const sectionNav = document.getElementById('sectionNav');
+        window.addEventListener('scroll', () => {
+            const navTop = sectionNav.getBoundingClientRect().top;
+            if (navTop <= 0) {
+                header.classList.add('header--hidden');
+            } else {
+                header.classList.remove('header--hidden');
+            }
+        });
+    </script>
 </body>
 </html>
