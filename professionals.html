@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professionals | Masia Can Pares - Film Location, Retreats, Corporate Events & Artist Residencies</title>
+    <meta name="description" content="Rent Masia Can Pares for film productions, wellness retreats, corporate offsites, private events, and artist residencies. A unique 16th century estate near Barcelona.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/8fb7c7fc-6e43-406c-b1c0-a65a59062cf6/CanPares_2-01.png?format=100w">
+    
+    <style>
+        @font-face {
+            font-family: 'Boogy Brut Poster';
+            src: url('fonts/BoogyBrutPoster-White.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        :root {
+            --color-cream: #FAF6F1;
+            --color-mauve: #C4B5B0;
+            --color-mustard: #E8B84A;
+            --color-sage: #A8B5A0;
+            --color-terracotta: #C4754A;
+            --color-charcoal: #2C2825;
+            --color-charcoal-light: #3D3835;
+            --color-text: #2C2825;
+            --color-text-light: #6B635A;
+            
+            --font-display: 'Boogy Brut Poster', 'Space Grotesk', sans-serif;
+            --font-mono: 'Space Mono', monospace;
+            --font-body: 'DM Sans', sans-serif;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); background: var(--color-cream); color: var(--color-text); line-height: 1.7; font-weight: 300; }
+        img { max-width: 100%; height: auto; display: block; }
+        a { color: inherit; text-decoration: none; }
+        h1 { font-family: var(--font-display); font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; }
+        h2 { font-family: var(--font-mono); font-weight: 400; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.8rem; }
+        h3 { font-family: var(--font-display); font-weight: 600; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 clamp(24px, 5vw, 60px); }
+
+        /* Header */
+        .header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 12px 0; background: var(--color-cream); border-bottom: 1px solid rgba(0,0,0,0.08); }
+        .header__inner { display: flex; justify-content: space-between; align-items: center; }
+        .header__logo img { height: 45px; width: auto; }
+        .header__right { display: flex; align-items: center; gap: 20px; }
+        .header__link { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; }
+        .header__lang { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; display: flex; align-items: center; gap: 4px; }
+        .header__lang svg { width: 12px; height: 12px; }
+        .header__btn { padding: 12px 22px; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; }
+        .header__btn--outline { border: 1.5px solid var(--color-charcoal); background: transparent; color: var(--color-charcoal); }
+        .header__btn--filled { background: var(--color-charcoal); color: white; border: 1.5px solid var(--color-charcoal); }
+
+        /* Page Hero - Dark */
+        .page-hero { padding: 170px 0 100px; background: var(--color-charcoal); text-align: center; }
+        .page-hero__overline { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-mustard); margin-bottom: 15px; }
+        .page-hero h1 { font-size: clamp(3rem, 8vw, 6rem); line-height: 0.9; margin-bottom: 25px; color: white; }
+        .page-hero p { font-size: 1.15rem; color: rgba(255,255,255,0.7); max-width: 600px; margin: 0 auto; line-height: 1.8; }
+
+        /* Intro Section */
+        .intro { padding: 100px 0; background: var(--color-cream); }
+        .intro__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+        .intro__content h2 { color: var(--color-terracotta); margin-bottom: 15px; }
+        .intro__content h3 { font-size: clamp(1.8rem, 3vw, 2.4rem); margin-bottom: 25px; line-height: 1.2; }
+        .intro__content p { font-size: 1.05rem; color: var(--color-text-light); line-height: 1.9; margin-bottom: 20px; }
+        .intro__image { height: 500px; overflow: hidden; }
+        .intro__image img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* Services Grid */
+        .services { padding: 100px 0; }
+        .services--dark { background: var(--color-charcoal); }
+        .services--cream { background: var(--color-cream); }
+        .services--mauve { background: var(--color-mauve); }
+        .services--mustard { background: var(--color-mustard); }
+        .services--sage { background: var(--color-sage); }
+
+        .services__header { text-align: center; margin-bottom: 70px; }
+        .services--dark .services__header h2 { color: var(--color-mustard); }
+        .services--dark .services__header h3 { color: white; }
+        .services--dark .services__header p { color: rgba(255,255,255,0.7); }
+        .services__header h2 { margin-bottom: 15px; }
+        .services__header h3 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 20px; }
+        .services__header p { font-size: 1.1rem; color: var(--color-text-light); max-width: 600px; margin: 0 auto; line-height: 1.8; }
+
+        .services__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .services__grid--reverse { direction: rtl; }
+        .services__grid--reverse > * { direction: ltr; }
+
+        .services__image { height: 450px; overflow: hidden; }
+        .services__image img { width: 100%; height: 100%; object-fit: cover; }
+
+        .services__content h2 { margin-bottom: 15px; }
+        .services--dark .services__content h2 { color: var(--color-mustard); }
+        .services__content h3 { font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: 20px; line-height: 1.2; }
+        .services--dark .services__content h3 { color: white; }
+        .services__content p { font-size: 1rem; color: var(--color-text-light); line-height: 1.9; margin-bottom: 15px; }
+        .services--dark .services__content p { color: rgba(255,255,255,0.7); }
+
+        .services__features { margin-top: 25px; }
+        .services__feature { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; font-size: 0.95rem; }
+        .services__feature-icon { width: 20px; height: 20px; background: var(--color-mustard); border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
+        .services__feature-icon svg { width: 12px; height: 12px; stroke: var(--color-charcoal); }
+        .services--dark .services__feature { color: rgba(255,255,255,0.85); }
+
+        .services__btn { display: inline-block; margin-top: 30px; padding: 16px 35px; font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; background: var(--color-charcoal); color: white; transition: all 0.3s ease; }
+        .services__btn:hover { background: var(--color-terracotta); }
+        .services--dark .services__btn { background: var(--color-mustard); color: var(--color-charcoal); }
+        .services--dark .services__btn:hover { background: white; }
+
+        /* Residencies Section - 3 Cards */
+        .residencies { padding: 100px 0; background: var(--color-sage); }
+        .residencies__header { text-align: center; margin-bottom: 70px; }
+        .residencies__header h2 { color: var(--color-charcoal); margin-bottom: 15px; }
+        .residencies__header h3 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 20px; color: var(--color-charcoal); }
+        .residencies__header p { font-size: 1.1rem; color: var(--color-text); max-width: 600px; margin: 0 auto; line-height: 1.8; opacity: 0.8; }
+
+        .residencies__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .residency-card { background: var(--color-cream); overflow: hidden; }
+        .residency-card__image { height: 250px; overflow: hidden; }
+        .residency-card__image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .residency-card:hover .residency-card__image img { transform: scale(1.05); }
+        .residency-card__content { padding: 30px; }
+        .residency-card__content h4 { font-family: var(--font-display); font-size: 1.4rem; margin-bottom: 12px; }
+        .residency-card__content p { font-size: 0.95rem; color: var(--color-text-light); line-height: 1.8; }
+
+        /* CTA */
+        .cta { padding: 120px 0; background: var(--color-terracotta); text-align: center; }
+        .cta h2 { color: white; opacity: 0.8; margin-bottom: 15px; }
+        .cta h3 { font-size: clamp(2.5rem, 5vw, 4rem); color: white; margin-bottom: 20px; }
+        .cta p { font-size: 1.1rem; color: rgba(255,255,255,0.8); max-width: 500px; margin: 0 auto 40px; line-height: 1.8; }
+        .cta__btn { display: inline-block; padding: 18px 45px; font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; background: white; color: var(--color-charcoal); transition: all 0.3s ease; }
+        .cta__btn:hover { background: var(--color-charcoal); color: white; }
+
+        /* Footer */
+        .footer { background: var(--color-charcoal); color: white; padding: 80px 0 40px; }
+        .footer__grid { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; margin-bottom: 60px; }
+        .footer__logo { display: block; margin-bottom: 25px; }
+        .footer__logo img { height: 45px; width: auto; margin: 0 auto; filter: brightness(0) invert(1); }
+        .footer__links { display: flex; gap: 30px; flex-wrap: wrap; }
+        .footer__link { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.7; transition: opacity 0.3s; }
+        .footer__link:hover { opacity: 1; }
+        .footer__lang { display: flex; gap: 15px; }
+        .footer__lang a { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; opacity: 0.5; transition: opacity 0.3s; }
+        .footer__lang a:hover, .footer__lang a.active { opacity: 1; }
+        .footer__bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; text-align: center; font-size: 0.75rem; opacity: 0.5; }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .intro__grid { grid-template-columns: 1fr; gap: 50px; }
+            .intro__image { height: 400px; }
+            .services__grid { grid-template-columns: 1fr; gap: 50px; }
+            .services__grid--reverse { direction: ltr; }
+            .services__image { height: 350px; }
+            .residencies__grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .header__link, .header__lang { display: none; }
+            .page-hero { padding: 140px 0 70px; }
+            .intro, .services, .residencies { padding: 70px 0; }
+            .residencies__grid { grid-template-columns: 1fr; }
+            .footer__grid { flex-direction: column; text-align: center; }
+            .footer__links { justify-content: center; }
+            .footer__lang { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <a href="index.html" class="header__logo"><img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/8fb7c7fc-6e43-406c-b1c0-a65a59062cf6/CanPares_2-01.png?format=500w" alt="Can Pares"></a>
+                <div class="header__right">
+                    <a href="https://www.masiacanpares.com/contact" class="header__link">Contact Us</a>
+                    <div class="header__lang">EN <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+                    <a href="https://www.masiacanpares.com/book" class="header__btn header__btn--outline">Reserve a Stay</a>
+                    <a href="#" class="header__btn header__btn--filled">Sign In</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <p class="page-hero__overline">For Professionals</p>
+            <h1>Your Next Project Starts Here</h1>
+            <p>A unique 16th century estate with modern amenities, stunning locations, and endless creative possibilities—available for film, wellness, corporate, and artistic endeavors.</p>
+        </div>
+    </section>
+
+    <!-- Intro -->
+    <section class="intro">
+        <div class="container">
+            <div class="intro__grid">
+                <div class="intro__content">
+                    <h2>A Versatile Location</h2>
+                    <h3>20,000m² of Possibilities</h3>
+                    <p>Can Pares offers professionals an extraordinary setting that combines historic Catalan architecture with contemporary comfort. From the 16th century masia to the botanical garden, from the professional kitchen to the music studio—every corner tells a story.</p>
+                    <p>Whether you're scouting for your next film location, planning a wellness retreat, organizing a corporate offsite, or seeking creative inspiration for an artistic residency, Can Pares provides the space, the infrastructure, and the tranquility you need.</p>
+                </div>
+                <div class="intro__image">
+                    <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/b012d41d-ab57-414e-adb0-40ac603952c5/Masia+Can+Pares_Principal" alt="Masia Can Pares estate">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Film & Photo -->
+    <section class="services services--dark">
+        <div class="container">
+            <div class="services__grid">
+                <div class="services__image">
+                    <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/90d3b02c-0857-4374-8829-ed2bdda2c4a0/Can+Pares-2842.jpg" alt="Film location at Can Pares">
+                </div>
+                <div class="services__content">
+                    <h2>Film & Photo</h2>
+                    <h3>An Inspiring Film Location</h3>
+                    <p>With its diverse settings—from rustic stone walls to lush Mediterranean gardens, from minimalist interiors to dramatic landscapes—Can Pares offers endless possibilities for film productions, photo shoots, and advertising campaigns.</p>
+                    <div class="services__features">
+                        <div class="services__feature">
+                            <span class="services__feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>
+                            <span>Diverse indoor & outdoor settings</span>
+                        </div>
+                        <div class="services__feature">
+                            <span class="services__feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>
+                            <span>Natural light throughout the day</span>
+                        </div>
+                        <div class="services__feature">
+                            <span class="services__feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>
+                            <span>Power access & production-friendly spaces</span>
+                        </div>
+                        <div class="services__feature">
+                            <span class="services__feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>
+                            <span>On-site accommodation for crew</span>
+                        </div>
+                    </div>
+                    <a href="https://www.masiacanpares.com/contact" class="services__btn">Request Location Pack</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wellness Retreats -->
+    <section class="services services--cream">
+        <div class="container">
+            <div class="services__grid services__grid--reverse">
+                <div class="services__image">
+                    <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/beb62da7-c19a-40d9-8c23-51b6e74b9f5c/MasiaCanPares_pool2.jpg" alt="Wellness retreat at Can Pares">
+                </div>
+                <div class="services__content">
+                    <h2>Wellness & Retreats</h2>
+                    <h3>Host Your Next Retreat</h3>
+                    <p>Wellness professionals find in Can Pares the perfect environment to host yoga retreats, meditation workshops, holistic healing sessions, and transformative experiences. The tranquil setting and versatile spaces support deep work and genuine connection.</p>
+                    <div class="services__features">
+                        <div class="services__feature">
+                            <span class="services__feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>
+                            <span>Indoor & outdoor practice spaces</span>
+                        </div>
+                        <div class="services__feature">
+                            <span class="services__feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>
+                            <span>Pool, garden & meditation corners</span>
+                        </div>
+                        <div class="services__feature">
+                            <span class="services__feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>
+                            <span>Professional kitchen for healthy catering</span>
+                        </div>
+                        <div class="services__feature">
+                            <span class="services__feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>
+                            <span>Accommodation for up to 10 guests</span>
+                        </div>
+                    </div>
+                    <a href="https://www.masiacanpares.com/contact" class="services__btn">Plan Your Retreat</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Corporate -->
+    <section class="services services--dark">
+        <div class="container">
+            <div class="services__grid">
+                <div class="services__image">
+                    <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/ebca5b0b-1817-498b-b7c0-01a4f0a0d1cc/MasiaCanPares_guesthouse2" alt="Corporate offsite at Can Pares">
+                </div>
+                <div class="services__content">
+                    <h2>Corporate & Teams</h2>
+                    <h3>Offsites That Inspire</h3>
+                    <p>Step away from the office and into a space designed for creative thinking, team building, and strategic planning. Can Pares offers the perfect blend of professional functionality and inspiring surroundings for your next corporate offsite or seminar.</p>
+                    <div class="services__features">
+                        <div class="services__feature">
+                            <span class="services__feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>
+                            <span>Meeting spaces for 5-30 people</span>
+                        </div>
+                        <div class="services__feature">
+                            <span class="services__feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>
+                            <span>High-speed WiFi throughout</span>
+                        </div>
+                        <div class="services__feature">
+                            <span class="services__feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>
+                            <span>Team building activities on-site</span>
+                        </div>
+                        <div class="services__feature">
+                            <span class="services__feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>
+                            <span>Catering options available</span>
+                        </div>
+                    </div>
+                    <a href="https://www.masiacanpares.com/contact" class="services__btn">Enquire for Teams</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events & Catering -->
+    <section class="services services--mauve">
+        <div class="container">
+            <div class="services__grid services__grid--reverse">
+                <div class="services__image">
+                    <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/ef8f6e4b-d5f9-4e5f-86a5-e0b4b4e5b1a1/MasiaCanPares_kitchen" alt="Professional kitchen at Can Pares">
+                </div>
+                <div class="services__content">
+                    <h2>Events & Catering</h2>
+                    <h3>Celebrate in Style</h3>
+                    <p>From intimate dinners to festive gatherings, Can Pares provides a magical setting for private events. Our professional-grade kitchen allows caterers—or talented guests—to create unforgettable culinary experiences.</p>
+                    <div class="services__features">
+                        <div class="services__feature">
+                            <span class="services__feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>
+                            <span>Professional kitchen with top equipment</span>
+                        </div>
+                        <div class="services__feature">
+                            <span class="services__feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>
+                            <span>Indoor & outdoor dining spaces</span>
+                        </div>
+                        <div class="services__feature">
+                            <span class="services__feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>
+                            <span>Garden & poolside for receptions</span>
+                        </div>
+                        <div class="services__feature">
+                            <span class="services__feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></span>
+                            <span>Local caterer recommendations</span>
+                        </div>
+                    </div>
+                    <a href="https://www.masiacanpares.com/contact" class="services__btn">Plan Your Event</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Artist Residencies -->
+    <section class="residencies">
+        <div class="container">
+            <div class="residencies__header">
+                <h2>Creative Residencies</h2>
+                <h3>A Sanctuary for Artists</h3>
+                <p>Can Pares welcomes artists seeking inspiration, focus, and the space to create. Our residency programs support musicians, visual artists, writers, and culinary artists.</p>
+            </div>
+            <div class="residencies__grid">
+                <div class="residency-card">
+                    <div class="residency-card__image">
+                        <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/202ea870-a449-4105-a79b-86730ed55750/Can+Pares-2820.jpg" alt="Music studio">
+                    </div>
+                    <div class="residency-card__content">
+                        <h4>Music Residencies</h4>
+                        <p>Our fully equipped music studio provides everything musicians need to compose, record, and produce. From singer-songwriters to full bands, find your sound in complete tranquility.</p>
+                    </div>
+                </div>
+                <div class="residency-card">
+                    <div class="residency-card__image">
+                        <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/a702071a-6dff-400c-85e8-78c532c17199/MasiaCanPares_guesthouse" alt="Artist workspace">
+                    </div>
+                    <div class="residency-card__content">
+                        <h4>Artist Residencies</h4>
+                        <p>Visual artists, writers, and creators find inspiration in our gardens, our light, and our spaces. Work in solitude or collaborate with fellow residents in an environment designed for deep creative work.</p>
+                    </div>
+                </div>
+                <div class="residency-card">
+                    <div class="residency-card__image">
+                        <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/ef8f6e4b-d5f9-4e5f-86a5-e0b4b4e5b1a1/MasiaCanPares_kitchen" alt="Professional kitchen">
+                    </div>
+                    <div class="residency-card__content">
+                        <h4>Culinary Residencies</h4>
+                        <p>Chefs and culinary artists can explore Mediterranean ingredients, develop new recipes, and host intimate dining experiences using our professional-grade kitchen and local produce.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Create?</h2>
+            <h3>Let's Talk</h3>
+            <p>Tell us about your project and let's explore how Can Pares can become the backdrop for your next endeavor.</p>
+            <a href="https://www.masiacanpares.com/contact" class="cta__btn">Get in Touch</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <a href="index.html" class="footer__logo"><img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/8fb7c7fc-6e43-406c-b1c0-a65a59062cf6/CanPares_2-01.png?format=500w" alt="Can Pares"></a>
+                <div class="footer__links">
+                    <a href="history.html" class="footer__link">History</a>
+                    <a href="stay.html" class="footer__link">Stay</a>
+                    <a href="designed-for.html" class="footer__link">Designed For</a>
+                    <a href="experiences.html" class="footer__link">Experiences</a>
+                    <a href="location.html" class="footer__link">Location</a>
+                    <a href="professionals.html" class="footer__link">Professionals</a>
+                    <a href="https://www.masiacanpares.com/contact" class="footer__link">Contact</a>
+                </div>
+                <div class="footer__lang">
+                    <a href="professionals.html" class="active">EN</a>
+                    <a href="professionals-fr.html">FR</a>
+                    <a href="professionals-es.html">ES</a>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>© Masia Can Pares 2025 · Torre del Veguer, Sant Pere de Ribes</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
