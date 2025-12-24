@@ -40,57 +40,59 @@
         .container { max-width: 1400px; margin: 0 auto; padding: 0 clamp(24px, 5vw, 60px); }
 
         /* Header */
-        .header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 0; background: rgba(250, 246, 241, 0.97); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.05); transition: transform 0.3s; }
-        .header--hidden { transform: translateY(-100%); }
+        .header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 18px 0; background: var(--color-cream); border-bottom: 1px solid rgba(0,0,0,0.08); }
         .header__inner { display: flex; justify-content: space-between; align-items: center; }
-        .header__logo { height: 50px; transition: height 0.3s; }
-        .header--scrolled .header__logo { height: 40px; }
-        .header__right { display: flex; align-items: center; gap: 25px; }
-        .header__link { font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; }
-        .header__lang { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 8px 12px; border: 1px solid var(--color-charcoal); }
-        .header__cta { padding: 14px 28px; font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; background: var(--color-charcoal); color: white; }
+        .header__logo { font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; line-height: 1; letter-spacing: -0.02em; }
+        .header__logo span { display: block; }
+        .header__right { display: flex; align-items: center; gap: 20px; }
+        .header__link { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; }
+        .header__lang { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; display: flex; align-items: center; gap: 4px; }
+        .header__lang svg { width: 12px; height: 12px; }
+        .header__btn { padding: 12px 22px; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; }
+        .header__btn--outline { border: 1.5px solid var(--color-charcoal); background: transparent; color: var(--color-charcoal); }
+        .header__btn--filled { background: var(--color-charcoal); color: white; border: 1.5px solid var(--color-charcoal); }
 
         /* Secondary Nav */
-        .section-nav { position: sticky; top: 0; z-index: 999; background: var(--color-mustard); }
+        .section-nav { position: sticky; top: 70px; z-index: 999; background: var(--color-mustard); }
         .section-nav__inner { display: flex; justify-content: center; }
         .section-nav__links { display: flex; list-style: none; overflow-x: auto; scrollbar-width: none; }
         .section-nav__links::-webkit-scrollbar { display: none; }
-        .section-nav__link { display: block; padding: 16px 30px; font-family: var(--font-mono); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-charcoal); white-space: nowrap; }
+        .section-nav__link { display: block; padding: 18px 35px; font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-charcoal); white-space: nowrap; }
         .section-nav__link:hover { background: rgba(0,0,0,0.08); }
+        .section-nav__link.active { background: rgba(0,0,0,0.12); }
 
         /* Hero */
-        .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; background: var(--color-cream); padding-top: 85px; }
+        .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; background: var(--color-cream); padding-top: 70px; }
         .hero__bg { position: absolute; inset: 0; z-index: 0; }
         .hero__slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.5s ease-in-out; }
         .hero__slide.active { opacity: 1; }
         .hero__slide img { width: 100%; height: 100%; object-fit: cover; }
-        .hero__overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(250,246,241,0.3) 0%, rgba(250,246,241,0.6) 100%); }
+        .hero__overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(250,246,241,0.2) 0%, rgba(250,246,241,0.5) 100%); }
         .hero__content { position: relative; z-index: 2; text-align: center; padding: 60px; }
-        .hero__badge { width: 140px; height: 140px; margin: 0 auto 40px; background: var(--color-cream); border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 15px 50px rgba(0,0,0,0.15); }
-        .hero__badge-shell { width: 60px; height: auto; margin-bottom: 8px; filter: grayscale(100%) contrast(1.2); }
-        .hero__badge-text { font-family: var(--font-mono); font-size: 0.5rem; letter-spacing: 0.12em; text-transform: uppercase; }
-        .hero__overline { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--color-text-light); margin-bottom: 20px; }
+        .hero__overline { font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--color-text-light); margin-bottom: 20px; }
         .hero h1 { font-size: clamp(4rem, 12vw, 10rem); line-height: 0.85; margin-bottom: 30px; }
         .hero__subtitle { font-size: 1.15rem; color: var(--color-text-light); max-width: 500px; margin: 0 auto 40px; line-height: 1.8; }
         .hero__ctas { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
-        .hero__btn { padding: 18px 40px; font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; }
+        .hero__btn { padding: 18px 40px; font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; }
         .hero__btn--primary { background: var(--color-charcoal); color: white; }
         .hero__btn--secondary { background: transparent; color: var(--color-charcoal); border: 2px solid var(--color-charcoal); }
 
-        /* Hidden Paradise Section - Mauve */
-        .paradise { padding: 120px 0; background: var(--color-mauve); }
-        .paradise__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-        .paradise__content h2 { color: var(--color-charcoal); margin-bottom: 15px; }
-        .paradise__content h3 { font-size: clamp(2.2rem, 4vw, 3.2rem); margin-bottom: 30px; color: var(--color-charcoal); }
-        .paradise__text { font-size: 1.05rem; line-height: 1.9; color: var(--color-charcoal); opacity: 0.85; margin-bottom: 20px; }
-        .paradise__stats { display: flex; gap: 50px; margin-top: 45px; padding-top: 45px; border-top: 1px solid rgba(0,0,0,0.15); }
-        .paradise__stat-value { font-family: var(--font-display); font-size: 3rem; font-weight: 700; color: var(--color-charcoal); line-height: 1; }
-        .paradise__stat-label { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-charcoal); opacity: 0.7; margin-top: 10px; }
-        .paradise__image { position: relative; }
-        .paradise__image img { width: 100%; height: 550px; object-fit: cover; }
-        .paradise__badge { position: absolute; bottom: -35px; right: -35px; width: 140px; height: 140px; background: var(--color-cream); border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 20px; box-shadow: 0 15px 50px rgba(0,0,0,0.15); }
-        .paradise__badge-shell { width: 50px; height: auto; margin-bottom: 8px; filter: grayscale(100%) contrast(1.2); }
-        .paradise__badge-text { font-family: var(--font-mono); font-size: 0.5rem; letter-spacing: 0.1em; text-transform: uppercase; line-height: 1.4; }
+        /* Story Section - 3 Column Layout */
+        .story { padding: 100px 0; background: var(--color-cream); }
+        .story__grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; }
+        .story__col { display: flex; flex-direction: column; }
+        .story__col--left h2 { font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 400; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 30px; line-height: 1.2; }
+        .story__col--left p { font-size: 1rem; line-height: 1.9; color: var(--color-text); margin-bottom: 30px; }
+        .story__col--left .story__image { margin-top: auto; }
+        .story__col--left .story__image img { width: 100%; height: 350px; object-fit: cover; }
+        .story__col--center .story__image { height: 100%; }
+        .story__col--center .story__image img { width: 100%; height: 100%; min-height: 500px; object-fit: cover; }
+        .story__col--right { padding-top: 20px; }
+        .story__col--right p { font-size: 1rem; line-height: 1.9; color: var(--color-text); margin-bottom: 30px; }
+        .story__col--right .story__image { margin-bottom: 25px; }
+        .story__col--right .story__image img { width: 100%; height: 280px; object-fit: cover; }
+        .story__link { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; display: inline-flex; align-items: center; gap: 10px; }
+        .story__link svg { width: 16px; height: 16px; }
 
         /* Houses Section - Cream */
         .houses { padding: 120px 0; background: var(--color-cream); }
@@ -141,29 +143,30 @@
 
         /* Footer */
         .footer { background: var(--color-charcoal); color: white; padding: 60px 0 30px; border-top: 1px solid rgba(255,255,255,0.1); }
-        .footer__grid { display: grid; grid-template-columns: 1fr 2fr 1fr; gap: 60px; margin-bottom: 50px; }
-        .footer__logo { height: 50px; filter: brightness(0) invert(1); }
+        .footer__grid { display: grid; grid-template-columns: 1fr 2fr 1fr; gap: 60px; margin-bottom: 50px; align-items: start; }
+        .footer__logo { font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; line-height: 1; }
+        .footer__logo span { display: block; }
         .footer__links { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
-        .footer__link { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.6; }
+        .footer__link { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.6; }
+        .footer__link:hover { opacity: 1; }
         .footer__lang { display: flex; gap: 15px; justify-content: flex-end; }
-        .footer__lang a { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.1em; opacity: 0.6; }
+        .footer__lang a { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; opacity: 0.6; }
         .footer__lang a.active { opacity: 1; }
         .footer__bottom { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.75rem; opacity: 0.4; }
 
         @media (max-width: 1024px) {
-            .paradise__grid, .founders__grid { grid-template-columns: 1fr; }
+            .story__grid { grid-template-columns: 1fr; gap: 50px; }
+            .story__col--center .story__image img { min-height: 400px; }
             .houses__grid { grid-template-columns: 1fr; }
             .designed-for__grid { grid-template-columns: repeat(3, 1fr); }
+            .founders__grid { grid-template-columns: 1fr; }
             .footer__grid { grid-template-columns: 1fr; text-align: center; }
             .footer__lang { justify-content: center; }
         }
         @media (max-width: 768px) {
-            .header__link { display: none; }
-            .section-nav__link { padding: 14px 15px; font-size: 0.5rem; }
-            .paradise__stats { flex-wrap: wrap; gap: 30px; }
+            .header__link, .header__lang { display: none; }
+            .section-nav__link { padding: 16px 18px; font-size: 0.65rem; }
             .designed-for__grid { grid-template-columns: 1fr 1fr; }
-            .hero__badge { width: 110px; height: 110px; }
-            .hero__badge-shell { width: 45px; }
         }
         @media (max-width: 480px) {
             .designed-for__grid { grid-template-columns: 1fr; }
@@ -173,11 +176,12 @@
 <body>
     <header class="header" id="header">
         <div class="container header__inner">
-            <a href="index.html"><img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/8fb7c7fc-6e43-406c-b1c0-a65a59062cf6/CanPares_2-01.png?format=1500w" alt="Masia Can Pares" class="header__logo"></a>
+            <a href="index.html" class="header__logo"><span>CAN</span><span>PARES</span></a>
             <div class="header__right">
                 <a href="https://www.masiacanpares.com/contact" class="header__link">Contact Us</a>
-                <a href="#" class="header__lang">EN</a>
-                <a href="https://www.masiacanpares.com/book" class="header__cta">Book Now</a>
+                <a href="#" class="header__lang">EN <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
+                <a href="https://www.masiacanpares.com/book" class="header__btn header__btn--outline">Reserve a Stay</a>
+                <a href="#" class="header__btn header__btn--filled">Sign In</a>
             </div>
         </div>
     </header>
@@ -211,10 +215,6 @@
             <div class="hero__overlay"></div>
         </div>
         <div class="hero__content">
-            <div class="hero__badge">
-                <img src="shell-icon.png" alt="" class="hero__badge-shell">
-                <span class="hero__badge-text">Est. XVI</span>
-            </div>
             <p class="hero__overline">Torre del Veguer · Sant Pere de Ribes</p>
             <h1>CAN PARES</h1>
             <p class="hero__subtitle">A hidden paradise within a 20,000m² botanical garden, minutes from Barcelona and the Mediterranean sea.</p>
@@ -225,37 +225,28 @@
         </div>
     </section>
 
-    <!-- Hidden Paradise Section -->
-    <section class="paradise">
+    <!-- Story Section - 3 Columns -->
+    <section class="story">
         <div class="container">
-            <div class="paradise__grid">
-                <div class="paradise__content">
-                    <h2>A Hidden Paradise</h2>
-                    <h3>Your Private Botanical Sanctuary</h3>
-                    <p class="paradise__text">Both guest houses share an extraordinary botanical garden spanning over 20,000m², home to more than 600 different trees and countless hidden corners waiting to be discovered.</p>
-                    <p class="paradise__text">An 18-meter swimming pool sits serenely within this green paradise, offering the perfect spot for morning laps or afternoon relaxation. This is a confidential retreat, hidden from the world, where nature embraces you at every turn.</p>
-                    <p class="paradise__text">Every path leads to a new discovery—a shaded reading nook, a sun-drenched terrace, a fragrant herb garden. This is your private Mediterranean escape.</p>
-                    <div class="paradise__stats">
-                        <div class="paradise__stat">
-                            <div class="paradise__stat-value">20,000</div>
-                            <div class="paradise__stat-label">Square Meters</div>
-                        </div>
-                        <div class="paradise__stat">
-                            <div class="paradise__stat-value">600+</div>
-                            <div class="paradise__stat-label">Different Trees</div>
-                        </div>
-                        <div class="paradise__stat">
-                            <div class="paradise__stat-value">18m</div>
-                            <div class="paradise__stat-label">Pool Length</div>
-                        </div>
+            <div class="story__grid">
+                <div class="story__col story__col--left">
+                    <h2>A Story to Live</h2>
+                    <p>Set in the hills of Sant Pere de Ribes, just 10 minutes from Sitges and 35 from Barcelona, Can Pares embodies the dream of a Catalan country retreat. A fully renovated 16th-century masia, it welcomes its guests—whether families, groups of friends or teams—to stay in a unique setting, nestled in the Mediterranean landscape.</p>
+                    <div class="story__image">
+                        <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/90d3b02c-0857-4374-8829-ed2bdda2c4a0/Can+Pares-2842.jpg" alt="Garden View">
                     </div>
                 </div>
-                <div class="paradise__image">
-                    <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/90d3b02c-0857-4374-8829-ed2bdda2c4a0/Can+Pares-2842.jpg" alt="Botanical Garden">
-                    <div class="paradise__badge">
-                        <img src="shell-icon.png" alt="" class="paradise__badge-shell">
-                        <span class="paradise__badge-text">Hidden<br>Paradise</span>
+                <div class="story__col story__col--center">
+                    <div class="story__image">
+                        <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/ce1286d7-2a38-4933-bf75-c34b7f0c9f76/Can+Pares-2699.jpg" alt="Interior Window">
                     </div>
+                </div>
+                <div class="story__col story__col--right">
+                    <p>Over five centuries, the estate has evolved from a working agricultural farm to a hidden paradise. Today, its 20,000m² botanical garden—home to over 600 different trees—offers countless corners to discover: an 18-meter pool, sun-drenched terraces, shaded reading nooks, and fragrant herb gardens.</p>
+                    <div class="story__image">
+                        <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/202ea870-a449-4105-a79b-86730ed55750/Can+Pares-2820.jpg" alt="Staircase">
+                    </div>
+                    <a href="history.html" class="story__link">Read more about the story of Can Pares <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
                 </div>
             </div>
         </div>
@@ -400,9 +391,7 @@
     <footer class="footer">
         <div class="container">
             <div class="footer__grid">
-                <div>
-                    <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/8fb7c7fc-6e43-406c-b1c0-a65a59062cf6/CanPares_2-01.png?format=1500w" alt="Masia Can Pares" class="footer__logo">
-                </div>
+                <div class="footer__logo"><span>CAN</span><span>PARES</span></div>
                 <div class="footer__links">
                     <a href="history.html" class="footer__link">History</a>
                     <a href="bedrooms.html" class="footer__link">Bedrooms</a>
@@ -432,30 +421,6 @@
             current = (current + 1) % slides.length;
             slides[current].classList.add('active');
         }, 5000);
-
-        // Header behavior
-        const header = document.getElementById('header');
-        const sectionNav = document.getElementById('sectionNav');
-        let lastScroll = 0;
-        
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            const navTop = sectionNav.getBoundingClientRect().top;
-            
-            if (navTop <= 0) {
-                header.classList.add('header--hidden');
-            } else {
-                header.classList.remove('header--hidden');
-            }
-            
-            if (currentScroll > 100) {
-                header.classList.add('header--scrolled');
-            } else {
-                header.classList.remove('header--scrolled');
-            }
-            
-            lastScroll = currentScroll;
-        });
     </script>
 </body>
 </html>

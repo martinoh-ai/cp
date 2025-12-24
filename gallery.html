@@ -3,150 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Step Inside | Masia Can Pares - Photo Gallery of Historic Catalan Estate</title>
-    <meta name="description" content="Explore the beautiful spaces of Masia Can Pares through our photo gallery. See our 16th-century architecture, botanical garden, swimming pool, guest houses, and stunning Catalan interiors.">
-    <meta name="keywords" content="masia can pares photos, guest house gallery, catalan farmhouse pictures, sitges accommodation images, barcelona villa photos">
-    <link rel="canonical" href="https://www.masiacanpares.com/gallery.html">
-    
-    <meta property="og:title" content="Step Inside Masia Can Pares | Photo Gallery">
-    <meta property="og:description" content="Explore every corner of our historic Catalan estate through our comprehensive photo gallery.">
-    <meta property="og:image" content="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/be15e475-90fb-4d85-a030-da846cd2e0f2/57E589AB-3BD7-41C0-BCF0-0EFBADFDE6F9-12910-00000411C07D1734.JPG">
+    <title>Step Inside | Masia Can Pares - Photo Gallery</title>
+    <meta name="description" content="Explore Masia Can Pares through our photo gallery. See the botanical gardens, guest houses, pool, and historic architecture of this 16th century Catalan estate.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/8fb7c7fc-6e43-406c-b1c0-a65a59062cf6/CanPares_2-01.png?format=100w">
     
     <style>
         :root {
-            --color-bg: #FAF8F5; --color-bg-warm: #F3EDE4; --color-bg-dark: #2C2825;
-            --color-text: #2C2825; --color-text-light: #6B635A; --color-text-inverse: #FAF8F5;
-            --color-terracotta: #C4754A; --color-border: #DDD5C8; --color-gold: #D4B062;
-            --font-display: 'Cormorant', Georgia, serif; --font-body: 'Outfit', sans-serif;
+            --color-cream: #FAF6F1;
+            --color-mauve: #C4B5B0;
+            --color-mustard: #E8B84A;
+            --color-sage: #A8B5A0;
+            --color-terracotta: #C4754A;
+            --color-charcoal: #2C2825;
+            --color-text: #2C2825;
+            --color-text-light: #6B635A;
+            --font-display: 'Space Grotesk', sans-serif;
+            --font-mono: 'Space Mono', monospace;
+            --font-body: 'DM Sans', sans-serif;
         }
+
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: var(--font-body); background: var(--color-bg); color: var(--color-text); line-height: 1.7; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); background: var(--color-cream); color: var(--color-text); line-height: 1.7; font-weight: 300; }
         img { max-width: 100%; height: auto; display: block; }
         a { color: inherit; text-decoration: none; }
-        h1, h2 { font-family: var(--font-display); font-weight: 400; }
+        h1 { font-family: var(--font-display); font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; }
+        h2 { font-family: var(--font-mono); font-weight: 400; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.8rem; }
+        h3 { font-family: var(--font-display); font-weight: 600; }
         .container { max-width: 1400px; margin: 0 auto; padding: 0 clamp(24px, 5vw, 60px); }
 
-        /* Header */
-        .header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 20px 0; background: rgba(250, 248, 245, 0.97); backdrop-filter: blur(20px); border-bottom: 1px solid var(--color-border); }
+        .header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 18px 0; background: var(--color-cream); border-bottom: 1px solid rgba(0,0,0,0.08); }
+        
         .header__inner { display: flex; justify-content: space-between; align-items: center; }
-        .header__logo { height: 45px; }
-        .header__right { display: flex; align-items: center; gap: 25px; }
-        .header__link { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; transition: opacity 0.3s; }
-        .header__link:hover { opacity: 0.7; }
-        .header__lang { position: relative; display: flex; align-items: center; gap: 6px; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; padding: 8px 0; }
-        .header__lang svg { width: 10px; height: 10px; }
-        .header__lang-dropdown { position: absolute; top: 100%; right: 0; background: white; border: 1px solid var(--color-border); min-width: 120px; opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.3s; box-shadow: 0 10px 40px rgba(0,0,0,0.1); }
-        .header__lang:hover .header__lang-dropdown { opacity: 1; visibility: visible; transform: translateY(5px); }
-        .header__lang-dropdown a { display: block; padding: 12px 18px; font-size: 0.72rem; color: var(--color-text); }
-        .header__lang-dropdown a:hover { background: var(--color-bg-warm); }
-        .header__lang-dropdown a.active { color: var(--color-terracotta); }
-        .header__cta { padding: 14px 28px; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; transition: all 0.3s; }
-        .header__cta--outline { background: transparent; border: 1px solid var(--color-text); color: var(--color-text); }
-        .header__cta--outline:hover { background: var(--color-text); color: white; }
-        .header__cta--dark { background: var(--color-bg-dark); border: 1px solid var(--color-bg-dark); color: white; }
-        .header__cta--dark:hover { background: #1a1816; }
+        .header__logo { font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; line-height: 1; letter-spacing: -0.02em; }
+        .header__logo span { display: block; }
+        .header__right { display: flex; align-items: center; gap: 20px; }
+        .header__link { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; }
+        .header__lang { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; display: flex; align-items: center; gap: 4px; }
+        .header__lang svg { width: 12px; height: 12px; }
+        .header__btn { padding: 12px 22px; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; }
+        .header__btn--outline { border: 1.5px solid var(--color-charcoal); background: transparent; color: var(--color-charcoal); }
+        .header__btn--filled { background: var(--color-charcoal); color: white; border: 1.5px solid var(--color-charcoal); }
+        
 
-        /* Secondary Nav */
-        .section-nav { position: sticky; top: 85px; z-index: 999; background: var(--color-gold); }
+        .section-nav { position: sticky; top: 70px; z-index: 999; background: var(--color-charcoal); }
         .section-nav__inner { display: flex; justify-content: center; }
         .section-nav__links { display: flex; list-style: none; overflow-x: auto; scrollbar-width: none; }
         .section-nav__links::-webkit-scrollbar { display: none; }
-        .section-nav__link { display: block; padding: 18px 35px; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-bg-dark); white-space: nowrap; transition: background 0.3s; }
-        .section-nav__link:hover { background: rgba(0,0,0,0.05); }
-        .section-nav__link.active { background: rgba(0,0,0,0.1); }
+        .section-nav__link { display: block; padding: 18px 35px; font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: white; white-space: nowrap; opacity: 0.7; }
+        .section-nav__link:hover { opacity: 1; background: rgba(255,255,255,0.05); }
+        .section-nav__link.active { opacity: 1; background: rgba(255,255,255,0.1); }
 
-        /* Page Hero */
-        .page-hero { padding: 180px 0 80px; background: var(--color-bg-warm); text-align: center; }
-        .page-hero__back { display: inline-flex; align-items: center; gap: 8px; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-light); margin-bottom: 30px; transition: color 0.3s; }
-        .page-hero__back:hover { color: var(--color-terracotta); }
-        .page-hero h1 { font-size: clamp(3rem, 8vw, 5.5rem); font-weight: 300; margin-bottom: 20px; }
-        .page-hero p { font-size: 1.2rem; color: var(--color-text-light); max-width: 600px; margin: 0 auto; }
-
-        /* Gallery Filter */
-        .gallery-filter { background: var(--color-bg); padding: 0; border-bottom: 1px solid var(--color-border); }
-        .gallery-filter__inner { display: flex; justify-content: center; gap: 0; overflow-x: auto; scrollbar-width: none; }
-        .gallery-filter__inner::-webkit-scrollbar { display: none; }
-        .gallery-filter__btn { padding: 20px 35px; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; background: none; border: none; cursor: pointer; position: relative; transition: color 0.3s; white-space: nowrap; }
-        .gallery-filter__btn::after { content: ''; position: absolute; bottom: 0; left: 35px; right: 35px; height: 2px; background: var(--color-terracotta); transform: scaleX(0); transition: transform 0.3s; }
-        .gallery-filter__btn:hover, .gallery-filter__btn.active { color: var(--color-terracotta); }
-        .gallery-filter__btn.active::after { transform: scaleX(1); }
+        .page-hero { padding: 180px 0 80px; background: var(--color-cream); text-align: center; }
+        
+        
+        .page-hero__overline { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-charcoal); opacity: 0.7; margin-bottom: 15px; }
+        .page-hero h1 { font-size: clamp(3rem, 8vw, 7rem); line-height: 0.9; margin-bottom: 25px; }
+        .page-hero p { font-size: 1.1rem; color: var(--color-text-light); max-width: 550px; margin: 0 auto; }
 
         /* Gallery Grid */
-        .gallery-section { padding: 80px 0; }
-        .gallery-section__title { font-size: 2rem; font-weight: 300; margin-bottom: 40px; padding-bottom: 20px; border-bottom: 1px solid var(--color-border); }
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 20px; }
-        .gallery-item { position: relative; aspect-ratio: 4/3; overflow: hidden; cursor: pointer; }
-        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
-        .gallery-item:hover img { transform: scale(1.08); }
-        .gallery-item__overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%); opacity: 0; transition: opacity 0.3s; display: flex; align-items: flex-end; padding: 25px; }
-        .gallery-item:hover .gallery-item__overlay { opacity: 1; }
-        .gallery-item__caption { color: white; font-size: 0.95rem; }
-        .gallery-item--featured { grid-column: span 2; aspect-ratio: 16/9; }
+        .gallery { padding: 80px 0; background: var(--color-cream); }
+        .gallery__category { margin-bottom: 80px; }
+        .gallery__category-header { margin-bottom: 40px; }
+        .gallery__category-header h2 { color: var(--color-terracotta); margin-bottom: 10px; }
+        .gallery__category-header h3 { font-size: clamp(1.8rem, 3vw, 2.5rem); }
+        
+        .gallery__grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px; }
+        
+        .gallery__item { overflow: hidden; cursor: pointer; position: relative; }
+        .gallery__item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+        .gallery__item:hover img { transform: scale(1.05); }
+        .gallery__item::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0); transition: background 0.3s; }
+        .gallery__item:hover::after { background: rgba(0,0,0,0.1); }
+        
+        /* Different sizes */
+        .gallery__item--large { grid-column: span 8; height: 500px; }
+        .gallery__item--medium { grid-column: span 4; height: 500px; }
+        .gallery__item--small { grid-column: span 4; height: 300px; }
+        .gallery__item--wide { grid-column: span 6; height: 350px; }
 
         /* Lightbox */
-        .lightbox { position: fixed; inset: 0; z-index: 2000; background: rgba(0,0,0,0.95); display: none; align-items: center; justify-content: center; }
+        .lightbox { position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 2000; display: none; align-items: center; justify-content: center; }
         .lightbox.active { display: flex; }
-        .lightbox__close { position: absolute; top: 30px; right: 30px; width: 50px; height: 50px; background: none; border: 1px solid rgba(255,255,255,0.3); color: white; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s; }
-        .lightbox__close:hover { background: white; color: black; }
-        .lightbox__image { max-width: 90vw; max-height: 85vh; object-fit: contain; }
-        .lightbox__nav { position: absolute; top: 50%; transform: translateY(-50%); width: 60px; height: 60px; background: none; border: 1px solid rgba(255,255,255,0.3); color: white; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s; }
-        .lightbox__nav:hover { background: white; color: black; }
-        .lightbox__nav--prev { left: 30px; }
-        .lightbox__nav--next { right: 30px; }
-        .lightbox__counter { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); color: white; font-size: 0.85rem; letter-spacing: 0.1em; }
+        .lightbox__close { position: absolute; top: 30px; right: 30px; width: 50px; height: 50px; background: none; border: none; cursor: pointer; color: white; font-size: 2rem; }
+        .lightbox__img { max-width: 90vw; max-height: 90vh; object-fit: contain; }
 
-        /* Footer */
-        .footer { background: var(--color-bg-dark); color: var(--color-text-inverse); padding: 60px 0 30px; text-align: center; }
-        .footer__logo { height: 40px; margin: 0 auto 20px; filter: brightness(0) invert(1); }
+        .cta { padding: 100px 0; background: var(--color-charcoal); color: white; text-align: center; }
+        .cta h2 { color: var(--color-mustard); margin-bottom: 15px; }
+        .cta h3 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 20px; }
+        .cta p { opacity: 0.7; margin-bottom: 40px; max-width: 500px; margin-left: auto; margin-right: auto; }
+        .cta__btn { display: inline-block; padding: 18px 50px; font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; background: var(--color-mustard); color: var(--color-charcoal); font-weight: 700; }
+
+        .footer { background: var(--color-charcoal); color: white; padding: 60px 0 30px; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); }
+        .footer__logo { font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; line-height: 1; margin-bottom: 20px; }
+        .footer__logo span { display: block; }
         .footer__links { display: flex; justify-content: center; gap: 30px; margin-bottom: 30px; flex-wrap: wrap; }
-        .footer__link { font-size: 0.85rem; opacity: 0.7; transition: opacity 0.3s; }
+        .footer__link { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.6; }
         .footer__link:hover { opacity: 1; }
-        .footer__bottom { padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.8rem; opacity: 0.5; }
+        .footer__bottom { padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.75rem; opacity: 0.4; }
 
         @media (max-width: 1024px) {
-            .section-nav__link { padding: 16px 20px; font-size: 0.65rem; }
-            .gallery-item--featured { grid-column: span 1; aspect-ratio: 4/3; }
+            .gallery__item--large, .gallery__item--medium { grid-column: span 6; height: 350px; }
+            .gallery__item--small, .gallery__item--wide { grid-column: span 6; height: 280px; }
         }
         @media (max-width: 768px) {
             .header__link, .header__lang { display: none; }
-            .header__cta--dark { display: none; }
-            .gallery-grid { grid-template-columns: 1fr; }
-            .gallery-filter__btn { padding: 15px 20px; font-size: 0.65rem; }
-            .section-nav__link { padding: 14px 12px; font-size: 0.58rem; }
+            .section-nav__link { padding: 16px 18px; font-size: 0.65rem; }
+            .gallery__item--large, .gallery__item--medium, .gallery__item--small, .gallery__item--wide { grid-column: span 12; height: 300px; }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header class="header">
         <div class="container header__inner">
-            <a href="index.html">
-                <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/8fb7c7fc-6e43-406c-b1c0-a65a59062cf6/CanPares_2-01.png?format=1500w" alt="Masia Can Pares" class="header__logo">
-            </a>
+            <a href="index.html" class="header__logo"><span>CAN</span><span>PARES</span></a>
             <div class="header__right">
                 <a href="https://www.masiacanpares.com/contact" class="header__link">Contact Us</a>
-                <div class="header__lang">
-                    EN
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-                    <div class="header__lang-dropdown">
-                        <a href="gallery.html" class="active">English</a>
-                        <a href="gallery-fr.html">Français</a>
-                        <a href="gallery-es.html">Español</a>
-                    </div>
-                </div>
-                <a href="https://www.masiacanpares.com/book" class="header__cta header__cta--outline">Reserve a Stay</a>
-                <a href="#" class="header__cta header__cta--dark">Sign In</a>
+                <a href="#" class="header__lang">EN <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
+                <a href="https://www.masiacanpares.com/book" class="header__btn header__btn--outline">Reserve a Stay</a>
+                <a href="#" class="header__btn header__btn--filled">Sign In</a>
             </div>
         </div>
     </header>
 
-    <!-- Secondary Nav -->
-    <nav class="section-nav">
+    <nav class="section-nav" id="sectionNav">
         <div class="section-nav__inner">
             <ul class="section-nav__links">
                 <li><a href="history.html" class="section-nav__link">History</a></li>
@@ -160,173 +144,135 @@
         </div>
     </nav>
 
-    <!-- Page Hero -->
     <section class="page-hero">
         <div class="container">
-            <a href="index.html" class="page-hero__back">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-                Back to Home
-            </a>
+            <p class="page-hero__overline">Masia Can Pares</p>
             <h1>Step Inside</h1>
-            <p>Explore every corner of Masia Can Pares through our photo gallery</p>
+            <p>Explore every corner of our estate through images that capture the essence of Can Pares.</p>
         </div>
     </section>
 
-    <!-- Gallery Filter -->
-    <nav class="gallery-filter">
-        <div class="gallery-filter__inner">
-            <button class="gallery-filter__btn active" data-filter="all">All Photos</button>
-            <button class="gallery-filter__btn" data-filter="exterior">Exterior</button>
-            <button class="gallery-filter__btn" data-filter="garden">Garden</button>
-            <button class="gallery-filter__btn" data-filter="interiors">Interiors</button>
-            <button class="gallery-filter__btn" data-filter="pool">Pool</button>
-        </div>
-    </nav>
-
-    <!-- Gallery -->
-    <main>
-        <section class="gallery-section" data-category="all">
-            <div class="container">
-                <div class="gallery-grid">
-                    <div class="gallery-item gallery-item--featured" data-src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/be15e475-90fb-4d85-a030-da846cd2e0f2/57E589AB-3BD7-41C0-BCF0-0EFBADFDE6F9-12910-00000411C07D1734.JPG" data-cat="exterior">
-                        <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/be15e475-90fb-4d85-a030-da846cd2e0f2/57E589AB-3BD7-41C0-BCF0-0EFBADFDE6F9-12910-00000411C07D1734.JPG" alt="Masia Can Pares entrance">
-                        <div class="gallery-item__overlay"><span class="gallery-item__caption">Main Entrance</span></div>
+    <section class="gallery">
+        <div class="container">
+            <!-- The Estate -->
+            <div class="gallery__category">
+                <div class="gallery__category-header">
+                    <h2>Overview</h2>
+                    <h3>The Estate</h3>
+                </div>
+                <div class="gallery__grid">
+                    <div class="gallery__item gallery__item--large">
+                        <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/b012d41d-ab57-414e-adb0-40ac603952c5/Masia+Can+Pares_Principal" alt="Masia Can Pares Main Building">
                     </div>
-                    <div class="gallery-item" data-src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/ce1286d7-2a38-4933-bf75-c34b7f0c9f76/Can+Pares-2699.jpg" data-cat="exterior">
-                        <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/ce1286d7-2a38-4933-bf75-c34b7f0c9f76/Can+Pares-2699.jpg" alt="Historic architecture">
-                        <div class="gallery-item__overlay"><span class="gallery-item__caption">Historic Architecture</span></div>
-                    </div>
-                    <div class="gallery-item" data-src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/90d3b02c-0857-4374-8829-ed2bdda2c4a0/Can+Pares-2842.jpg" data-cat="garden">
-                        <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/90d3b02c-0857-4374-8829-ed2bdda2c4a0/Can+Pares-2842.jpg" alt="Botanical garden">
-                        <div class="gallery-item__overlay"><span class="gallery-item__caption">Botanical Garden</span></div>
-                    </div>
-                    <div class="gallery-item" data-src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/b012d41d-ab57-414e-adb0-40ac603952c5/Masia+Can+Pares_Principal" data-cat="exterior">
-                        <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/b012d41d-ab57-414e-adb0-40ac603952c5/Masia+Can+Pares_Principal" alt="Main house">
-                        <div class="gallery-item__overlay"><span class="gallery-item__caption">Main House</span></div>
-                    </div>
-                    <div class="gallery-item gallery-item--featured" data-src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/c5da09dd-3eaa-40f2-8746-896798013095/30B94711-0F5C-4EF0-868C-6DD2C5E2AAEB-863-00000012F6316BA3.JPG" data-cat="pool">
-                        <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/c5da09dd-3eaa-40f2-8746-896798013095/30B94711-0F5C-4EF0-868C-6DD2C5E2AAEB-863-00000012F6316BA3.JPG" alt="Swimming pool">
-                        <div class="gallery-item__overlay"><span class="gallery-item__caption">Swimming Pool</span></div>
-                    </div>
-                    <div class="gallery-item" data-src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/202ea870-a449-4105-a79b-86730ed55750/Can+Pares-2820.jpg" data-cat="interiors">
-                        <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/202ea870-a449-4105-a79b-86730ed55750/Can+Pares-2820.jpg" alt="Bedroom interior">
-                        <div class="gallery-item__overlay"><span class="gallery-item__caption">Bedroom</span></div>
-                    </div>
-                    <div class="gallery-item" data-src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/a702071a-6dff-400c-85e8-78c532c17199/MasiaCanPares_guesthouse" data-cat="interiors">
-                        <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/a702071a-6dff-400c-85e8-78c532c17199/MasiaCanPares_guesthouse" alt="Guest house interior">
-                        <div class="gallery-item__overlay"><span class="gallery-item__caption">Casa Blanca Interior</span></div>
-                    </div>
-                    <div class="gallery-item" data-src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/c6e92c7a-69b9-4fca-8290-96b92b4d05d5/MasiaCanPares_guesthouse" data-cat="interiors">
-                        <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/c6e92c7a-69b9-4fca-8290-96b92b4d05d5/MasiaCanPares_guesthouse" alt="Living space">
-                        <div class="gallery-item__overlay"><span class="gallery-item__caption">Living Space</span></div>
+                    <div class="gallery__item gallery__item--medium">
+                        <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/90d3b02c-0857-4374-8829-ed2bdda2c4a0/Can+Pares-2842.jpg" alt="Botanical Garden">
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
+
+            <!-- The Gardens -->
+            <div class="gallery__category">
+                <div class="gallery__category-header">
+                    <h2>20,000m² of Nature</h2>
+                    <h3>The Botanical Garden</h3>
+                </div>
+                <div class="gallery__grid">
+                    <div class="gallery__item gallery__item--wide">
+                        <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/ce1286d7-2a38-4933-bf75-c34b7f0c9f76/Can+Pares-2699.jpg" alt="Garden Path">
+                    </div>
+                    <div class="gallery__item gallery__item--wide">
+                        <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/202ea870-a449-4105-a79b-86730ed55750/Can+Pares-2820.jpg" alt="Garden Detail">
+                    </div>
+                    <div class="gallery__item gallery__item--small">
+                        <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/90d3b02c-0857-4374-8829-ed2bdda2c4a0/Can+Pares-2842.jpg" alt="Trees">
+                    </div>
+                    <div class="gallery__item gallery__item--small">
+                        <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/b012d41d-ab57-414e-adb0-40ac603952c5/Masia+Can+Pares_Principal" alt="Garden View">
+                    </div>
+                    <div class="gallery__item gallery__item--small">
+                        <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/ce1286d7-2a38-4933-bf75-c34b7f0c9f76/Can+Pares-2699.jpg" alt="Flowers">
+                    </div>
+                </div>
+            </div>
+
+            <!-- The Houses -->
+            <div class="gallery__category">
+                <div class="gallery__category-header">
+                    <h2>Two Retreats</h2>
+                    <h3>The Guest Houses</h3>
+                </div>
+                <div class="gallery__grid">
+                    <div class="gallery__item gallery__item--medium">
+                        <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/a702071a-6dff-400c-85e8-78c532c17199/MasiaCanPares_guesthouse" alt="Casa Blanca">
+                    </div>
+                    <div class="gallery__item gallery__item--large">
+                        <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/c6e92c7a-69b9-4fca-8290-96b92b4d05d5/MasiaCanPares_guesthouse" alt="Casa Mediterranea">
+                    </div>
+                    <div class="gallery__item gallery__item--small">
+                        <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/202ea870-a449-4105-a79b-86730ed55750/Can+Pares-2820.jpg" alt="Interior">
+                    </div>
+                    <div class="gallery__item gallery__item--small">
+                        <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/a702071a-6dff-400c-85e8-78c532c17199/MasiaCanPares_guesthouse" alt="Bedroom">
+                    </div>
+                    <div class="gallery__item gallery__item--small">
+                        <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/c6e92c7a-69b9-4fca-8290-96b92b4d05d5/MasiaCanPares_guesthouse" alt="Living Space">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Lightbox -->
     <div class="lightbox" id="lightbox">
-        <button class="lightbox__close" aria-label="Close">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
-        </button>
-        <button class="lightbox__nav lightbox__nav--prev" aria-label="Previous">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
-        </button>
-        <img class="lightbox__image" src="" alt="">
-        <button class="lightbox__nav lightbox__nav--next" aria-label="Next">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-        </button>
-        <div class="lightbox__counter"><span id="currentIndex">1</span> / <span id="totalImages">8</span></div>
+        <button class="lightbox__close" onclick="closeLightbox()">×</button>
+        <img src="" alt="" class="lightbox__img" id="lightboxImg">
     </div>
 
-    <!-- Footer -->
+    <section class="cta">
+        <div class="container">
+            <h2>Seen Enough?</h2>
+            <h3>Experience It In Person</h3>
+            <p>Photos can only capture so much. Come discover Can Pares for yourself.</p>
+            <a href="https://www.masiacanpares.com/book" class="cta__btn">Book Your Stay</a>
+        </div>
+    </section>
+
     <footer class="footer">
         <div class="container">
-            <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/8fb7c7fc-6e43-406c-b1c0-a65a59062cf6/CanPares_2-01.png?format=1500w" alt="Masia Can Pares" class="footer__logo">
+            <div class="footer__logo"><span>CAN</span><span>PARES</span></div>
             <div class="footer__links">
                 <a href="index.html" class="footer__link">Home</a>
                 <a href="bedrooms.html" class="footer__link">Bedrooms</a>
+                <a href="experiences.html" class="footer__link">Experiences</a>
                 <a href="location.html" class="footer__link">Location</a>
-                <a href="https://www.masiacanpares.com/contact" class="footer__link">Contact</a>
-                <a href="https://www.masiacanpares.com/book" class="footer__link">Book Now</a>
             </div>
-            <div class="footer__bottom">
-                <p>© Masia Can Pares 2025. All rights reserved.</p>
-            </div>
+            <div class="footer__bottom"><p>© Masia Can Pares 2025</p></div>
         </div>
     </footer>
 
     <script>
-        // Filter functionality
-        const filterBtns = document.querySelectorAll('.gallery-filter__btn');
-        const galleryItems = document.querySelectorAll('.gallery-item');
-
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                filterBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                const filter = btn.dataset.filter;
-                
-                galleryItems.forEach(item => {
-                    if (filter === 'all' || item.dataset.cat === filter) {
-                        item.style.display = 'block';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
-            });
-        });
-
         // Lightbox
         const lightbox = document.getElementById('lightbox');
-        const lightboxImg = lightbox.querySelector('.lightbox__image');
-        const currentIndexEl = document.getElementById('currentIndex');
-        const totalImagesEl = document.getElementById('totalImages');
-        let currentIndex = 0;
-        let images = [];
-
-        galleryItems.forEach((item, index) => {
-            images.push(item.dataset.src);
+        const lightboxImg = document.getElementById('lightboxImg');
+        
+        document.querySelectorAll('.gallery__item').forEach(item => {
             item.addEventListener('click', () => {
-                currentIndex = index;
-                openLightbox();
+                const img = item.querySelector('img');
+                lightboxImg.src = img.src;
+                lightbox.classList.add('active');
             });
         });
-
-        totalImagesEl.textContent = images.length;
-
-        function openLightbox() {
-            lightboxImg.src = images[currentIndex];
-            currentIndexEl.textContent = currentIndex + 1;
-            lightbox.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
 
         function closeLightbox() {
             lightbox.classList.remove('active');
-            document.body.style.overflow = '';
         }
 
-        function nextImage() {
-            currentIndex = (currentIndex + 1) % images.length;
-            openLightbox();
-        }
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
 
-        function prevImage() {
-            currentIndex = (currentIndex - 1 + images.length) % images.length;
-            openLightbox();
-        }
-
-        lightbox.querySelector('.lightbox__close').addEventListener('click', closeLightbox);
-        lightbox.querySelector('.lightbox__nav--next').addEventListener('click', nextImage);
-        lightbox.querySelector('.lightbox__nav--prev').addEventListener('click', prevImage);
-        lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
         document.addEventListener('keydown', (e) => {
-            if (!lightbox.classList.contains('active')) return;
             if (e.key === 'Escape') closeLightbox();
-            if (e.key === 'ArrowRight') nextImage();
-            if (e.key === 'ArrowLeft') prevImage();
         });
     </script>
 </body>

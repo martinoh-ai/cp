@@ -63,93 +63,37 @@
         .container { max-width: 1400px; margin: 0 auto; padding: 0 clamp(24px, 5vw, 60px); }
 
         /* Header */
-        .header { 
-            position: fixed; top: 0; left: 0; right: 0; z-index: 1000; 
-            padding: 20px 0; 
-            background: rgba(250, 246, 241, 0.97); 
-            backdrop-filter: blur(20px); 
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-        }
+        .header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 18px 0; background: var(--color-cream); border-bottom: 1px solid rgba(0,0,0,0.08); }
         .header__inner { display: flex; justify-content: space-between; align-items: center; }
-        .header__logo { height: 45px; }
-        .header__right { display: flex; align-items: center; gap: 25px; }
-        .header__link { 
-            font-family: var(--font-mono); 
-            font-size: 0.65rem; 
-            letter-spacing: 0.15em; 
-            text-transform: uppercase; 
-        }
-        .header__cta { 
-            padding: 14px 28px; 
-            font-family: var(--font-mono);
-            font-size: 0.65rem; 
-            letter-spacing: 0.1em; 
-            text-transform: uppercase; 
-            background: var(--color-charcoal); 
-            color: white;
-        }
-
+        .header__logo { font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; line-height: 1; letter-spacing: -0.02em; }
+        .header__logo span { display: block; }
+        .header__right { display: flex; align-items: center; gap: 20px; }
+        .header__link { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; }
+        .header__lang { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; display: flex; align-items: center; gap: 4px; }
+        .header__lang svg { width: 12px; height: 12px; }
+        .header__btn { padding: 12px 22px; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; }
+        .header__btn--outline { border: 1.5px solid var(--color-charcoal); background: transparent; color: var(--color-charcoal); }
+        .header__btn--filled { background: var(--color-charcoal); color: white; border: 1.5px solid var(--color-charcoal); } 
         /* Secondary Nav - Gold */
-        .section-nav { 
-            position: sticky; 
-            top: 85px; 
-            z-index: 999; 
-            background: var(--color-mustard);
-        }
+        .section-nav { position: sticky; top: 70px; z-index: 999; background: var(--color-mustard); }
         .section-nav__inner { display: flex; justify-content: center; }
         .section-nav__links { display: flex; list-style: none; overflow-x: auto; scrollbar-width: none; }
         .section-nav__links::-webkit-scrollbar { display: none; }
-        .section-nav__link { 
-            display: block; 
-            padding: 16px 30px; 
-            font-family: var(--font-mono);
-            font-size: 0.6rem; 
-            font-weight: 700;
-            letter-spacing: 0.12em; 
-            text-transform: uppercase; 
-            color: var(--color-charcoal); 
-            white-space: nowrap;
-        }
+        .section-nav__link { display: block; padding: 18px 35px; font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-charcoal); white-space: nowrap; }
         .section-nav__link:hover { background: rgba(0,0,0,0.08); }
         .section-nav__link.active { background: rgba(0,0,0,0.12); }
 
         /* Page Hero */
         .page-hero { 
-            padding: 200px 0 120px; 
+            padding: 180px 0 80px; 
             background: var(--color-cream);
             text-align: center;
             position: relative;
             overflow: hidden;
         }
-        .page-hero__badge {
-            width: 120px;
-            height: 120px;
-            margin: 0 auto 30px;
-            background: var(--color-charcoal);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-
-        .page-hero__badge-inner {
-            width: 90px;
-            height: 90px;
-            background: var(--color-cream);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .page-hero__shell {
-            width: 55px;
-            height: auto;
-            filter: grayscale(100%) contrast(1.2);
-        }
         .page-hero__overline {
             font-family: var(--font-mono);
-            font-size: 0.65rem;
+            font-size: 0.75rem;
             letter-spacing: 0.2em;
             text-transform: uppercase;
             color: var(--color-text-light);
@@ -212,7 +156,7 @@
         .intro__stat-label {
             font-family: var(--font-mono);
             font-size: 0.6rem;
-            letter-spacing: 0.12em;
+            letter-spacing: 0.1em;
             text-transform: uppercase;
             color: var(--color-charcoal);
             opacity: 0.7;
@@ -587,7 +531,7 @@
             padding: 18px 50px; 
             font-family: var(--font-mono);
             font-size: 0.65rem; 
-            letter-spacing: 0.12em; 
+            letter-spacing: 0.1em; 
             text-transform: uppercase; 
             background: var(--color-mustard); 
             color: var(--color-charcoal);
@@ -595,28 +539,13 @@
         }
 
         /* Footer */
-        .footer { 
-            background: var(--color-charcoal); 
-            color: white; 
-            padding: 60px 0 30px; 
-            text-align: center;
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
-        .footer__logo { height: 40px; margin: 0 auto 20px; filter: brightness(0) invert(1); }
+        .footer { background: var(--color-charcoal); color: white; padding: 60px 0 30px; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); }
+        .footer__logo { font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; line-height: 1; margin-bottom: 20px; }
+        .footer__logo span { display: block; }
         .footer__links { display: flex; justify-content: center; gap: 30px; margin-bottom: 30px; flex-wrap: wrap; }
-        .footer__link { 
-            font-family: var(--font-mono);
-            font-size: 0.6rem; 
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            opacity: 0.6; 
-        }
-        .footer__bottom { 
-            padding-top: 30px; 
-            border-top: 1px solid rgba(255,255,255,0.1); 
-            font-size: 0.7rem; 
-            opacity: 0.4;
-        }
+        .footer__link { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.6; }
+        .footer__link:hover { opacity: 1; }
+        .footer__bottom { padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.75rem; opacity: 0.4; }
 
         @media (max-width: 1024px) {
             .intro__grid, .wellness__grid { grid-template-columns: 1fr; }
@@ -627,8 +556,8 @@
             .intro__badge { right: 20px; }
         }
         @media (max-width: 768px) {
-            .header__link { display: none; }
-            .section-nav__link { padding: 14px 15px; font-size: 0.5rem; }
+            .header__link, .header__lang { display: none; }
+            .section-nav__link { padding: 16px 18px; font-size: 0.65rem; }
             .intro__stats { flex-wrap: wrap; gap: 25px; }
             .routes__grid { grid-template-columns: 1fr; }
             .wellness__services { grid-template-columns: 1fr; }
@@ -642,10 +571,12 @@
 <body>
     <header class="header">
         <div class="container header__inner">
-            <a href="index.html"><img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/8fb7c7fc-6e43-406c-b1c0-a65a59062cf6/CanPares_2-01.png?format=1500w" alt="Masia Can Pares" class="header__logo"></a>
+            <a href="index.html" class="header__logo"><span>CAN</span><span>PARES</span></a>
             <div class="header__right">
                 <a href="https://www.masiacanpares.com/contact" class="header__link">Contact Us</a>
-                <a href="https://www.masiacanpares.com/book" class="header__cta">Book Now</a>
+                <a href="#" class="header__lang">EN <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
+                <a href="https://www.masiacanpares.com/book" class="header__btn header__btn--outline">Reserve a Stay</a>
+                <a href="#" class="header__btn header__btn--filled">Sign In</a>
             </div>
         </div>
     </header>
@@ -666,11 +597,6 @@
 
     <section class="page-hero">
         <div class="container">
-            <div class="page-hero__badge">
-                <div class="page-hero__badge-inner">
-                    <img src="shell-icon.png" alt="" class="page-hero__shell">
-                </div>
-            </div>
             <p class="page-hero__overline">Masia Can Pares</p>
             <h1>Experiences</h1>
             <p>From sunrise yoga in the botanical gardens to sunset padel matches, discover a world of activities designed to nourish body and soul.</p>
@@ -930,7 +856,7 @@
 
     <footer class="footer">
         <div class="container">
-            <img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/8fb7c7fc-6e43-406c-b1c0-a65a59062cf6/CanPares_2-01.png?format=1500w" alt="Masia Can Pares" class="footer__logo">
+            <div class="footer__logo"><span>CAN</span><span>PARES</span></div>
             <div class="footer__links">
                 <a href="index.html" class="footer__link">Home</a>
                 <a href="bedrooms.html" class="footer__link">Bedrooms</a>
