@@ -40,8 +40,8 @@
         .header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 18px 0; background: var(--color-cream); border-bottom: 1px solid rgba(0,0,0,0.08); }
         
         .header__inner { display: flex; justify-content: space-between; align-items: center; }
-        .header__logo { font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; line-height: 1; letter-spacing: -0.02em; }
-        .header__logo span { display: block; }
+        .header__logo img { height: 50px; width: auto; }
+        
         .header__right { display: flex; align-items: center; gap: 20px; }
         .header__link { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; }
         .header__lang { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; display: flex; align-items: center; gap: 4px; }
@@ -52,10 +52,10 @@
         
 
         .section-nav { position: sticky; top: 70px; z-index: 999; background: var(--color-sage); }
-        .section-nav__inner { display: flex; justify-content: center; }
-        .section-nav__links { display: flex; list-style: none; overflow-x: auto; scrollbar-width: none; }
+        .section-nav__inner { display: flex; justify-content: center; align-items: center; }
+        .section-nav__links { display: flex; list-style: none; overflow-x: auto; scrollbar-width: none; align-items: center; }
         .section-nav__links::-webkit-scrollbar { display: none; }
-        .section-nav__link { display: block; padding: 18px 35px; font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-charcoal); white-space: nowrap; }
+        .section-nav__link { display: flex; align-items: center; justify-content: center; padding: 0 35px; height: 54px; font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-charcoal); white-space: nowrap; }
         .section-nav__link:hover { background: rgba(0,0,0,0.08); }
         .section-nav__link.active { background: rgba(0,0,0,0.12); }
 
@@ -96,8 +96,8 @@
         .cta__btn { display: inline-block; padding: 18px 50px; font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; background: var(--color-sage); color: white; font-weight: 700; }
 
         .footer { background: var(--color-charcoal); color: white; padding: 60px 0 30px; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); }
-        .footer__logo { font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; line-height: 1; margin-bottom: 20px; }
-        .footer__logo span { display: block; }
+        .footer__logo { display: block; margin-bottom: 25px; }
+        .footer__logo img { height: 45px; width: auto; margin: 0 auto; filter: brightness(0) invert(1); }
         .footer__links { display: flex; justify-content: center; gap: 30px; margin-bottom: 30px; flex-wrap: wrap; }
         .footer__link { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.6; }
         .footer__link:hover { opacity: 1; }
@@ -109,7 +109,7 @@
         }
         @media (max-width: 768px) {
             .header__link, .header__lang { display: none; }
-            .section-nav__link { padding: 16px 18px; font-size: 0.65rem; }
+            .section-nav__link { padding: 0 18px; height: 48px; font-size: 0.65rem; }
             .use-case__features { grid-template-columns: 1fr; }
         }
     </style>
@@ -117,7 +117,7 @@
 <body>
     <header class="header">
         <div class="container header__inner">
-            <a href="index.html" class="header__logo"><span>CAN</span><span>PARES</span></a>
+            <a href="index.html" class="header__logo"><img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/8fb7c7fc-6e43-406c-b1c0-a65a59062cf6/CanPares_2-01.png?format=500w" alt="Can Pares"></a>
             <div class="header__right">
                 <a href="https://www.masiacanpares.com/contact" class="header__link">Contact Us</a>
                 <a href="#" class="header__lang">EN <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></a>
@@ -335,7 +335,7 @@
 
     <footer class="footer">
         <div class="container">
-            <div class="footer__logo"><span>CAN</span><span>PARES</span></div>
+            <a href="index.html" class="footer__logo"><img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/8fb7c7fc-6e43-406c-b1c0-a65a59062cf6/CanPares_2-01.png?format=500w" alt="Can Pares"></a>
             <div class="footer__links">
                 <a href="index.html" class="footer__link">Home</a>
                 <a href="stay.html" class="footer__link">Stay</a>
