@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firebase Test</title>
+</head>
+<body>
+    <h1>Firebase Test Page</h1>
+    <div id="status">Loading...</div>
+    <div id="user"></div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    
+    <script>
+        console.log("1. Script starting...");
+        
+        const firebaseConfig = {
+            apiKey: "AIzaSyDlqtcXUqEctwsvLbXzGOenleNPDwOj4n4",
+            authDomain: "masia-can-pares.firebaseapp.com",
+            projectId: "masia-can-pares",
+            storageBucket: "masia-can-pares.firebasestorage.app",
+            messagingSenderId: "898469617158",
+            appId: "1:898469617158:web:94f57c383501f81b9d2d87"
+        };
+        
+        console.log("2. Config ready");
+        
+        firebase.initializeApp(firebaseConfig);
+        
+        console.log("3. Firebase initialized");
+        
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+        
+        console.log("4. Services ready");
+        
+        document.getElementById('status').textContent = 'Firebase OK!';
+        
+        auth.onAuthStateChanged(function(user) {
+            console.log("5. Auth state changed:", user ? user.email : "no user");
+            if (user) {
+                document.getElementById('user').textContent = 'Logged in as: ' + user.email;
+                
+                // Test Firestore
+                db.collection('bookings').get().then(function(snapshot) {
+                    console.log("6. Bookings found:", snapshot.size);
+                    document.getElementById('user').textContent += ' | Bookings: ' + snapshot.size;
+                }).catch(function(err) {
+                    console.error("Firestore error:", err);
+                });
+            } else {
+                document.getElementById('user').innerHTML = 'Not logged in. <a href="login.html">Login here</a>';
+            }
+        });
+    </script>
+</body>
+</html>
