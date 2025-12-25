@@ -109,7 +109,7 @@
         .cta h3 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 20px; }
         .cta p { opacity: 0.7; margin-bottom: 40px; max-width: 500px; margin-left: auto; margin-right: auto; }
         .cta__btn { display: inline-block; padding: 18px 50px; font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; background: var(--color-sage); color: white; font-weight: 700; }
-        /* Footer */
+                /* Footer */
         .footer { background: var(--color-terracotta); color: white; padding: 60px 0 40px; }
         .footer__inner { display: flex; flex-direction: column; align-items: center; text-align: center; }
         .footer__logo { display: block; margin-bottom: 30px; }
@@ -118,6 +118,8 @@
         .footer__link { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.7; transition: opacity 0.3s; }
         .footer__link:hover { opacity: 1; }
         .footer__address { font-size: 0.85rem; opacity: 0.5; }
+
+        
         @media (max-width: 1024px) {
             .use-case__grid { grid-template-columns: 1fr; }
             .use-case:nth-child(even) .use-case__grid { direction: ltr; }
@@ -384,6 +386,11 @@
             </div>
         </div>
     </footer>
+    <!-- Floating CTA (Mobile) -->
+    <div class="floating-cta">
+        <a href="https://www.masiacanpares.com/book" class="floating-cta__btn">Select Dates</a>
+    </div>
+
     <script>
         // Mobile Menu Toggle
         const menuBtn = document.getElementById('menuBtn');
