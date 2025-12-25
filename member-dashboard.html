@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Dashboard | Masia Can Pares</title>
+    <meta name="description" content="Manage your stay at Masia Can Pares - check-in online, access guides, message your host, and more.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+    <link rel="icon" type="image/png" href="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/8fb7c7fc-6e43-406c-b1c0-a65a59062cf6/CanPares_2-01.png?format=100w">
+    <style>
+        @font-face {
+            font-family: 'Boogy Brut Poster';
+            src: url('fonts/BoogyBrutPoster-White.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        :root {
+            --color-cream: #F5F0E1;
+            --color-mauve: #A07A7E;
+            --color-mustard: #E9B84A;
+            --color-sage: #2D4A3E;
+            --color-terracotta: #A65D57;
+            --color-charcoal: #722F37;
+            --color-text: #2C2825;
+            --color-text-light: #6B635A;
+            --font-display: 'Boogy Brut Poster', 'Space Grotesk', sans-serif;
+            --font-mono: 'Space Mono', monospace;
+            --font-body: 'DM Sans', sans-serif;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); background: #f8f7f4; color: var(--color-text); line-height: 1.7; font-weight: 300; }
+
+        /* Dashboard Layout */
+        .dashboard { display: flex; min-height: 100vh; }
+
+        /* Sidebar */
+        .sidebar { width: 280px; background: var(--color-charcoal); color: white; position: fixed; top: 0; left: 0; bottom: 0; display: flex; flex-direction: column; z-index: 1000; transition: transform 0.3s; }
+        .sidebar__logo { padding: 30px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .sidebar__logo img { height: 40px; width: auto; filter: brightness(0) invert(1); }
+        .sidebar__nav { flex: 1; padding: 20px 0; overflow-y: auto; }
+        .sidebar__section { margin-bottom: 30px; }
+        .sidebar__section-title { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.4); padding: 0 25px; margin-bottom: 10px; }
+        .sidebar__link { display: flex; align-items: center; gap: 12px; padding: 12px 25px; font-size: 0.9rem; color: rgba(255,255,255,0.7); transition: all 0.3s; cursor: pointer; }
+        .sidebar__link:hover { background: rgba(255,255,255,0.05); color: white; }
+        .sidebar__link.active { background: rgba(255,255,255,0.1); color: white; border-left: 3px solid var(--color-mustard); }
+        .sidebar__link .material-symbols-outlined { font-size: 20px; font-variation-settings: 'FILL' 0, 'wght' 300; }
+        .sidebar__link-badge { margin-left: auto; background: var(--color-terracotta); color: white; font-size: 0.65rem; padding: 2px 8px; border-radius: 10px; }
+        .sidebar__link-badge--alert { background: var(--color-mustard); color: var(--color-charcoal); animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+        .sidebar__footer { padding: 20px 25px; border-top: 1px solid rgba(255,255,255,0.1); }
+        .sidebar__user { display: flex; align-items: center; gap: 12px; }
+        .sidebar__avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--color-mauve); display: flex; align-items: center; justify-content: center; font-weight: 600; }
+        .sidebar__user-info { flex: 1; }
+        .sidebar__user-name { font-size: 0.9rem; font-weight: 500; }
+        .sidebar__user-email { font-size: 0.75rem; opacity: 0.6; }
+
+        /* Main Content */
+        .main { flex: 1; margin-left: 280px; }
+        .main__header { background: white; padding: 20px 40px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(0,0,0,0.08); position: sticky; top: 0; z-index: 100; }
+        .main__title { font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; }
+        .main__actions { display: flex; align-items: center; gap: 15px; }
+        .main__btn { display: flex; align-items: center; gap: 8px; padding: 10px 20px; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; border: none; cursor: pointer; transition: all 0.3s; }
+        .main__btn--primary { background: var(--color-charcoal); color: white; }
+        .main__btn--primary:hover { background: var(--color-terracotta); }
+        .main__btn--outline { background: transparent; border: 1px solid rgba(0,0,0,0.2); color: var(--color-text); }
+        .main__btn--outline:hover { border-color: var(--color-charcoal); }
+        .main__content { padding: 40px; }
+
+        /* Mobile Menu Toggle */
+        .mobile-toggle { display: none; position: fixed; top: 15px; left: 15px; z-index: 1001; width: 44px; height: 44px; background: var(--color-charcoal); border: none; border-radius: 8px; cursor: pointer; }
+        .mobile-toggle span { display: block; width: 20px; height: 2px; background: white; margin: 4px auto; transition: all 0.3s; }
+
+        /* Tab Content */
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+
+        /* Alert Banner */
+        .alert-banner { display: flex; align-items: center; gap: 15px; padding: 18px 25px; border-radius: 10px; margin-bottom: 25px; }
+        .alert-banner--warning { background: linear-gradient(135deg, rgba(233, 184, 74, 0.15) 0%, rgba(166, 93, 87, 0.1) 100%); border: 1px solid rgba(233, 184, 74, 0.3); }
+        .alert-banner--success { background: rgba(45, 74, 62, 0.1); border: 1px solid rgba(45, 74, 62, 0.2); }
+        .alert-banner > .material-symbols-outlined { font-size: 28px; color: var(--color-mustard); flex-shrink: 0; }
+        .alert-banner__content { flex: 1; }
+        .alert-banner__content strong { display: block; font-size: 0.95rem; margin-bottom: 3px; }
+        .alert-banner__content p { font-size: 0.85rem; color: var(--color-text-light); margin: 0; }
+        .alert-banner__action { padding: 10px 20px; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; background: var(--color-charcoal); color: white; border: none; border-radius: 6px; cursor: pointer; white-space: nowrap; transition: background 0.3s; }
+        .alert-banner__action:hover { background: var(--color-terracotta); }
+        .alert-banner__close { background: none; border: none; cursor: pointer; padding: 5px; color: var(--color-text-light); }
+        .alert-banner__close:hover { color: var(--color-charcoal); }
+
+        /* Cards */
+        .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+        .card__header { padding: 25px 30px; border-bottom: 1px solid rgba(0,0,0,0.06); display: flex; align-items: center; justify-content: space-between; }
+        .card__title { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-light); }
+        .card__body { padding: 30px; }
+
+        /* Overview Grid */
+        .overview-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 30px; margin-bottom: 30px; }
+
+        /* Booking Card */
+        .booking-card { position: relative; }
+        .booking-card__status { position: absolute; top: 25px; right: 30px; padding: 6px 14px; font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 20px; }
+        .booking-card__status--confirmed { background: rgba(45, 74, 62, 0.1); color: var(--color-sage); }
+        .booking-card__status--pending { background: rgba(233, 184, 74, 0.2); color: #b8860b; }
+        .booking-card__house { font-family: var(--font-display); font-size: 1.8rem; font-weight: 600; margin-bottom: 5px; }
+        .booking-card__ref { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; color: var(--color-text-light); margin-bottom: 25px; }
+        .booking-card__dates { display: flex; gap: 40px; margin-bottom: 25px; }
+        .booking-card__date { }
+        .booking-card__date-label { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-light); margin-bottom: 5px; }
+        .booking-card__date-value { font-size: 1.1rem; font-weight: 500; }
+        .booking-card__date-day { font-size: 0.85rem; color: var(--color-text-light); }
+        .booking-card__details { display: flex; gap: 30px; padding-top: 25px; border-top: 1px solid rgba(0,0,0,0.06); }
+        .booking-card__detail { display: flex; align-items: center; gap: 8px; font-size: 0.9rem; color: var(--color-text-light); }
+        .booking-card__detail .material-symbols-outlined { font-size: 18px; color: var(--color-terracotta); }
+
+        /* Quick Actions */
+        .quick-actions { display: grid; gap: 15px; }
+        .quick-action { display: flex; align-items: center; gap: 15px; padding: 20px; background: var(--color-cream); border-radius: 8px; cursor: pointer; transition: all 0.3s; }
+        .quick-action:hover { transform: translateX(5px); background: white; box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
+        .quick-action__icon { width: 45px; height: 45px; background: white; border-radius: 10px; display: flex; align-items: center; justify-content: center; }
+        .quick-action__icon .material-symbols-outlined { font-size: 22px; color: var(--color-charcoal); }
+        .quick-action__text h4 { font-size: 0.95rem; font-weight: 500; margin-bottom: 2px; }
+        .quick-action__text p { font-size: 0.8rem; color: var(--color-text-light); }
+        .quick-action__arrow { margin-left: auto; color: var(--color-text-light); }
+        .quick-action--urgent { background: linear-gradient(135deg, rgba(233, 184, 74, 0.2) 0%, rgba(166, 93, 87, 0.15) 100%); border: 1px solid rgba(233, 184, 74, 0.3); }
+        .quick-action--urgent:hover { background: linear-gradient(135deg, rgba(233, 184, 74, 0.3) 0%, rgba(166, 93, 87, 0.2) 100%); }
+        .quick-action__icon--urgent { background: var(--color-mustard) !important; }
+        .quick-action__icon--urgent .material-symbols-outlined { color: white !important; }
+        .quick-action__badge { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase; background: var(--color-terracotta); color: white; padding: 4px 10px; border-radius: 4px; }
+
+        /* Stats Row */
+        .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 30px; }
+        .stat-card { background: white; border-radius: 12px; padding: 25px; text-align: center; }
+        .stat-card__icon { width: 50px; height: 50px; margin: 0 auto 15px; background: var(--color-cream); border-radius: 12px; display: flex; align-items: center; justify-content: center; }
+        .stat-card__icon .material-symbols-outlined { font-size: 24px; color: var(--color-charcoal); }
+        .stat-card__value { font-family: var(--font-display); font-size: 2rem; font-weight: 600; color: var(--color-charcoal); margin-bottom: 5px; }
+        .stat-card__label { font-size: 0.85rem; color: var(--color-text-light); }
+        .stat-card--alert { border: 2px solid rgba(233, 184, 74, 0.4); background: linear-gradient(135deg, rgba(233, 184, 74, 0.08) 0%, rgba(166, 93, 87, 0.05) 100%); }
+        .stat-card__icon--alert { background: rgba(233, 184, 74, 0.2) !important; }
+        .stat-card__icon--alert .material-symbols-outlined { color: var(--color-terracotta) !important; }
+
+        /* Check-in Form */
+        .checkin-progress { display: flex; margin-bottom: 40px; }
+        .checkin-step { flex: 1; position: relative; text-align: center; }
+        .checkin-step::before { content: ''; position: absolute; top: 20px; left: 50%; right: -50%; height: 2px; background: rgba(0,0,0,0.1); }
+        .checkin-step:last-child::before { display: none; }
+        .checkin-step__number { width: 40px; height: 40px; margin: 0 auto 10px; background: rgba(0,0,0,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700; position: relative; z-index: 1; }
+        .checkin-step.completed .checkin-step__number { background: var(--color-sage); color: white; }
+        .checkin-step.active .checkin-step__number { background: var(--color-charcoal); color: white; }
+        .checkin-step__label { font-size: 0.8rem; color: var(--color-text-light); }
+        .checkin-step.active .checkin-step__label { color: var(--color-charcoal); font-weight: 500; }
+
+        .form-section { margin-bottom: 40px; }
+        .form-section__title { font-family: var(--font-display); font-size: 1.3rem; font-weight: 600; margin-bottom: 20px; }
+        .form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .form-group { margin-bottom: 0; }
+        .form-group--full { grid-column: span 2; }
+        .form-label { display: block; font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-light); margin-bottom: 8px; }
+        .form-input, .form-select, .form-textarea { width: 100%; padding: 14px 16px; font-family: var(--font-body); font-size: 0.95rem; border: 1px solid rgba(0,0,0,0.12); background: white; border-radius: 6px; transition: all 0.3s; }
+        .form-input:focus, .form-select:focus, .form-textarea:focus { outline: none; border-color: var(--color-charcoal); }
+        .form-textarea { min-height: 100px; resize: vertical; }
+        .form-hint { font-size: 0.8rem; color: var(--color-text-light); margin-top: 6px; }
+
+        /* Guest Cards */
+        .guest-card { background: var(--color-cream); border-radius: 8px; padding: 20px; margin-bottom: 15px; }
+        .guest-card__header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 15px; gap: 15px; flex-wrap: wrap; }
+        .guest-card__title { font-weight: 500; }
+        .guest-card__remove { color: var(--color-terracotta); cursor: pointer; font-size: 0.8rem; }
+        .guest-card__status { display: flex; align-items: center; gap: 5px; font-size: 0.75rem; padding: 4px 10px; border-radius: 12px; }
+        .guest-card__status .material-symbols-outlined { font-size: 14px; }
+        .guest-card__status--incomplete { background: rgba(233, 184, 74, 0.2); color: #b8860b; }
+        .guest-card__status--complete { background: rgba(45, 74, 62, 0.15); color: var(--color-sage); }
+
+        /* Form Section Header */
+        .form-section__header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; flex-wrap: wrap; gap: 10px; }
+        .form-section__required { font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; background: var(--color-terracotta); color: white; padding: 5px 12px; border-radius: 4px; }
+
+        /* Legal Notice */
+        .legal-notice { display: flex; gap: 15px; padding: 20px; background: rgba(114, 47, 55, 0.08); border-left: 4px solid var(--color-charcoal); margin-bottom: 25px; border-radius: 0 8px 8px 0; }
+        .legal-notice .material-symbols-outlined { font-size: 24px; color: var(--color-charcoal); flex-shrink: 0; }
+        .legal-notice strong { display: block; font-size: 0.95rem; margin-bottom: 5px; }
+        .legal-notice p { font-size: 0.85rem; color: var(--color-text-light); line-height: 1.6; margin: 0; }
+
+        /* File Upload */
+        .file-upload { position: relative; }
+        .file-upload__dropzone { border: 2px dashed rgba(0,0,0,0.15); border-radius: 8px; padding: 30px; text-align: center; cursor: pointer; transition: all 0.3s; background: white; }
+        .file-upload__dropzone:hover { border-color: var(--color-charcoal); background: rgba(0,0,0,0.02); }
+        .file-upload__dropzone.dragover { border-color: var(--color-sage); background: rgba(45, 74, 62, 0.05); }
+        .file-upload__dropzone .material-symbols-outlined { font-size: 36px; color: var(--color-text-light); margin-bottom: 10px; }
+        .file-upload__dropzone p { font-size: 0.9rem; color: var(--color-text-light); margin: 0; }
+        .file-upload__browse { color: var(--color-charcoal); font-weight: 500; text-decoration: underline; }
+        .file-upload__hint { display: block; font-size: 0.75rem; color: var(--color-text-light); margin-top: 8px; }
+        .file-upload__input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+        .file-upload__preview { display: flex; align-items: center; gap: 15px; padding: 15px; background: rgba(45, 74, 62, 0.08); border-radius: 8px; margin-top: 10px; }
+        .file-upload__preview-icon { width: 40px; height: 40px; background: var(--color-sage); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+        .file-upload__preview-icon .material-symbols-outlined { color: white; font-size: 20px; }
+        .file-upload__preview-info { flex: 1; }
+        .file-upload__preview-name { font-size: 0.9rem; font-weight: 500; }
+        .file-upload__preview-size { font-size: 0.75rem; color: var(--color-text-light); }
+        .file-upload__preview-remove { color: var(--color-terracotta); cursor: pointer; padding: 5px; }
+
+        /* Registration Summary */
+        .registration-summary { margin-top: 30px; padding: 25px; background: white; border-radius: 8px; border: 1px solid rgba(0,0,0,0.08); }
+        .registration-summary__header { display: flex; align-items: center; gap: 10px; font-weight: 600; margin-bottom: 15px; }
+        .registration-summary__header .material-symbols-outlined { color: var(--color-charcoal); }
+        .registration-summary__progress { height: 8px; background: rgba(0,0,0,0.08); border-radius: 4px; overflow: hidden; margin-bottom: 10px; }
+        .registration-summary__bar { height: 100%; background: linear-gradient(90deg, var(--color-mustard), var(--color-sage)); border-radius: 4px; transition: width 0.5s; }
+        .registration-summary__text { font-size: 0.9rem; color: var(--color-text-light); margin-bottom: 15px; }
+        .registration-summary__count { font-weight: 600; color: var(--color-charcoal); }
+        .registration-summary__warning { display: flex; align-items: flex-start; gap: 8px; font-size: 0.85rem; color: var(--color-terracotta); padding: 12px; background: rgba(166, 93, 87, 0.08); border-radius: 6px; margin: 0; }
+        .registration-summary__warning .material-symbols-outlined { font-size: 18px; flex-shrink: 0; }
+
+        /* Messages */
+        .messages-container { display: grid; grid-template-columns: 1fr 2fr; gap: 30px; height: calc(100vh - 200px); }
+        .messages-list { background: white; border-radius: 12px; overflow: hidden; }
+        .messages-list__header { padding: 20px; border-bottom: 1px solid rgba(0,0,0,0.06); }
+        .messages-list__items { overflow-y: auto; max-height: calc(100vh - 300px); }
+        .message-preview { padding: 20px; border-bottom: 1px solid rgba(0,0,0,0.04); cursor: pointer; transition: background 0.3s; }
+        .message-preview:hover, .message-preview.active { background: var(--color-cream); }
+        .message-preview__header { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+        .message-preview__avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--color-sage); color: white; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 0.9rem; }
+        .message-preview__name { font-weight: 500; flex: 1; }
+        .message-preview__time { font-size: 0.75rem; color: var(--color-text-light); }
+        .message-preview__text { font-size: 0.85rem; color: var(--color-text-light); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .message-preview__unread { width: 8px; height: 8px; background: var(--color-terracotta); border-radius: 50%; }
+
+        .messages-chat { background: white; border-radius: 12px; display: flex; flex-direction: column; }
+        .messages-chat__header { padding: 20px 25px; border-bottom: 1px solid rgba(0,0,0,0.06); display: flex; align-items: center; gap: 15px; }
+        .messages-chat__body { flex: 1; padding: 25px; overflow-y: auto; display: flex; flex-direction: column; gap: 20px; }
+        .chat-message { max-width: 70%; }
+        .chat-message--received { align-self: flex-start; }
+        .chat-message--sent { align-self: flex-end; }
+        .chat-message__bubble { padding: 15px 20px; border-radius: 16px; font-size: 0.95rem; line-height: 1.6; }
+        .chat-message--received .chat-message__bubble { background: var(--color-cream); border-bottom-left-radius: 4px; }
+        .chat-message--sent .chat-message__bubble { background: var(--color-charcoal); color: white; border-bottom-right-radius: 4px; }
+        .chat-message__time { font-size: 0.7rem; color: var(--color-text-light); margin-top: 5px; }
+        .chat-message--sent .chat-message__time { text-align: right; }
+        .messages-chat__input { padding: 20px 25px; border-top: 1px solid rgba(0,0,0,0.06); display: flex; gap: 15px; }
+        .messages-chat__input input { flex: 1; padding: 14px 18px; border: 1px solid rgba(0,0,0,0.12); border-radius: 25px; font-family: var(--font-body); font-size: 0.95rem; }
+        .messages-chat__input input:focus { outline: none; border-color: var(--color-charcoal); }
+        .messages-chat__send { width: 48px; height: 48px; background: var(--color-charcoal); border: none; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; color: white; transition: background 0.3s; }
+        .messages-chat__send:hover { background: var(--color-terracotta); }
+
+        /* Documents */
+        .documents-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .document-card { background: white; border-radius: 12px; padding: 25px; text-align: center; transition: all 0.3s; cursor: pointer; }
+        .document-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+        .document-card__icon { width: 60px; height: 60px; margin: 0 auto 15px; background: var(--color-cream); border-radius: 12px; display: flex; align-items: center; justify-content: center; }
+        .document-card__icon .material-symbols-outlined { font-size: 28px; color: var(--color-charcoal); }
+        .document-card__title { font-weight: 500; margin-bottom: 5px; }
+        .document-card__size { font-size: 0.8rem; color: var(--color-text-light); }
+        .document-card--featured { background: var(--color-sage); color: white; }
+        .document-card--featured .document-card__icon { background: rgba(255,255,255,0.2); }
+        .document-card--featured .document-card__icon .material-symbols-outlined { color: white; }
+        .document-card--featured .document-card__size { color: rgba(255,255,255,0.7); }
+
+        /* Payments */
+        .payment-summary { display: grid; grid-template-columns: 2fr 1fr; gap: 30px; margin-bottom: 30px; }
+        .payment-breakdown { }
+        .payment-row { display: flex; justify-content: space-between; padding: 15px 0; border-bottom: 1px solid rgba(0,0,0,0.06); }
+        .payment-row:last-child { border-bottom: none; }
+        .payment-row__label { color: var(--color-text-light); }
+        .payment-row__value { font-weight: 500; }
+        .payment-row--total { font-size: 1.2rem; font-weight: 600; padding-top: 20px; margin-top: 10px; border-top: 2px solid var(--color-charcoal); }
+        .payment-status { text-align: center; padding: 30px; }
+        .payment-status__icon { width: 80px; height: 80px; margin: 0 auto 20px; background: rgba(45, 74, 62, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .payment-status__icon .material-symbols-outlined { font-size: 40px; color: var(--color-sage); }
+        .payment-status__title { font-size: 1.2rem; font-weight: 600; margin-bottom: 5px; }
+        .payment-status__text { color: var(--color-text-light); font-size: 0.9rem; }
+
+        .payment-methods { margin-top: 30px; }
+        .payment-method { display: flex; align-items: center; gap: 15px; padding: 20px; background: var(--color-cream); border-radius: 8px; margin-bottom: 15px; cursor: pointer; transition: all 0.3s; }
+        .payment-method:hover { background: white; box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
+        .payment-method__icon { font-size: 24px; }
+        .payment-method__info { flex: 1; }
+        .payment-method__name { font-weight: 500; }
+        .payment-method__detail { font-size: 0.85rem; color: var(--color-text-light); }
+
+        /* Profile */
+        .profile-header { display: flex; align-items: center; gap: 30px; margin-bottom: 40px; }
+        .profile-avatar { width: 100px; height: 100px; border-radius: 50%; background: var(--color-mauve); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; font-weight: 600; color: white; }
+        .profile-info h2 { font-family: var(--font-display); font-size: 1.8rem; font-weight: 600; margin-bottom: 5px; }
+        .profile-info p { color: var(--color-text-light); }
+        .profile-edit { margin-left: auto; }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .overview-grid { grid-template-columns: 1fr; }
+            .stats-row { grid-template-columns: repeat(2, 1fr); }
+            .documents-grid { grid-template-columns: repeat(2, 1fr); }
+            .messages-container { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .sidebar { transform: translateX(-100%); }
+            .sidebar.active { transform: translateX(0); }
+            .main { margin-left: 0; }
+            .mobile-toggle { display: block; }
+            .main__header { padding-left: 70px; }
+            .main__content { padding: 20px; }
+            .stats-row { grid-template-columns: 1fr; }
+            .form-grid { grid-template-columns: 1fr; }
+            .form-group--full { grid-column: span 1; }
+            .payment-summary { grid-template-columns: 1fr; }
+            .documents-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Mobile Toggle -->
+    <button class="mobile-toggle" onclick="document.querySelector('.sidebar').classList.toggle('active')">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar__logo">
+                <a href="index.html"><img src="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/8fb7c7fc-6e43-406c-b1c0-a65a59062cf6/CanPares_2-01.png?format=500w" alt="Can Pares"></a>
+            </div>
+            <nav class="sidebar__nav">
+                <div class="sidebar__section">
+                    <div class="sidebar__section-title">Main</div>
+                    <div class="sidebar__link active" data-tab="overview">
+                        <span class="material-symbols-outlined">dashboard</span>
+                        Overview
+                    </div>
+                    <div class="sidebar__link" data-tab="checkin">
+                        <span class="material-symbols-outlined">how_to_reg</span>
+                        Online Check-in
+                        <span class="sidebar__link-badge sidebar__link-badge--alert">Action Required</span>
+                    </div>
+                    <div class="sidebar__link" data-tab="messages">
+                        <span class="material-symbols-outlined">chat</span>
+                        Messages
+                        <span class="sidebar__link-badge">2</span>
+                    </div>
+                </div>
+                <div class="sidebar__section">
+                    <div class="sidebar__section-title">Your Stay</div>
+                    <div class="sidebar__link" data-tab="documents">
+                        <span class="material-symbols-outlined">folder</span>
+                        Guides & Documents
+                    </div>
+                    <div class="sidebar__link" data-tab="experiences">
+                        <span class="material-symbols-outlined">explore</span>
+                        Book Experiences
+                    </div>
+                    <div class="sidebar__link" data-tab="payments">
+                        <span class="material-symbols-outlined">payments</span>
+                        Payments & Invoices
+                    </div>
+                </div>
+                <div class="sidebar__section">
+                    <div class="sidebar__section-title">Account</div>
+                    <div class="sidebar__link" data-tab="profile">
+                        <span class="material-symbols-outlined">person</span>
+                        My Profile
+                    </div>
+                    <div class="sidebar__link" data-tab="bookings">
+                        <span class="material-symbols-outlined">calendar_month</span>
+                        My Bookings
+                    </div>
+                    <a href="login.html" class="sidebar__link">
+                        <span class="material-symbols-outlined">logout</span>
+                        Sign Out
+                    </a>
+                </div>
+            </nav>
+            <div class="sidebar__footer">
+                <div class="sidebar__user">
+                    <div class="sidebar__avatar">JD</div>
+                    <div class="sidebar__user-info">
+                        <div class="sidebar__user-name">John Doe</div>
+                        <div class="sidebar__user-email">john@example.com</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main">
+            <header class="main__header">
+                <h1 class="main__title" id="page-title">Welcome back, John</h1>
+                <div class="main__actions">
+                    <button class="main__btn main__btn--outline">
+                        <span class="material-symbols-outlined">help</span>
+                        Need Help?
+                    </button>
+                    <a href="index.html" class="main__btn main__btn--primary">
+                        <span class="material-symbols-outlined">home</span>
+                        Back to Website
+                    </a>
+                </div>
+            </header>
+
+            <div class="main__content">
+                <!-- Overview Tab -->
+                <div class="tab-content active" id="overview">
+                    <!-- Alert Banner -->
+                    <div class="alert-banner alert-banner--warning">
+                        <span class="material-symbols-outlined">warning</span>
+                        <div class="alert-banner__content">
+                            <strong>Guest Registration Required</strong>
+                            <p>Spanish law requires all guest details and ID documents to be registered. Please complete this before your checkout.</p>
+                        </div>
+                        <button class="alert-banner__action" onclick="switchTab('checkin')">Complete Now</button>
+                        <button class="alert-banner__close" onclick="this.parentElement.style.display='none'">
+                            <span class="material-symbols-outlined">close</span>
+                        </button>
+                    </div>
+
+                    <div class="overview-grid">
+                        <div class="card booking-card">
+                            <div class="card__header">
+                                <span class="card__title">Upcoming Stay</span>
+                            </div>
+                            <div class="card__body">
+                                <span class="booking-card__status booking-card__status--confirmed">Confirmed</span>
+                                <h2 class="booking-card__house">Casa Blanca</h2>
+                                <p class="booking-card__ref">Ref: CP-2025-0147</p>
+                                <div class="booking-card__dates">
+                                    <div class="booking-card__date">
+                                        <div class="booking-card__date-label">Check-in</div>
+                                        <div class="booking-card__date-value">January 15, 2025</div>
+                                        <div class="booking-card__date-day">Wednesday, from 4:00 PM</div>
+                                    </div>
+                                    <div class="booking-card__date">
+                                        <div class="booking-card__date-label">Check-out</div>
+                                        <div class="booking-card__date-value">January 22, 2025</div>
+                                        <div class="booking-card__date-day">Wednesday, by 11:00 AM</div>
+                                    </div>
+                                </div>
+                                <div class="booking-card__details">
+                                    <div class="booking-card__detail">
+                                        <span class="material-symbols-outlined">dark_mode</span>
+                                        7 nights
+                                    </div>
+                                    <div class="booking-card__detail">
+                                        <span class="material-symbols-outlined">group</span>
+                                        4 guests
+                                    </div>
+                                    <div class="booking-card__detail">
+                                        <span class="material-symbols-outlined">bed</span>
+                                        3 bedrooms
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card__header">
+                                <span class="card__title">Quick Actions</span>
+                            </div>
+                            <div class="card__body">
+                                <div class="quick-actions">
+                                    <div class="quick-action quick-action--urgent" data-tab="checkin">
+                                        <div class="quick-action__icon quick-action__icon--urgent">
+                                            <span class="material-symbols-outlined">how_to_reg</span>
+                                        </div>
+                                        <div class="quick-action__text">
+                                            <h4>Register All Guests</h4>
+                                            <p>ID documents required by law</p>
+                                        </div>
+                                        <span class="quick-action__badge">Required</span>
+                                        <span class="material-symbols-outlined quick-action__arrow">chevron_right</span>
+                                    </div>
+                                    <div class="quick-action" data-tab="documents">
+                                        <div class="quick-action__icon">
+                                            <span class="material-symbols-outlined">menu_book</span>
+                                        </div>
+                                        <div class="quick-action__text">
+                                            <h4>Download House Guide</h4>
+                                            <p>WiFi, appliances, local tips</p>
+                                        </div>
+                                        <span class="material-symbols-outlined quick-action__arrow">chevron_right</span>
+                                    </div>
+                                    <div class="quick-action" data-tab="messages">
+                                        <div class="quick-action__icon">
+                                            <span class="material-symbols-outlined">chat</span>
+                                        </div>
+                                        <div class="quick-action__text">
+                                            <h4>Message Your Host</h4>
+                                            <p>Ask questions, make requests</p>
+                                        </div>
+                                        <span class="material-symbols-outlined quick-action__arrow">chevron_right</span>
+                                    </div>
+                                    <div class="quick-action" data-tab="experiences">
+                                        <div class="quick-action__icon">
+                                            <span class="material-symbols-outlined">wine_bar</span>
+                                        </div>
+                                        <div class="quick-action__text">
+                                            <h4>Book Experiences</h4>
+                                            <p>Wine tours, sailing, cooking</p>
+                                        </div>
+                                        <span class="material-symbols-outlined quick-action__arrow">chevron_right</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stats-row">
+                        <div class="stat-card">
+                            <div class="stat-card__icon">
+                                <span class="material-symbols-outlined">schedule</span>
+                            </div>
+                            <div class="stat-card__value">21</div>
+                            <div class="stat-card__label">Days until arrival</div>
+                        </div>
+                        <div class="stat-card stat-card--alert">
+                            <div class="stat-card__icon stat-card__icon--alert">
+                                <span class="material-symbols-outlined">person_add</span>
+                            </div>
+                            <div class="stat-card__value">1/4</div>
+                            <div class="stat-card__label">Guests registered</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card__icon">
+                                <span class="material-symbols-outlined">receipt_long</span>
+                            </div>
+                            <div class="stat-card__value">€850</div>
+                            <div class="stat-card__label">Balance remaining</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card__icon">
+                                <span class="material-symbols-outlined">download</span>
+                            </div>
+                            <div class="stat-card__value">5</div>
+                            <div class="stat-card__label">Guides available</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Check-in Tab -->
+                <div class="tab-content" id="checkin">
+                    <div class="card">
+                        <div class="card__header">
+                            <span class="card__title">Online Check-in</span>
+                        </div>
+                        <div class="card__body">
+                            <div class="checkin-progress">
+                                <div class="checkin-step completed">
+                                    <div class="checkin-step__number">✓</div>
+                                    <div class="checkin-step__label">Guest Details</div>
+                                </div>
+                                <div class="checkin-step completed">
+                                    <div class="checkin-step__number">✓</div>
+                                    <div class="checkin-step__label">Arrival Info</div>
+                                </div>
+                                <div class="checkin-step active">
+                                    <div class="checkin-step__number">3</div>
+                                    <div class="checkin-step__label">Preferences</div>
+                                </div>
+                                <div class="checkin-step">
+                                    <div class="checkin-step__number">4</div>
+                                    <div class="checkin-step__label">Confirmation</div>
+                                </div>
+                            </div>
+
+                            <form>
+                                <div class="form-section">
+                                    <h3 class="form-section__title">Arrival Information</h3>
+                                    <div class="form-grid">
+                                        <div class="form-group">
+                                            <label class="form-label">Expected Arrival Time</label>
+                                            <select class="form-select">
+                                                <option>Select time...</option>
+                                                <option>4:00 PM - 5:00 PM</option>
+                                                <option>5:00 PM - 6:00 PM</option>
+                                                <option>6:00 PM - 7:00 PM</option>
+                                                <option>7:00 PM - 8:00 PM</option>
+                                                <option>After 8:00 PM</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Mode of Transport</label>
+                                            <select class="form-select">
+                                                <option>Select...</option>
+                                                <option>Own car</option>
+                                                <option>Rental car</option>
+                                                <option>Taxi / Transfer</option>
+                                                <option>Train + Taxi</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group form-group--full">
+                                            <label class="form-label">Phone Number for Day of Arrival</label>
+                                            <input type="tel" class="form-input" placeholder="+33 6 12 34 56 78">
+                                            <p class="form-hint">We'll send you door codes and last-minute updates via WhatsApp</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-section">
+                                    <div class="form-section__header">
+                                        <h3 class="form-section__title">Guest Registration</h3>
+                                        <span class="form-section__required">Required by Spanish Law</span>
+                                    </div>
+                                    <div class="legal-notice">
+                                        <span class="material-symbols-outlined">gavel</span>
+                                        <div>
+                                            <strong>Mandatory Registration</strong>
+                                            <p>Spanish law requires all accommodation providers to register guest information. All fields marked with * are mandatory and must be completed before the end of your stay.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="guest-card" data-guest="1">
+                                        <div class="guest-card__header">
+                                            <span class="guest-card__title">Guest 1 (Primary)</span>
+                                            <span class="guest-card__status guest-card__status--incomplete">
+                                                <span class="material-symbols-outlined">warning</span>
+                                                Incomplete
+                                            </span>
+                                        </div>
+                                        <div class="form-grid">
+                                            <div class="form-group">
+                                                <label class="form-label">First Name *</label>
+                                                <input type="text" class="form-input" value="John" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-label">Last Name *</label>
+                                                <input type="text" class="form-input" value="Doe" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-label">Date of Birth *</label>
+                                                <input type="date" class="form-input" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-label">Nationality *</label>
+                                                <select class="form-select" required>
+                                                    <option value="">Select nationality...</option>
+                                                    <option value="FR">French</option>
+                                                    <option value="GB">British</option>
+                                                    <option value="DE">German</option>
+                                                    <option value="ES">Spanish</option>
+                                                    <option value="US">American</option>
+                                                    <option value="IT">Italian</option>
+                                                    <option value="NL">Dutch</option>
+                                                    <option value="BE">Belgian</option>
+                                                    <option value="CH">Swiss</option>
+                                                    <option value="other">Other...</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-label">ID Type *</label>
+                                                <select class="form-select" required>
+                                                    <option value="">Select document type...</option>
+                                                    <option value="passport">Passport</option>
+                                                    <option value="id_card">National ID Card</option>
+                                                    <option value="driving_license">Driving License (EU only)</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-label">ID / Passport Number *</label>
+                                                <input type="text" class="form-input" placeholder="e.g. AB123456" required>
+                                            </div>
+                                            <div class="form-group form-group--full">
+                                                <label class="form-label">ID Document Photo *</label>
+                                                <div class="file-upload" id="upload-guest-1">
+                                                    <div class="file-upload__dropzone">
+                                                        <span class="material-symbols-outlined">cloud_upload</span>
+                                                        <p>Drag & drop your ID scan here, or <span class="file-upload__browse">browse</span></p>
+                                                        <span class="file-upload__hint">JPG, PNG or PDF · Max 5MB</span>
+                                                    </div>
+                                                    <input type="file" class="file-upload__input" accept=".jpg,.jpeg,.png,.pdf" required>
+                                                </div>
+                                                <p class="form-hint">Please upload a clear photo or scan of your passport or ID card (both sides for ID cards).</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="guest-card" data-guest="2">
+                                        <div class="guest-card__header">
+                                            <span class="guest-card__title">Guest 2</span>
+                                            <span class="guest-card__status guest-card__status--incomplete">
+                                                <span class="material-symbols-outlined">warning</span>
+                                                Incomplete
+                                            </span>
+                                            <span class="guest-card__remove">Remove</span>
+                                        </div>
+                                        <div class="form-grid">
+                                            <div class="form-group">
+                                                <label class="form-label">First Name *</label>
+                                                <input type="text" class="form-input" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-label">Last Name *</label>
+                                                <input type="text" class="form-input" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-label">Date of Birth *</label>
+                                                <input type="date" class="form-input" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-label">Nationality *</label>
+                                                <select class="form-select" required>
+                                                    <option value="">Select nationality...</option>
+                                                    <option value="FR">French</option>
+                                                    <option value="GB">British</option>
+                                                    <option value="DE">German</option>
+                                                    <option value="ES">Spanish</option>
+                                                    <option value="US">American</option>
+                                                    <option value="IT">Italian</option>
+                                                    <option value="NL">Dutch</option>
+                                                    <option value="BE">Belgian</option>
+                                                    <option value="CH">Swiss</option>
+                                                    <option value="other">Other...</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-label">ID Type *</label>
+                                                <select class="form-select" required>
+                                                    <option value="">Select document type...</option>
+                                                    <option value="passport">Passport</option>
+                                                    <option value="id_card">National ID Card</option>
+                                                    <option value="driving_license">Driving License (EU only)</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-label">ID / Passport Number *</label>
+                                                <input type="text" class="form-input" placeholder="e.g. AB123456" required>
+                                            </div>
+                                            <div class="form-group form-group--full">
+                                                <label class="form-label">ID Document Photo *</label>
+                                                <div class="file-upload" id="upload-guest-2">
+                                                    <div class="file-upload__dropzone">
+                                                        <span class="material-symbols-outlined">cloud_upload</span>
+                                                        <p>Drag & drop your ID scan here, or <span class="file-upload__browse">browse</span></p>
+                                                        <span class="file-upload__hint">JPG, PNG or PDF · Max 5MB</span>
+                                                    </div>
+                                                    <input type="file" class="file-upload__input" accept=".jpg,.jpeg,.png,.pdf" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <button type="button" class="main__btn main__btn--outline" style="margin-top: 10px;" onclick="addGuest()">
+                                        <span class="material-symbols-outlined">add</span>
+                                        Add Another Guest
+                                    </button>
+
+                                    <div class="registration-summary">
+                                        <div class="registration-summary__header">
+                                            <span class="material-symbols-outlined">assignment</span>
+                                            Registration Status
+                                        </div>
+                                        <div class="registration-summary__progress">
+                                            <div class="registration-summary__bar" style="width: 25%;"></div>
+                                        </div>
+                                        <div class="registration-summary__text">
+                                            <span class="registration-summary__count">1 of 4 guests</span> registered
+                                        </div>
+                                        <p class="registration-summary__warning">
+                                            <span class="material-symbols-outlined">info</span>
+                                            All guest information must be completed before checkout on January 22, 2025
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="form-section">
+                                    <h3 class="form-section__title">Preferences & Requests</h3>
+                                    <div class="form-grid">
+                                        <div class="form-group">
+                                            <label class="form-label">Dietary Requirements</label>
+                                            <select class="form-select">
+                                                <option>None</option>
+                                                <option>Vegetarian</option>
+                                                <option>Vegan</option>
+                                                <option>Gluten-free</option>
+                                                <option>Other (specify below)</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Purpose of Visit</label>
+                                            <select class="form-select">
+                                                <option>Holiday / Leisure</option>
+                                                <option>Family gathering</option>
+                                                <option>Celebration / Birthday</option>
+                                                <option>Retreat / Wellness</option>
+                                                <option>Work / Remote working</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group form-group--full">
+                                            <label class="form-label">Special Requests or Notes</label>
+                                            <textarea class="form-textarea" placeholder="e.g., Early check-in if possible, celebrating an anniversary, need a baby cot..."></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Interested in Experiences?</label>
+                                            <select class="form-select">
+                                                <option>Yes, please send recommendations</option>
+                                                <option>Maybe, I'll browse myself</option>
+                                                <option>No thanks</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Would you like a welcome basket?</label>
+                                            <select class="form-select">
+                                                <option>Yes - Standard (€45)</option>
+                                                <option>Yes - Premium (€85)</option>
+                                                <option>No thanks</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div style="display: flex; gap: 15px; justify-content: flex-end; margin-top: 30px;">
+                                    <button type="button" class="main__btn main__btn--outline">Save for Later</button>
+                                    <button type="submit" class="main__btn main__btn--primary">Complete Check-in</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Messages Tab -->
+                <div class="tab-content" id="messages">
+                    <div class="messages-container">
+                        <div class="messages-list">
+                            <div class="messages-list__header">
+                                <input type="text" class="form-input" placeholder="Search messages..." style="margin: 0;">
+                            </div>
+                            <div class="messages-list__items">
+                                <div class="message-preview active">
+                                    <div class="message-preview__header">
+                                        <div class="message-preview__avatar">M</div>
+                                        <span class="message-preview__name">Martin (Host)</span>
+                                        <span class="message-preview__time">2h ago</span>
+                                        <span class="message-preview__unread"></span>
+                                    </div>
+                                    <p class="message-preview__text">Perfect! I'll make sure everything is ready for your arrival. Looking forward to...</p>
+                                </div>
+                                <div class="message-preview">
+                                    <div class="message-preview__header">
+                                        <div class="message-preview__avatar" style="background: var(--color-terracotta);">CP</div>
+                                        <span class="message-preview__name">Can Pares Team</span>
+                                        <span class="message-preview__time">Yesterday</span>
+                                    </div>
+                                    <p class="message-preview__text">Your booking CP-2025-0147 has been confirmed. We're excited to host you!</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="messages-chat">
+                            <div class="messages-chat__header">
+                                <div class="message-preview__avatar">M</div>
+                                <div>
+                                    <div style="font-weight: 500;">Martin (Host)</div>
+                                    <div style="font-size: 0.8rem; color: var(--color-text-light);">Usually responds within 2 hours</div>
+                                </div>
+                            </div>
+                            <div class="messages-chat__body">
+                                <div class="chat-message chat-message--received">
+                                    <div class="chat-message__bubble">
+                                        Welcome to Can Pares! I'm Martin, your host. I'll be here to help with anything you need before, during, and after your stay. Don't hesitate to reach out! 🏡
+                                    </div>
+                                    <div class="chat-message__time">Yesterday, 10:30 AM</div>
+                                </div>
+                                <div class="chat-message chat-message--sent">
+                                    <div class="chat-message__bubble">
+                                        Hi Martin! Thank you so much. We're really excited about our upcoming stay. Quick question - is it possible to arrange a wine tour for our second day?
+                                    </div>
+                                    <div class="chat-message__time">Yesterday, 2:15 PM</div>
+                                </div>
+                                <div class="chat-message chat-message--received">
+                                    <div class="chat-message__bubble">
+                                        Absolutely! I work with several excellent wineries in the Penedès region. I'd recommend either Gramona (traditional méthode champenoise) or Recaredo (organic, stunning views). Both offer private tours with tastings. Shall I make a reservation for you?
+                                    </div>
+                                    <div class="chat-message__time">Yesterday, 3:45 PM</div>
+                                </div>
+                                <div class="chat-message chat-message--sent">
+                                    <div class="chat-message__bubble">
+                                        Gramona sounds perfect! We'll be 4 people. Is the afternoon available?
+                                    </div>
+                                    <div class="chat-message__time">Today, 9:00 AM</div>
+                                </div>
+                                <div class="chat-message chat-message--received">
+                                    <div class="chat-message__bubble">
+                                        Perfect! I'll make sure everything is ready for your arrival. Looking forward to welcoming you to Can Pares! 🍷
+                                    </div>
+                                    <div class="chat-message__time">Today, 11:30 AM</div>
+                                </div>
+                            </div>
+                            <div class="messages-chat__input">
+                                <input type="text" placeholder="Type your message...">
+                                <button class="messages-chat__send">
+                                    <span class="material-symbols-outlined">send</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Documents Tab -->
+                <div class="tab-content" id="documents">
+                    <div class="card" style="margin-bottom: 30px;">
+                        <div class="card__header">
+                            <span class="card__title">Essential Guides</span>
+                        </div>
+                        <div class="card__body">
+                            <div class="documents-grid">
+                                <div class="document-card document-card--featured">
+                                    <div class="document-card__icon">
+                                        <span class="material-symbols-outlined">home</span>
+                                    </div>
+                                    <h4 class="document-card__title">House Guide</h4>
+                                    <p class="document-card__size">PDF · 2.4 MB</p>
+                                </div>
+                                <div class="document-card document-card--featured">
+                                    <div class="document-card__icon">
+                                        <span class="material-symbols-outlined">explore</span>
+                                    </div>
+                                    <h4 class="document-card__title">Region Guide</h4>
+                                    <p class="document-card__size">PDF · 5.1 MB</p>
+                                </div>
+                                <div class="document-card document-card--featured">
+                                    <div class="document-card__icon">
+                                        <span class="material-symbols-outlined">restaurant</span>
+                                    </div>
+                                    <h4 class="document-card__title">Restaurant Guide</h4>
+                                    <p class="document-card__size">PDF · 1.8 MB</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card__header">
+                            <span class="card__title">Additional Resources</span>
+                        </div>
+                        <div class="card__body">
+                            <div class="documents-grid">
+                                <div class="document-card">
+                                    <div class="document-card__icon">
+                                        <span class="material-symbols-outlined">wifi</span>
+                                    </div>
+                                    <h4 class="document-card__title">WiFi & Tech Setup</h4>
+                                    <p class="document-card__size">PDF · 320 KB</p>
+                                </div>
+                                <div class="document-card">
+                                    <div class="document-card__icon">
+                                        <span class="material-symbols-outlined">pool</span>
+                                    </div>
+                                    <h4 class="document-card__title">Pool & Garden Guide</h4>
+                                    <p class="document-card__size">PDF · 890 KB</p>
+                                </div>
+                                <div class="document-card">
+                                    <div class="document-card__icon">
+                                        <span class="material-symbols-outlined">directions_bike</span>
+                                    </div>
+                                    <h4 class="document-card__title">Cycling Routes Map</h4>
+                                    <p class="document-card__size">PDF · 4.2 MB</p>
+                                </div>
+                                <div class="document-card">
+                                    <div class="document-card__icon">
+                                        <span class="material-symbols-outlined">hiking</span>
+                                    </div>
+                                    <h4 class="document-card__title">Hiking Trails Guide</h4>
+                                    <p class="document-card__size">PDF · 3.5 MB</p>
+                                </div>
+                                <div class="document-card">
+                                    <div class="document-card__icon">
+                                        <span class="material-symbols-outlined">emergency</span>
+                                    </div>
+                                    <h4 class="document-card__title">Emergency Contacts</h4>
+                                    <p class="document-card__size">PDF · 180 KB</p>
+                                </div>
+                                <div class="document-card">
+                                    <div class="document-card__icon">
+                                        <span class="material-symbols-outlined">receipt</span>
+                                    </div>
+                                    <h4 class="document-card__title">Your Invoice</h4>
+                                    <p class="document-card__size">PDF · 95 KB</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experiences Tab -->
+                <div class="tab-content" id="experiences">
+                    <div class="card">
+                        <div class="card__header">
+                            <span class="card__title">Book Experiences</span>
+                        </div>
+                        <div class="card__body" style="text-align: center; padding: 60px;">
+                            <span class="material-symbols-outlined" style="font-size: 64px; color: var(--color-mauve); margin-bottom: 20px;">explore</span>
+                            <h3 style="font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 15px;">Discover Local Experiences</h3>
+                            <p style="color: var(--color-text-light); margin-bottom: 30px; max-width: 500px; margin-left: auto; margin-right: auto;">Wine tours, sailing trips, cooking classes, and more—all curated by your host and bookable through our concierge.</p>
+                            <a href="experiences.html" class="main__btn main__btn--primary">Browse Experiences</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payments Tab -->
+                <div class="tab-content" id="payments">
+                    <div class="payment-summary">
+                        <div class="card">
+                            <div class="card__header">
+                                <span class="card__title">Payment Summary</span>
+                            </div>
+                            <div class="card__body">
+                                <div class="payment-breakdown">
+                                    <div class="payment-row">
+                                        <span class="payment-row__label">Accommodation (7 nights)</span>
+                                        <span class="payment-row__value">€2,100</span>
+                                    </div>
+                                    <div class="payment-row">
+                                        <span class="payment-row__label">Cleaning fee</span>
+                                        <span class="payment-row__value">€150</span>
+                                    </div>
+                                    <div class="payment-row">
+                                        <span class="payment-row__label">Service fee</span>
+                                        <span class="payment-row__value">€0</span>
+                                    </div>
+                                    <div class="payment-row">
+                                        <span class="payment-row__label">Tourist tax (4 guests × 7 nights)</span>
+                                        <span class="payment-row__value">€28</span>
+                                    </div>
+                                    <div class="payment-row payment-row--total">
+                                        <span>Total</span>
+                                        <span>€2,278</span>
+                                    </div>
+                                </div>
+
+                                <div style="margin-top: 30px; padding: 20px; background: rgba(45, 74, 62, 0.1); border-radius: 8px;">
+                                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                                        <span>Deposit paid (Dec 10)</span>
+                                        <span style="color: var(--color-sage);">- €1,428</span>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between; font-weight: 600; font-size: 1.1rem;">
+                                        <span>Balance due (Jan 8)</span>
+                                        <span style="color: var(--color-terracotta);">€850</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card__body">
+                                <div class="payment-status">
+                                    <div class="payment-status__icon">
+                                        <span class="material-symbols-outlined">schedule</span>
+                                    </div>
+                                    <h3 class="payment-status__title">Balance Due</h3>
+                                    <p class="payment-status__text">Payment of €850 is due by January 8, 2025</p>
+                                </div>
+                                <button class="main__btn main__btn--primary" style="width: 100%; margin-top: 20px;">Pay Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card__header">
+                            <span class="card__title">Payment Methods</span>
+                        </div>
+                        <div class="card__body">
+                            <div class="payment-methods">
+                                <div class="payment-method">
+                                    <span class="payment-method__icon">💳</span>
+                                    <div class="payment-method__info">
+                                        <div class="payment-method__name">Credit / Debit Card</div>
+                                        <div class="payment-method__detail">Visa, Mastercard, Amex</div>
+                                    </div>
+                                    <span class="material-symbols-outlined">chevron_right</span>
+                                </div>
+                                <div class="payment-method">
+                                    <span class="payment-method__icon">🏦</span>
+                                    <div class="payment-method__info">
+                                        <div class="payment-method__name">Bank Transfer</div>
+                                        <div class="payment-method__detail">IBAN details provided</div>
+                                    </div>
+                                    <span class="material-symbols-outlined">chevron_right</span>
+                                </div>
+                                <div class="payment-method">
+                                    <span class="payment-method__icon">📱</span>
+                                    <div class="payment-method__info">
+                                        <div class="payment-method__name">PayPal</div>
+                                        <div class="payment-method__detail">Fast & secure</div>
+                                    </div>
+                                    <span class="material-symbols-outlined">chevron_right</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Profile Tab -->
+                <div class="tab-content" id="profile">
+                    <div class="card">
+                        <div class="card__body">
+                            <div class="profile-header">
+                                <div class="profile-avatar">JD</div>
+                                <div class="profile-info">
+                                    <h2>John Doe</h2>
+                                    <p>Member since December 2024</p>
+                                </div>
+                                <button class="main__btn main__btn--outline profile-edit">Edit Profile</button>
+                            </div>
+
+                            <form>
+                                <div class="form-section">
+                                    <h3 class="form-section__title">Personal Information</h3>
+                                    <div class="form-grid">
+                                        <div class="form-group">
+                                            <label class="form-label">First Name</label>
+                                            <input type="text" class="form-input" value="John">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Last Name</label>
+                                            <input type="text" class="form-input" value="Doe">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Email Address</label>
+                                            <input type="email" class="form-input" value="john@example.com">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Phone Number</label>
+                                            <input type="tel" class="form-input" value="+44 7700 900123">
+                                        </div>
+                                        <div class="form-group form-group--full">
+                                            <label class="form-label">Address</label>
+                                            <input type="text" class="form-input" placeholder="Street address">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">City</label>
+                                            <input type="text" class="form-input" value="London">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Country</label>
+                                            <input type="text" class="form-input" value="United Kingdom">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-section">
+                                    <h3 class="form-section__title">Preferences</h3>
+                                    <div class="form-grid">
+                                        <div class="form-group">
+                                            <label class="form-label">Preferred Language</label>
+                                            <select class="form-select">
+                                                <option selected>English</option>
+                                                <option>Français</option>
+                                                <option>Español</option>
+                                                <option>Català</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Communication Preference</label>
+                                            <select class="form-select">
+                                                <option selected>Email & WhatsApp</option>
+                                                <option>Email only</option>
+                                                <option>WhatsApp only</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div style="display: flex; gap: 15px; justify-content: flex-end; margin-top: 30px;">
+                                    <button type="button" class="main__btn main__btn--outline">Cancel</button>
+                                    <button type="submit" class="main__btn main__btn--primary">Save Changes</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bookings Tab -->
+                <div class="tab-content" id="bookings">
+                    <div class="card">
+                        <div class="card__header">
+                            <span class="card__title">My Bookings</span>
+                        </div>
+                        <div class="card__body">
+                            <div class="booking-card" style="margin-bottom: 20px; padding: 25px; background: var(--color-cream); border-radius: 8px;">
+                                <span class="booking-card__status booking-card__status--confirmed" style="position: static; margin-bottom: 15px; display: inline-block;">Upcoming</span>
+                                <h3 class="booking-card__house" style="font-size: 1.4rem;">Casa Blanca</h3>
+                                <p class="booking-card__ref">Jan 15 - 22, 2025 · 7 nights · 4 guests</p>
+                            </div>
+                            <div style="padding: 25px; background: rgba(0,0,0,0.02); border-radius: 8px; text-align: center;">
+                                <p style="color: var(--color-text-light); margin-bottom: 15px;">No past bookings yet</p>
+                                <a href="https://www.masiacanpares.com/book" class="main__btn main__btn--outline">Book Another Stay</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Tab navigation
+        const sidebarLinks = document.querySelectorAll('.sidebar__link[data-tab]');
+        const quickActions = document.querySelectorAll('.quick-action[data-tab]');
+        const tabContents = document.querySelectorAll('.tab-content');
+        const pageTitle = document.getElementById('page-title');
+
+        const titles = {
+            'overview': 'Welcome back, John',
+            'checkin': 'Online Check-in',
+            'messages': 'Messages',
+            'documents': 'Guides & Documents',
+            'experiences': 'Book Experiences',
+            'payments': 'Payments & Invoices',
+            'profile': 'My Profile',
+            'bookings': 'My Bookings'
+        };
+
+        function switchTab(tabId) {
+            sidebarLinks.forEach(link => link.classList.remove('active'));
+            tabContents.forEach(content => content.classList.remove('active'));
+            
+            document.querySelector(`.sidebar__link[data-tab="${tabId}"]`)?.classList.add('active');
+            document.getElementById(tabId)?.classList.add('active');
+            pageTitle.textContent = titles[tabId] || 'Dashboard';
+            
+            // Close mobile menu
+            document.querySelector('.sidebar').classList.remove('active');
+        }
+
+        sidebarLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                const tabId = link.dataset.tab;
+                if (tabId) switchTab(tabId);
+            });
+        });
+
+        quickActions.forEach(action => {
+            action.addEventListener('click', () => {
+                const tabId = action.dataset.tab;
+                if (tabId) switchTab(tabId);
+            });
+        });
+
+        // File upload handling
+        document.querySelectorAll('.file-upload').forEach(upload => {
+            const dropzone = upload.querySelector('.file-upload__dropzone');
+            const input = upload.querySelector('.file-upload__input');
+
+            dropzone.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                dropzone.classList.add('dragover');
+            });
+
+            dropzone.addEventListener('dragleave', () => {
+                dropzone.classList.remove('dragover');
+            });
+
+            dropzone.addEventListener('drop', (e) => {
+                e.preventDefault();
+                dropzone.classList.remove('dragover');
+                if (e.dataTransfer.files.length) {
+                    handleFile(upload, e.dataTransfer.files[0]);
+                }
+            });
+
+            input.addEventListener('change', (e) => {
+                if (e.target.files.length) {
+                    handleFile(upload, e.target.files[0]);
+                }
+            });
+        });
+
+        function handleFile(upload, file) {
+            const dropzone = upload.querySelector('.file-upload__dropzone');
+            const maxSize = 5 * 1024 * 1024; // 5MB
+            
+            if (file.size > maxSize) {
+                alert('File is too large. Maximum size is 5MB.');
+                return;
+            }
+
+            const validTypes = ['image/jpeg', 'image/png', 'application/pdf'];
+            if (!validTypes.includes(file.type)) {
+                alert('Invalid file type. Please upload a JPG, PNG, or PDF file.');
+                return;
+            }
+
+            // Show preview
+            const existingPreview = upload.querySelector('.file-upload__preview');
+            if (existingPreview) existingPreview.remove();
+
+            const preview = document.createElement('div');
+            preview.className = 'file-upload__preview';
+            preview.innerHTML = `
+                <div class="file-upload__preview-icon">
+                    <span class="material-symbols-outlined">${file.type === 'application/pdf' ? 'picture_as_pdf' : 'image'}</span>
+                </div>
+                <div class="file-upload__preview-info">
+                    <div class="file-upload__preview-name">${file.name}</div>
+                    <div class="file-upload__preview-size">${(file.size / 1024).toFixed(1)} KB</div>
+                </div>
+                <span class="material-symbols-outlined file-upload__preview-remove" onclick="removeFile(this)">delete</span>
+            `;
+            upload.appendChild(preview);
+
+            // Update guest card status
+            const guestCard = upload.closest('.guest-card');
+            if (guestCard) {
+                checkGuestCompletion(guestCard);
+            }
+        }
+
+        function removeFile(element) {
+            const upload = element.closest('.file-upload');
+            const preview = upload.querySelector('.file-upload__preview');
+            const input = upload.querySelector('.file-upload__input');
+            
+            if (preview) preview.remove();
+            input.value = '';
+
+            const guestCard = upload.closest('.guest-card');
+            if (guestCard) {
+                checkGuestCompletion(guestCard);
+            }
+        }
+
+        function checkGuestCompletion(guestCard) {
+            const inputs = guestCard.querySelectorAll('input[required], select[required]');
+            const fileInput = guestCard.querySelector('.file-upload__input');
+            const status = guestCard.querySelector('.guest-card__status');
+            
+            let isComplete = true;
+            inputs.forEach(input => {
+                if (!input.value) isComplete = false;
+            });
+            
+            // Check if file is uploaded
+            const preview = guestCard.querySelector('.file-upload__preview');
+            if (!preview) isComplete = false;
+
+            if (status) {
+                if (isComplete) {
+                    status.className = 'guest-card__status guest-card__status--complete';
+                    status.innerHTML = '<span class="material-symbols-outlined">check_circle</span> Complete';
+                } else {
+                    status.className = 'guest-card__status guest-card__status--incomplete';
+                    status.innerHTML = '<span class="material-symbols-outlined">warning</span> Incomplete';
+                }
+            }
+
+            updateRegistrationProgress();
+        }
+
+        function updateRegistrationProgress() {
+            const guestCards = document.querySelectorAll('.guest-card');
+            const completeCards = document.querySelectorAll('.guest-card__status--complete');
+            const total = guestCards.length;
+            const complete = completeCards.length;
+            const percentage = total > 0 ? (complete / total) * 100 : 0;
+
+            const progressBar = document.querySelector('.registration-summary__bar');
+            const countText = document.querySelector('.registration-summary__count');
+            
+            if (progressBar) progressBar.style.width = percentage + '%';
+            if (countText) countText.textContent = `${complete} of ${total} guests`;
+        }
+
+        // Add input listeners to check completion
+        document.querySelectorAll('.guest-card input, .guest-card select').forEach(input => {
+            input.addEventListener('change', () => {
+                const guestCard = input.closest('.guest-card');
+                if (guestCard) checkGuestCompletion(guestCard);
+            });
+        });
+
+        let guestCount = 2;
+
+        function addGuest() {
+            guestCount++;
+            const container = document.querySelector('.form-section:has(.guest-card)');
+            const button = container.querySelector('button');
+            
+            const newGuest = document.createElement('div');
+            newGuest.className = 'guest-card';
+            newGuest.dataset.guest = guestCount;
+            newGuest.innerHTML = `
+                <div class="guest-card__header">
+                    <span class="guest-card__title">Guest ${guestCount}</span>
+                    <span class="guest-card__status guest-card__status--incomplete">
+                        <span class="material-symbols-outlined">warning</span>
+                        Incomplete
+                    </span>
+                    <span class="guest-card__remove" onclick="removeGuest(this)">Remove</span>
+                </div>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label class="form-label">First Name *</label>
+                        <input type="text" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Last Name *</label>
+                        <input type="text" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Date of Birth *</label>
+                        <input type="date" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Nationality *</label>
+                        <select class="form-select" required>
+                            <option value="">Select nationality...</option>
+                            <option value="FR">French</option>
+                            <option value="GB">British</option>
+                            <option value="DE">German</option>
+                            <option value="ES">Spanish</option>
+                            <option value="US">American</option>
+                            <option value="IT">Italian</option>
+                            <option value="NL">Dutch</option>
+                            <option value="BE">Belgian</option>
+                            <option value="CH">Swiss</option>
+                            <option value="other">Other...</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">ID Type *</label>
+                        <select class="form-select" required>
+                            <option value="">Select document type...</option>
+                            <option value="passport">Passport</option>
+                            <option value="id_card">National ID Card</option>
+                            <option value="driving_license">Driving License (EU only)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">ID / Passport Number *</label>
+                        <input type="text" class="form-input" placeholder="e.g. AB123456" required>
+                    </div>
+                    <div class="form-group form-group--full">
+                        <label class="form-label">ID Document Photo *</label>
+                        <div class="file-upload" id="upload-guest-${guestCount}">
+                            <div class="file-upload__dropzone">
+                                <span class="material-symbols-outlined">cloud_upload</span>
+                                <p>Drag & drop your ID scan here, or <span class="file-upload__browse">browse</span></p>
+                                <span class="file-upload__hint">JPG, PNG or PDF · Max 5MB</span>
+                            </div>
+                            <input type="file" class="file-upload__input" accept=".jpg,.jpeg,.png,.pdf" required>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            button.parentNode.insertBefore(newGuest, button);
+            
+            // Add event listeners to new elements
+            const newUpload = newGuest.querySelector('.file-upload');
+            const dropzone = newUpload.querySelector('.file-upload__dropzone');
+            const input = newUpload.querySelector('.file-upload__input');
+
+            dropzone.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                dropzone.classList.add('dragover');
+            });
+
+            dropzone.addEventListener('dragleave', () => {
+                dropzone.classList.remove('dragover');
+            });
+
+            dropzone.addEventListener('drop', (e) => {
+                e.preventDefault();
+                dropzone.classList.remove('dragover');
+                if (e.dataTransfer.files.length) {
+                    handleFile(newUpload, e.dataTransfer.files[0]);
+                }
+            });
+
+            input.addEventListener('change', (e) => {
+                if (e.target.files.length) {
+                    handleFile(newUpload, e.target.files[0]);
+                }
+            });
+
+            newGuest.querySelectorAll('input, select').forEach(input => {
+                input.addEventListener('change', () => checkGuestCompletion(newGuest));
+            });
+
+            updateRegistrationProgress();
+        }
+
+        function removeGuest(element) {
+            const guestCard = element.closest('.guest-card');
+            if (guestCard) {
+                guestCard.remove();
+                updateRegistrationProgress();
+            }
+        }
+
+        // Initial progress update
+        updateRegistrationProgress();
+    </script>
+</body>
+</html>
