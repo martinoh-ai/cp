@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
     <link rel="icon" type="image/png" href="https://images.squarespace-cdn.com/content/v1/66d829452bae803f6b32068e/8fb7c7fc-6e43-406c-b1c0-a65a59062cf6/CanPares_2-01.png?format=100w">
     <style>
         @font-face {
@@ -123,18 +124,18 @@
         .room__features { display: flex; flex-wrap: wrap; gap: 10px; }
         .room__feature { display: flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--color-text-light); background: var(--color-cream); padding: 8px 14px; }
         .house--mauve .room__feature { background: white; }
-        .room__feature svg { width: 14px; height: 14px; color: var(--color-terracotta); }
         /* Amenities */
         .house__amenities { background: white; padding: 50px; }
         .house--mauve .house__amenities { background: var(--color-cream); }
         .house__amenities-header { display: flex; align-items: center; gap: 15px; margin-bottom: 35px; }
         .house__amenities-title { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-terracotta); }
-        .house__amenities-icon { width: 24px; height: 24px; color: var(--color-terracotta); }
+        .house__amenities-icon { font-size: 24px; color: var(--color-terracotta); font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
         .amenities-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
         .amenity-category__title { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text-light); margin-bottom: 18px; padding-bottom: 10px; border-bottom: 1px solid rgba(0,0,0,0.1); }
-        .amenity-category__list { display: flex; flex-direction: column; gap: 10px; }
-        .amenity-item { display: flex; align-items: center; gap: 10px; font-size: 0.88rem; }
-        .amenity-item svg { width: 16px; height: 16px; color: var(--color-terracotta); flex-shrink: 0; }
+        .amenity-category__list { display: flex; flex-direction: column; gap: 12px; }
+        .amenity-item { display: flex; align-items: center; gap: 12px; font-size: 0.9rem; }
+        .amenity-item .material-symbols-outlined { font-size: 22px; color: var(--color-charcoal); flex-shrink: 0; font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+        .room__feature .material-symbols-outlined { font-size: 16px; color: var(--color-terracotta); font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20; }
         /* CTA */
         .cta { padding: 100px 0; background: var(--color-charcoal); color: white; text-align: center; }
         .cta h2 { color: var(--color-terracotta); margin-bottom: 15px; }
@@ -272,9 +273,9 @@
                         <h3 class="room__name">Master Suite</h3>
                         <p class="room__desc">Spacious main bedroom with king bed and panoramic garden views through floor-to-ceiling windows.</p>
                         <div class="room__features">
-                            <span class="room__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> King Bed</span>
-                            <span class="room__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/></svg> En-suite</span>
-                            <span class="room__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 3v4M3 5h4"/></svg> Garden View</span>
+                            <span class="room__feature"><span class="material-symbols-outlined">king_bed</span> King Bed</span>
+                            <span class="room__feature"><span class="material-symbols-outlined">bathtub</span> En-suite</span>
+                            <span class="room__feature"><span class="material-symbols-outlined">yard</span> Garden View</span>
                         </div>
                     </div>
                 </div>
@@ -286,8 +287,8 @@
                         <h3 class="room__name">Garden Room</h3>
                         <p class="room__desc">Bright double room overlooking the botanical garden with private en-suite bathroom.</p>
                         <div class="room__features">
-                            <span class="room__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> Double Bed</span>
-                            <span class="room__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/></svg> En-suite</span>
+                            <span class="room__feature"><span class="material-symbols-outlined">bed</span> Double Bed</span>
+                            <span class="room__feature"><span class="material-symbols-outlined">bathtub</span> En-suite</span>
                         </div>
                     </div>
                 </div>
@@ -299,57 +300,57 @@
                         <h3 class="room__name">Terrace Room</h3>
                         <p class="room__desc">Cozy room with direct access to private terrace, perfect for morning coffee.</p>
                         <div class="room__features">
-                            <span class="room__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> Twin Beds</span>
-                            <span class="room__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/></svg> En-suite</span>
-                            <span class="room__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 8V4m0 0h4M4 4l5 5"/></svg> Terrace</span>
+                            <span class="room__feature"><span class="material-symbols-outlined">single_bed</span> Twin Beds</span>
+                            <span class="room__feature"><span class="material-symbols-outlined">bathtub</span> En-suite</span>
+                            <span class="room__feature"><span class="material-symbols-outlined">deck</span> Terrace</span>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="house__amenities">
                 <div class="house__amenities-header">
-                    <svg class="house__amenities-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>
+                    <span class="material-symbols-outlined house__amenities-icon">check_circle</span>
                     <h3 class="house__amenities-title">Casa Blanca Amenities</h3>
                 </div>
                 <div class="amenities-grid">
                     <div class="amenity-category">
                         <h4 class="amenity-category__title">Kitchen</h4>
                         <div class="amenity-category__list">
-                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Fully equipped kitchen</div>
-                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Refrigerator</div>
-                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Oven & stovetop</div>
-                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Dishwasher</div>
-                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Nespresso machine</div>
+                            <div class="amenity-item"><span class="material-symbols-outlined">kitchen</span>Fully equipped kitchen</div>
+                            <div class="amenity-item"><span class="material-symbols-outlined">kitchen</span>Refrigerator</div>
+                            <div class="amenity-item"><span class="material-symbols-outlined">oven</span>Oven & stovetop</div>
+                            <div class="amenity-item"><span class="material-symbols-outlined">dishwasher</span>Dishwasher</div>
+                            <div class="amenity-item"><span class="material-symbols-outlined">coffee_maker</span>Nespresso machine</div>
                         </div>
                     </div>
                     <div class="amenity-category">
                         <h4 class="amenity-category__title">Living</h4>
                         <div class="amenity-category__list">
-                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Smart TV</div>
-                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Netflix & streaming</div>
-                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Bluetooth speaker</div>
-                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Dining table (6 pax)</div>
-                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Fireplace</div>
+                            <div class="amenity-item"><span class="material-symbols-outlined">tv</span>Smart TV</div>
+                            <div class="amenity-item"><span class="material-symbols-outlined">cast</span>Netflix & streaming</div>
+                            <div class="amenity-item"><span class="material-symbols-outlined">speaker</span>Bluetooth speaker</div>
+                            <div class="amenity-item"><span class="material-symbols-outlined">table_restaurant</span>Dining table (6 pax)</div>
+                            <div class="amenity-item"><span class="material-symbols-outlined">fireplace</span>Fireplace</div>
                         </div>
                     </div>
                     <div class="amenity-category">
                         <h4 class="amenity-category__title">Comfort</h4>
                         <div class="amenity-category__list">
-                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Air conditioning</div>
-                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Central heating</div>
-                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>High-speed WiFi</div>
-                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Premium linens</div>
-                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Blackout curtains</div>
+                            <div class="amenity-item"><span class="material-symbols-outlined">ac_unit</span>Air conditioning</div>
+                            <div class="amenity-item"><span class="material-symbols-outlined">heat</span>Central heating</div>
+                            <div class="amenity-item"><span class="material-symbols-outlined">wifi</span>High-speed WiFi</div>
+                            <div class="amenity-item"><span class="material-symbols-outlined">bed</span>Premium linens</div>
+                            <div class="amenity-item"><span class="material-symbols-outlined">curtains</span>Blackout curtains</div>
                         </div>
                     </div>
                     <div class="amenity-category">
                         <h4 class="amenity-category__title">Outdoor</h4>
                         <div class="amenity-category__list">
-                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Private terrace</div>
-                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Outdoor furniture</div>
-                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>BBQ access</div>
-                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Pool access</div>
-                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Garden views</div>
+                            <div class="amenity-item"><span class="material-symbols-outlined">deck</span>Private terrace</div>
+                            <div class="amenity-item"><span class="material-symbols-outlined">chair</span>Outdoor furniture</div>
+                            <div class="amenity-item"><span class="material-symbols-outlined">outdoor_grill</span>BBQ access</div>
+                            <div class="amenity-item"><span class="material-symbols-outlined">pool</span>Pool access</div>
+                            <div class="amenity-item"><span class="material-symbols-outlined">yard</span>Garden views</div>
                         </div>
                     </div>
                 </div>
@@ -397,8 +398,8 @@
                         <h3 class="room__name">Main Bedroom</h3>
                         <p class="room__desc">Charming bedroom with exposed stone walls, original beams, and soft natural light.</p>
                         <div class="room__features">
-                            <span class="room__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> Queen Bed</span>
-                            <span class="room__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16"/></svg> Heritage Features</span>
+                            <span class="room__feature"><span class="material-symbols-outlined">bed</span> Queen Bed</span>
+                            <span class="room__feature"><span class="material-symbols-outlined">home_work</span> Heritage Features</span>
                         </div>
                     </div>
                 </div>
@@ -410,52 +411,52 @@
                         <h3 class="room__name">Cozy Room</h3>
                         <p class="room__desc">Intimate space perfect for children or a solo traveler, with garden views.</p>
                         <div class="room__features">
-                            <span class="room__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> Twin Beds</span>
-                            <span class="room__feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 3v4M3 5h4"/></svg> Garden View</span>
+                            <span class="room__feature"><span class="material-symbols-outlined">single_bed</span> Twin Beds</span>
+                            <span class="room__feature"><span class="material-symbols-outlined">yard</span> Garden View</span>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="house__amenities">
                 <div class="house__amenities-header">
-                    <svg class="house__amenities-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>
+                    <span class="material-symbols-outlined house__amenities-icon">check_circle</span>
                     <h3 class="house__amenities-title">Casa Mediterranea Amenities</h3>
                 </div>
                 <div class="amenities-grid">
                     <div class="amenity-category">
                         <h4 class="amenity-category__title">Kitchen</h4>
                         <div class="amenity-category__list">
-                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Kitchenette</div>
-                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Mini fridge</div>
-                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>2-burner stovetop</div>
-                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Coffee maker</div>
+                            <div class="amenity-item"><span class="material-symbols-outlined">countertops</span>Kitchenette</div>
+                            <div class="amenity-item"><span class="material-symbols-outlined">kitchen</span>Mini fridge</div>
+                            <div class="amenity-item"><span class="material-symbols-outlined">skillet</span>2-burner stovetop</div>
+                            <div class="amenity-item"><span class="material-symbols-outlined">coffee_maker</span>Coffee maker</div>
                         </div>
                     </div>
                     <div class="amenity-category">
                         <h4 class="amenity-category__title">Living</h4>
                         <div class="amenity-category__list">
-                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Cozy lounge</div>
-                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Smart TV</div>
-                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Book collection</div>
-                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Dining area (4 pax)</div>
+                            <div class="amenity-item"><span class="material-symbols-outlined">weekend</span>Cozy lounge</div>
+                            <div class="amenity-item"><span class="material-symbols-outlined">tv</span>Smart TV</div>
+                            <div class="amenity-item"><span class="material-symbols-outlined">menu_book</span>Book collection</div>
+                            <div class="amenity-item"><span class="material-symbols-outlined">table_restaurant</span>Dining area (4 pax)</div>
                         </div>
                     </div>
                     <div class="amenity-category">
                         <h4 class="amenity-category__title">Comfort</h4>
                         <div class="amenity-category__list">
-                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Air conditioning</div>
-                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Heating</div>
-                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>High-speed WiFi</div>
-                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Quality linens</div>
+                            <div class="amenity-item"><span class="material-symbols-outlined">ac_unit</span>Air conditioning</div>
+                            <div class="amenity-item"><span class="material-symbols-outlined">heat</span>Heating</div>
+                            <div class="amenity-item"><span class="material-symbols-outlined">wifi</span>High-speed WiFi</div>
+                            <div class="amenity-item"><span class="material-symbols-outlined">bed</span>Quality linens</div>
                         </div>
                     </div>
                     <div class="amenity-category">
                         <h4 class="amenity-category__title">Outdoor</h4>
                         <div class="amenity-category__list">
-                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Private patio</div>
-                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Garden access</div>
-                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Pool access</div>
-                            <div class="amenity-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 13l4 4L19 7"/></svg>Hammock</div>
+                            <div class="amenity-item"><span class="material-symbols-outlined">deck</span>Private patio</div>
+                            <div class="amenity-item"><span class="material-symbols-outlined">yard</span>Garden access</div>
+                            <div class="amenity-item"><span class="material-symbols-outlined">pool</span>Pool access</div>
+                            <div class="amenity-item"><span class="material-symbols-outlined">self_improvement</span>Hammock</div>
                         </div>
                     </div>
                 </div>
